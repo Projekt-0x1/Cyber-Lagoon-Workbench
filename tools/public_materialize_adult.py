@@ -5,8 +5,10 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 from pathlib import Path
 import sys
+import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
 WORKBENCH = ROOT / "hardware_native" / "tools" / "foundry_workbench"
@@ -24,6 +26,45 @@ def digest(value: object) -> str:
     return hashlib.sha256(json.dumps(value, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
 
 
+def atomic_write(path: Path, text: str) -> None:
+    """Durably replace one private state file without exposing a partial target."""
+    temporary: Path | None = None
+    try:
+        with tempfile.NamedTemporaryFile(
+            "w",
+            encoding="utf-8",
+            dir=path.parent,
+            prefix=f".{path.name}.",
+            delete=False,
+        ) as stream:
+            stream.write(text)
+            stream.flush()
+            os.fsync(stream.fileno())
+            temporary = Path(stream.name)
+        os.chmod(temporary, 0o600)
+        os.replace(temporary, path)
+        temporary = None
+    finally:
+        if temporary is not None:
+            temporary.unlink(missing_ok=True)
+
+
+def existing_provenance(checkpoint_path: Path, provenance_path: Path) -> dict:
+    if checkpoint_path.is_symlink() or provenance_path.is_symlink():
+        raise RuntimeError("public-adult:state-symlink-refused")
+    try:
+        provenance = json.loads(provenance_path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeError, json.JSONDecodeError) as error:
+        raise RuntimeError("public-adult:invalid-provenance") from error
+    if (
+        not isinstance(provenance, dict)
+        or provenance.get("schema") != "cyber-lagoon.public-adult-state.v2"
+        or provenance.get("checkpoint") != checkpoint_path.name
+    ):
+        raise RuntimeError("public-adult:invalid-provenance")
+    return provenance
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--state-dir", type=Path, default=ROOT / ".state")
@@ -32,11 +73,12 @@ def main() -> int:
     args = parser.parse_args()
 
     state_dir = args.state_dir.resolve()
-    state_dir.mkdir(parents=True, exist_ok=True)
+    state_dir.mkdir(parents=True, exist_ok=True, mode=0o700)
+    os.chmod(state_dir, 0o700)
     checkpoint_path = state_dir / "adult.json"
     provenance_path = state_dir / "adult.provenance.json"
     if checkpoint_path.exists() and provenance_path.exists() and not args.reset:
-        provenance = json.loads(provenance_path.read_text(encoding="utf-8"))
+        provenance = existing_provenance(checkpoint_path, provenance_path)
         print(json.dumps({"status": "PUBLIC_ADULT_EXISTS", **provenance}, sort_keys=True))
         return 0
     checkpoint_path.unlink(missing_ok=True)
@@ -71,10 +113,6 @@ def main() -> int:
     if failure is not None and args.strict_tail:
         raise RuntimeError(f"public-adult:experimental-tail-red:{failure['sequence']}:{failure['lane']}:{failure['error_type']}")
 
-    temporary = checkpoint_path.with_suffix(".json.tmp")
-    temporary.write_text(json.dumps(last_checkpoint, sort_keys=True, separators=(",", ":")), encoding="utf-8")
-    temporary.replace(checkpoint_path)
-
     provenance = {
         "schema": "cyber-lagoon.public-adult-state.v2",
         "checkpoint": checkpoint_path.name,
@@ -89,7 +127,11 @@ def main() -> int:
         "experimental_tail_status": "FULL" if failure is None else "RED",
         "experimental_tail_failure": failure,
     }
-    provenance_path.write_text(json.dumps(provenance, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    atomic_write(
+        checkpoint_path,
+        json.dumps(last_checkpoint, sort_keys=True, separators=(",", ":")),
+    )
+    atomic_write(provenance_path, json.dumps(provenance, indent=2, sort_keys=True) + "\n")
     print(json.dumps({"status": "PUBLIC_ADULT_MATERIALIZED", **provenance}, sort_keys=True))
     return 0
 
