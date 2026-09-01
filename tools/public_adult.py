@@ -6,6 +6,7 @@ import argparse
 import os
 from pathlib import Path
 import secrets
+import selectors
 import shutil
 import subprocess
 import sys
@@ -18,7 +19,8 @@ DIRECT_SITDOWN = ROOT / ".build" / "direct" / "direct_adult_sitdown"
 REFERENCE_GATEWAY = ROOT / "hardware_native" / "tools" / "foundry_workbench" / "reference_language_mastery_claude_gateway_v1.py"
 REFERENCE_TERMINAL = ROOT / "hardware_native" / "tools" / "foundry_workbench" / "reference_language_mastery_terminal_v1.py"
 DIRECT_GATEWAY = ROOT / "tools" / "public_direct_adult_gateway.py"
-BODY_ENV_ALLOW = ("PATH", "LANG", "LC_ALL", "LC_CTYPE", "TERM", "COLORTERM", "SHELL", "TMPDIR", "USER", "LOGNAME")
+BODY_ENV_ALLOW = ("PATH", "LANG", "LC_ALL", "LC_CTYPE", "TERM", "COLORTERM", "SHELL", "USER", "LOGNAME")
+GATEWAY_STARTUP_SECONDS = 10.0
 GATEWAY_BOOTSTRAP = """\
 import runpy
 import sys
@@ -39,6 +41,15 @@ def regular_file(path: Path, executable: bool = False) -> bool:
         and not path.is_symlink()
         and (not executable or os.access(path, os.X_OK))
     )
+
+
+def private_directory(path: Path) -> None:
+    if path.is_symlink():
+        raise RuntimeError(f"public-adult:symlinked-private-directory:{path.name}")
+    path.mkdir(parents=True, exist_ok=True, mode=0o700)
+    if not path.is_dir():
+        raise RuntimeError(f"public-adult:private-directory-unavailable:{path.name}")
+    os.chmod(path, 0o700)
 
 
 def backend_available(name: str) -> bool:
@@ -84,7 +95,7 @@ def gateway_command(backend: str) -> list[str]:
     ]
 
 
-def isolated_body_environment(port: int, credential: str, config: Path, body_dir: Path) -> dict[str, str]:
+def isolated_body_environment(port: int, credential: str, config: Path, body_dir: Path, temp_dir: Path) -> dict[str, str]:
     env = {name: os.environ[name] for name in BODY_ENV_ALLOW if os.environ.get(name)}
     path_entries = []
     for raw in env.get("PATH", "").split(os.pathsep):
@@ -100,6 +111,7 @@ def isolated_body_environment(port: int, credential: str, config: Path, body_dir
         env.pop("PATH", None)
     env["HOME"] = str(config)
     env["PWD"] = str(body_dir)
+    env["TMPDIR"] = str(temp_dir)
     env["ANTHROPIC_BASE_URL"] = f"http://127.0.0.1:{port}"
     env["ANTHROPIC_" + "AUTH_TOKEN"] = credential
     env["ANTHROPIC_" + "API_KEY"] = credential
@@ -108,6 +120,21 @@ def isolated_body_environment(port: int, credential: str, config: Path, body_dir
     env["NO_PROXY"] = "127.0.0.1,localhost"
     env["no_proxy"] = env["NO_PROXY"]
     return env
+
+
+def gateway_ready(gateway: subprocess.Popen[str]) -> int:
+    assert gateway.stdout is not None
+    selector = selectors.DefaultSelector()
+    try:
+        selector.register(gateway.stdout, selectors.EVENT_READ)
+        if not selector.select(timeout=GATEWAY_STARTUP_SECONDS):
+            raise RuntimeError("public-adult:gateway-startup-timeout")
+    finally:
+        selector.close()
+    ready = gateway.stdout.readline().strip().split()
+    if len(ready) < 2 or not ready[-1].isdigit():
+        raise RuntimeError("public-adult:gateway-startup-refused")
+    return int(ready[-1])
 
 
 def run_claude(backend: str, model: str, prompt: str | None) -> int:
@@ -136,26 +163,23 @@ def run_claude(backend: str, model: str, prompt: str | None) -> int:
         finally:
             gateway.stdin.close()
 
-        assert gateway.stdout is not None
-        ready = gateway.stdout.readline().strip().split()
-        if len(ready) < 2 or not ready[-1].isdigit():
-            raise RuntimeError("public-adult:gateway-startup-refused")
-        port = int(ready[-1])
-
+        port = gateway_ready(gateway)
         config = STATE / "claude-config"
         body_dir = config / "body"
-        config.mkdir(parents=True, exist_ok=True, mode=0o700)
-        body_dir.mkdir(parents=True, exist_ok=True, mode=0o700)
-        os.chmod(config, 0o700)
-        os.chmod(body_dir, 0o700)
-        env = isolated_body_environment(port, credential, config, body_dir)
+        temp_dir = config / "tmp"
+        for directory in (config, body_dir, temp_dir):
+            private_directory(directory)
+        env = isolated_body_environment(port, credential, config, body_dir, temp_dir)
 
         print(f"CYBER_LAGOON_ADULT backend={backend} body=claude-code", flush=True)
-        command = [str(claude_path), "--model", model]
+        command = [str(claude_path), "--bare", "--no-chrome", "--model", model]
         if prompt is not None:
             command = [
                 str(claude_path),
+                "--bare",
+                "--no-chrome",
                 "-p",
+                "--no-session-persistence",
                 "--model",
                 model,
                 "--max-turns",
@@ -184,6 +208,9 @@ def main() -> int:
     parser.add_argument("--prompt", help="send one normal-sentence contact through Claude Code and exit")
     args = parser.parse_args()
 
+    if not STATE.exists() or not STATE.is_dir() or STATE.is_symlink():
+        raise RuntimeError("public-adult:state-directory-unavailable; run ./build")
+    private_directory(STATE)
     backend = choose_backend(args.backend)
     if args.print_backend:
         print(backend)
