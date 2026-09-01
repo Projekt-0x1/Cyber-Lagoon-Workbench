@@ -2,11 +2,14 @@
 """Verify the public workshop boundary without requiring a GPU."""
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
+import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
 REQUIRED = (
@@ -26,6 +29,7 @@ REQUIRED = (
     "tools/public_direct_adult_gateway.py",
     "hardware_native/tools/foundry_workbench/reference_language_mastery_claude_gateway_v1.py",
 )
+MANIFEST_SCHEMA = "cyber-lagoon.public-workbench-export.v1"
 
 
 def sha256(path: Path) -> str:
@@ -41,20 +45,89 @@ def require(condition: bool, message: str) -> None:
         raise RuntimeError(message)
 
 
-def verify_manifest() -> None:
+def load_manifest() -> tuple[Path, dict, list[dict]] | None:
     path = ROOT / "EXPORT_MANIFEST.json"
-    if not path.is_file():
-        return
+    if not path.exists():
+        return None
+    require(path.is_file() and not path.is_symlink(), "verify:manifest-file")
     manifest = json.loads(path.read_text(encoding="utf-8"))
-    require(manifest.get("schema") == "cyber-lagoon.public-workbench-export.v1", "verify:manifest-schema")
-    for row in manifest.get("entries", ()):
-        candidate = ROOT / row["path"]
-        require(candidate.is_file(), f"verify:manifest-missing:{row['path']}")
+    require(manifest.get("schema") == MANIFEST_SCHEMA, "verify:manifest-schema")
+    entries = manifest.get("entries")
+    require(isinstance(entries, list), "verify:manifest-entries")
+    paths = [row.get("path") for row in entries if isinstance(row, dict)]
+    require(len(paths) == len(entries) and all(isinstance(value, str) for value in paths), "verify:manifest-paths")
+    require(len(paths) == len(set(paths)) and paths == sorted(paths), "verify:manifest-order")
+    require(manifest.get("files") == len(entries), "verify:manifest-files")
+    return path, manifest, entries
+
+
+def manifest_candidate(relative: str) -> Path:
+    path = Path(relative)
+    require(not path.is_absolute() and ".." not in path.parts and relative not in {"", "."}, f"verify:manifest-path:{relative}")
+    candidate = ROOT / path
+    require(candidate.is_file() and not candidate.is_symlink(), f"verify:manifest-missing:{relative}")
+    return candidate
+
+
+def refresh_manifest() -> None:
+    loaded = load_manifest()
+    require(loaded is not None, "verify:manifest-missing")
+    path, manifest, entries = loaded
+    total = 0
+    for row in entries:
+        candidate = manifest_candidate(row["path"])
+        row["bytes"] = candidate.stat().st_size
+        row["sha256"] = sha256(candidate)
+        total += row["bytes"]
+    manifest["bytes"] = total
+    temporary: Path | None = None
+    try:
+        with tempfile.NamedTemporaryFile(
+            "w",
+            encoding="utf-8",
+            dir=path.parent,
+            prefix=".EXPORT_MANIFEST.",
+            delete=False,
+        ) as stream:
+            json.dump(manifest, stream, indent=2)
+            stream.write("\n")
+            stream.flush()
+            os.fsync(stream.fileno())
+            temporary = Path(stream.name)
+        os.replace(temporary, path)
+        temporary = None
+    finally:
+        if temporary is not None:
+            temporary.unlink(missing_ok=True)
+    print(f"CYBER_LAGOON_MANIFEST_REFRESH status=PASS files={len(entries)} bytes={total}")
+
+
+def verify_manifest() -> None:
+    loaded = load_manifest()
+    if loaded is None:
+        return
+    _path, manifest, entries = loaded
+    total = 0
+    for row in entries:
+        candidate = manifest_candidate(row["path"])
         require(candidate.stat().st_size == row["bytes"], f"verify:manifest-size:{row['path']}")
         require(sha256(candidate) == row["sha256"], f"verify:manifest-hash:{row['path']}")
+        total += row["bytes"]
+    require(manifest.get("bytes") == total, "verify:manifest-bytes")
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--refresh-manifest",
+        action="store_true",
+        help="explicitly re-pin current bytes for the existing public export file set and exit",
+    )
+    args = parser.parse_args()
+    if args.refresh_manifest:
+        refresh_manifest()
+        return 0
+
     for relative in REQUIRED:
         require((ROOT / relative).is_file(), f"verify:missing:{relative}")
     for relative in ("build", "adult", "bench", "verify"):
@@ -144,13 +217,13 @@ def main() -> int:
         check=True,
     )
     verify_manifest()
-    print("CYBER_LAGOON_PUBLIC_VERIFY status=PASS build_boundary=closed adult=continuing hardened=1")
+    print("CYBER_LAGOON_PUBLIC_VERIFY status=PASS build_boundary=closed adult=continuing")
     return 0
 
 
 if __name__ == "__main__":
     try:
         raise SystemExit(main())
-    except RuntimeError as error:
+    except (OSError, UnicodeError, json.JSONDecodeError, RuntimeError) as error:
         print(str(error), file=sys.stderr)
         raise SystemExit(1)
