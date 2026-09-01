@@ -24,7 +24,7 @@ for directory in .state .build; do
   fi
 done
 mkdir -p .state .build
-chmod 700 .state
+chmod 700 .state .build
 materialize=(python3 tools/public_materialize_adult.py --state-dir .state)
 if ((reset_reference)); then materialize+=(--reset); fi
 "${materialize[@]}"
@@ -47,6 +47,10 @@ build_jobs="${SUBSTRATE_BUILD_JOBS:-4}"
 if [[ ! "$build_jobs" =~ ^[1-9][0-9]*$ ]]; then
   echo "SUBSTRATE_BUILD_JOBS must be a positive integer" >&2
   exit 2
+fi
+if [[ -L .build/direct ]]; then
+  echo "refusing symlinked Direct build directory" >&2
+  exit 1
 fi
 cmake -S . -B .build/direct \
   -DCMAKE_BUILD_TYPE=Release \
