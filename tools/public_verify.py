@@ -30,6 +30,7 @@ REQUIRED = (
     "hardware_native/tools/foundry_workbench/reference_language_mastery_claude_gateway_v1.py",
 )
 MANIFEST_SCHEMA = "cyber-lagoon.public-workbench-export.v1"
+MANIFEST_NAME = "EXPORT_MANIFEST.json"
 
 
 def sha256(path: Path) -> str:
@@ -45,8 +46,29 @@ def require(condition: bool, message: str) -> None:
         raise RuntimeError(message)
 
 
+def tracked_paths() -> list[str] | None:
+    if not (ROOT / ".git").exists():
+        return None
+    try:
+        run = subprocess.run(
+            ["git", "ls-files", "-z"],
+            cwd=ROOT,
+            check=True,
+            capture_output=True,
+        )
+    except (OSError, subprocess.CalledProcessError) as error:
+        raise RuntimeError("verify:tracked-files-unavailable") from error
+    paths = sorted(
+        os.fsdecode(raw)
+        for raw in run.stdout.split(b"\0")
+        if raw and os.fsdecode(raw) != MANIFEST_NAME
+    )
+    require(len(paths) == len(set(paths)), "verify:tracked-files-duplicate")
+    return paths
+
+
 def load_manifest() -> tuple[Path, dict, list[dict]] | None:
-    path = ROOT / "EXPORT_MANIFEST.json"
+    path = ROOT / MANIFEST_NAME
     if not path.exists():
         return None
     require(path.is_file() and not path.is_symlink(), "verify:manifest-file")
@@ -73,6 +95,12 @@ def refresh_manifest() -> None:
     loaded = load_manifest()
     require(loaded is not None, "verify:manifest-missing")
     path, manifest, entries = loaded
+    tracked = tracked_paths()
+    if tracked is not None:
+        entries = [{"path": relative} for relative in tracked]
+        manifest["entries"] = entries
+        manifest["files"] = len(entries)
+
     total = 0
     for row in entries:
         candidate = manifest_candidate(row["path"])
@@ -80,7 +108,9 @@ def refresh_manifest() -> None:
         row["sha256"] = sha256(candidate)
         total += row["bytes"]
     manifest["bytes"] = total
+
     temporary: Path | None = None
+    mode = path.stat().st_mode & 0o777
     try:
         with tempfile.NamedTemporaryFile(
             "w",
@@ -94,6 +124,7 @@ def refresh_manifest() -> None:
             stream.flush()
             os.fsync(stream.fileno())
             temporary = Path(stream.name)
+        os.chmod(temporary, mode)
         os.replace(temporary, path)
         temporary = None
     finally:
@@ -107,6 +138,11 @@ def verify_manifest() -> None:
     if loaded is None:
         return
     _path, manifest, entries = loaded
+    manifest_paths = [row["path"] for row in entries]
+    tracked = tracked_paths()
+    if tracked is not None:
+        require(manifest_paths == tracked, "verify:manifest-tracked-set")
+
     total = 0
     for row in entries:
         candidate = manifest_candidate(row["path"])
@@ -121,7 +157,7 @@ def main() -> int:
     parser.add_argument(
         "--refresh-manifest",
         action="store_true",
-        help="explicitly re-pin current bytes for the existing public export file set and exit",
+        help="explicitly re-pin the current tracked public file set and exit",
     )
     args = parser.parse_args()
     if args.refresh_manifest:
@@ -134,13 +170,17 @@ def main() -> int:
         require((ROOT / relative).stat().st_mode & 0o111 != 0, f"verify:not-executable:{relative}")
 
     build = (ROOT / "build").read_text(encoding="utf-8")
+    require("--state-dir" not in build, "verify:configurable-state-root")
     for required in (
         "umask 077",
-        '[[ -L "$directory" ]]',
-        "chmod 700 .state .build",
+        "[[ -L .state ]]",
+        "if [[ -e .build ]]",
+        "chmod 700 .state",
+        "chmod 700 .build",
         '[[ -L .build/direct ]]',
         "mktemp -d .state/.direct-birth.XXXXXX",
         '[[ -L .state/direct-adult.xcb ]]',
+        "chmod 600 .state/direct-adult.xcb",
     ):
         require(required in build, f"verify:build-hardening:{required}")
 
@@ -149,12 +189,16 @@ def main() -> int:
         require(forbidden not in bench, f"verify:bench-crosses-build-boundary:{forbidden}")
 
     materialize = (ROOT / "tools" / "public_materialize_adult.py").read_text(encoding="utf-8")
+    require("--state-dir" not in materialize, "verify:configurable-materializer-state-root")
     for required in (
+        'STATE = ROOT / ".state"',
         "tempfile.NamedTemporaryFile",
         "os.fsync",
         "os.replace",
         "public-adult:state-symlink-refused",
-        "os.chmod(state_dir, 0o700)",
+        "os.chmod(STATE, 0o700)",
+        "os.chmod(checkpoint_path, 0o600)",
+        "os.chmod(provenance_path, 0o600)",
     ):
         require(required in materialize, f"verify:state-hardening:{required}")
 
@@ -166,13 +210,17 @@ def main() -> int:
         "secrets.token_hex(32)",
         "GATEWAY_STARTUP_SECONDS",
         "private_directory(STATE)",
+        "tempfile.TemporaryDirectory",
         "cwd=body_dir",
         "TMPDIR",
         "CLAUDE_CONFIG_DIR",
+        "CLAUDE_CODE_SKIP_PROMPT_HISTORY",
         "NO_PROXY",
         '"--bare"',
+        '"--restricted"',
         '"--no-chrome"',
         '"--no-session-persistence"',
+        "input=prompt",
         "public-adult:repo-local-claude-refused",
     ):
         require(required in adult, f"verify:adult-body-isolation:{required}")
