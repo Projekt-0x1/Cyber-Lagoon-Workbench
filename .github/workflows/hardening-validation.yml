@@ -1,6 +1,8 @@
 name: hardening-validation
 
 on:
+  push:
+    branches: [hardening/vital-workbench-boundary]
   pull_request:
     branches: [main]
 
@@ -10,14 +12,15 @@ permissions:
 jobs:
   validate:
     if: >-
-      github.event.pull_request.head.repo.full_name == github.repository &&
-      github.event.pull_request.head.ref == 'hardening/vital-workbench-boundary'
+      github.ref == 'refs/heads/hardening/vital-workbench-boundary' ||
+      (github.event.pull_request.head.repo.full_name == github.repository &&
+       github.event.pull_request.head.ref == 'hardening/vital-workbench-boundary')
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
       - name: Check out exact hardening head with Git
         env:
-          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          HEAD_SHA: ${{ github.sha }}
         run: |
           git init .
           git remote add origin "https://github.com/${GITHUB_REPOSITORY}.git"
@@ -69,6 +72,7 @@ jobs:
         run: ./verify
 
       - name: Commit refreshed publication receipt after all checks pass
+        if: github.ref == 'refs/heads/hardening/vital-workbench-boundary'
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
