@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
+umask 077
 ROOT="$(cd "$(dirname "$0")" && pwd)"
 cd "$ROOT"
 
@@ -17,6 +18,7 @@ while (($#)); do
 done
 
 mkdir -p .state .build
+chmod 700 .state
 materialize=(python3 tools/public_materialize_adult.py --state-dir .state)
 if ((reset_reference)); then materialize+=(--reset); fi
 "${materialize[@]}"
@@ -63,14 +65,24 @@ if ((probe_status != 0)); then
 fi
 
 if [[ ! -f .state/direct-adult.xcb ]]; then
+  birth_dir="$(mktemp -d .state/.direct-birth.XXXXXX)"
+  direct_tmp="$birth_dir/direct-adult.xcb"
+  cleanup_birth() {
+    rm -f "$direct_tmp"
+    rmdir "$birth_dir" 2>/dev/null || true
+  }
+  trap cleanup_birth EXIT
   if ! .build/direct/direct_adult_sitdown \
-      --new .state/direct-adult.xcb \
+      --new "$direct_tmp" \
       --environment-seed 0x63796265726c6167 \
       --once; then
-    rm -f .state/direct-adult.xcb
     echo "Direct Adult birth failed" >&2
     exit 1
   fi
+  chmod 600 "$direct_tmp"
+  mv "$direct_tmp" .state/direct-adult.xcb
+  rmdir "$birth_dir"
+  trap - EXIT
 fi
 
 echo "CYBER_LAGOON_BUILD status=PASS backend=direct compile_boundary=closed"
