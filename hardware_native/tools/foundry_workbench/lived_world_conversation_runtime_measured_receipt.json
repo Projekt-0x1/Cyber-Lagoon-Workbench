@@ -1,0 +1,25 @@
+{
+  "checks": 18,
+  "claim_ceiling": "WORKBENCH_CONTINUING_TERMINAL_ORIGINATES_LEARNED_WORLD_DISCOURSE_THEN_CLARIFIES_LATER_AMBIGUITY_AND_CONTINUES_AFTER_RAW_ANSWER_NO_DIRECT_PARITY_OR_NATURAL_ACTION_ACQUISITION_YET",
+  "development": "WORLD_DERIVED_PROPOSITION_RELEVANCE_PLUS_RESIDENT_SUCCESSOR_TRANSITIONS_PLUS_LEARNED_UNCERTAINTY_REDUCING_ACTION_CONSEQUENCE",
+  "externalization": "CURRENT_CONTEXT_REBOUND_TRANSIENT_COMPOSITION_WITNESS_THEN_PENDING_STRUCTURAL_COMPETITION_THROUGH_EXISTING_REAFFERENT_EXPRESSION_PATH",
+  "formal_contract": "FOUNDRY_LIVED_WORLD_CONVERSATION_RUNTIME_GREEN",
+  "formal_elapsed_ms": 2851.938,
+  "measured_sha256": {
+    "hardware_native/tools/foundry_workbench/reference_language_mastery_adult_v1.py": "9b87549f3a74e82b077c691679006dd6e108b9134a892eeaed864944b8b01ba2",
+    "hardware_native/tools/foundry_workbench/reference_language_mastery_contact_adapter_v1.py": "a192eabfcbd6c2c13f1322567e87b71bd8cc990dd129942cf7d5f465539ff9ec",
+    "hardware_native/tools/foundry_workbench/reference_lived_world_conversation_runtime_verify.py": "42456ca6ec4ab5481778dcfd16c5ba089f9037bd1cb6a556263ff503495b477d",
+    "hardware_native/tools/foundry_workbench/reference_lived_world_conversation_terminal_v1.py": "40345fb97fae73917009070f27bb247b73edad44b5b41cd9d969400654f92a91"
+  },
+  "output_bytes": {
+    "baseline": 0,
+    "continuation": 31,
+    "question": 34,
+    "unvalued_world_c": 0,
+    "world_a": 377,
+    "world_b": 362
+  },
+  "schema": "0x1.lived-world-conversation-runtime-measured.v1",
+  "status": "GREEN",
+  "visible_language_gain": "LIVED_WORLD_CHANGE_ORIGINATES_LONG_FORM_AND_LATER_AMBIGUITY_RECRUITS_RESIDENT_CLARIFICATION_AND_ANSWER_CONDITIONED_CONTINUATION"
+}

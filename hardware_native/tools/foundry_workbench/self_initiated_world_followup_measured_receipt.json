@@ -1,0 +1,19 @@
+{
+  "bytes": {
+    "sensor_followup": 186,
+    "spontaneous": 377,
+    "valve_followup": 185
+  },
+  "checks": 11,
+  "claim_ceiling": "SELF_INITIATED_WORLD_TURN_SUPPORTS_LEARNED_ENTITY_FOCUSED_HUMAN_FOLLOWUP_NO_OPEN_QUESTION_OR_ELLIPSIS_YET",
+  "formal_contract": "FOUNDRY_SELF_INITIATED_WORLD_FOLLOWUP_GREEN",
+  "formal_elapsed_ms": 460.541,
+  "measured_sha256": {
+    "hardware_native/tools/foundry_workbench/reference_lived_world_followup_bridge_v1.py": "e641f20f6758601e43b14c7fbe743ec9c6190fa1d2dc68d9a66c1d63149a4cc0",
+    "hardware_native/tools/foundry_workbench/reference_lived_world_followup_terminal_v1.py": "7181762172cf154dd8da2eb2dc63a8b2f36a91754bb92847118836a1bfc98e75",
+    "hardware_native/tools/foundry_workbench/reference_self_initiated_world_followup_verify.py": "d4a9ee2db1100bac67a72fe543361df17970d6d0525640d5a6435f84dd78633e"
+  },
+  "schema": "0x1.self-initiated-world-followup-measured.v1",
+  "status": "GREEN",
+  "visible_language_gain": "HUMAN_ENTITY_FOLLOWUP_CONTINUES_AGI_SELF_INITIATED_LIVED_WORLD_TURN_WITHOUT_TRANSCRIPT"
+}

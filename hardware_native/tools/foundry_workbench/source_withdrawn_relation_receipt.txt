@@ -1,0 +1,23 @@
+FOUNDRY_SOURCE_WITHDRAWN_RELATION GREEN testimony_truth=0 consequence_relation=1 lesion=1 reread=1 revision=1
+{
+  "checks": {
+    "checkpoint_relation_exact": true,
+    "consequence_earned_relation": true,
+    "contradiction_new_revision": true,
+    "focal_lesion_destroys_reconstruction": true,
+    "no_fact_module_or_llm": true,
+    "raw_testimony_withdrawn": true,
+    "relation_survives_source_withdrawal": true,
+    "remote_relation_spared": true,
+    "reread_relearns_same_logical_relation": true,
+    "withdrawn_assertion_rows_not_relation_authority": true
+  },
+  "claim": "SOURCE_WITHDRAWN_CONSEQUENCE_EARNED_RELATION_REFERENCE_ONLY_NOT_DIRECT_KG1_GREEN",
+  "contradicted_revision": 981215871299355551,
+  "elapsed_ms": 2.816,
+  "initial_revision": 772008728709730342,
+  "logical_identity": 941081890964967944,
+  "pass": true,
+  "relearned_revision": 240730573774904362,
+  "schema": "0x1.reference-source-withdrawn-relation.v1"
+}

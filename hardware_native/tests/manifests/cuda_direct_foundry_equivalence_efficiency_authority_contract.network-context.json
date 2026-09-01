@@ -1,0 +1,21 @@
+{
+  "constitutional_schema": "0x1-constitutional-dependency-graph/v3",
+  "required_nodes": [
+    "a.causal_provenance",
+    "a.checkpoint_same_subject_continuity",
+    "a.continuing_adult",
+    "a.resident_cognitive_ownership",
+    "d.representation_equivalence_update",
+    "e.finite_matter",
+    "g.canonical_evaluator_equivalence",
+    "g.local_failure_atomicity",
+    "g.no_semantic_streams",
+    "g.resident_execution_ownership",
+    "i.foundry_recipe_candidate_pool",
+    "i.foundry_equivalence_efficiency_authority"
+  ],
+  "foundation_required": true,
+  "mature_state_fixture_forbidden": true,
+  "host_semantic_authority_forbidden": true,
+  "notes": "GitHub #1592. Complete finite-domain exact and explicitly bounded-tolerance receipts bind formal relation, ports, domain, numeric guard, state transition, chronology, provenance, refusal, transaction and deterministic replay roots to real immutable candidate entries. Contextual GPU measurements bind latency, active work, memory, precision and failure cost and admit only no-worse, strictly-better Pareto movement. One existing Adult Recipe-IR backing owner may replace its solver/body without lived shadow or Marriage only at a device-observed quiescent boundary. A preflighted single-thread transaction preserves logical Recipe/revision identity, current Occurrence binding roots, chronology, evidence, participation, credit and checkpoint continuation; the old program remains the deterministic out-of-guard fallback. Receipts carry representation/engineering authority and zero semantic, experiential, participation, credit, current-Network or current-thought authority."
+}

@@ -1,0 +1,31 @@
+{
+  "artifact": "hardware_native/build_cuda/cuda_direct_compositional_grammar_contract.real",
+  "artifact_sha256": "6873e2f6b74ecdfbbdb59127b67291b93edba02dcc1204f39b4ccbbdbec9023f",
+  "compute_sanitizer_errors": 0,
+  "evidence_binding": "exact current worktree artifact copied by absolute path into Modal runner; run and sanitizer SHA matched",
+  "gpu": "NVIDIA L4",
+  "graph_node": "h.compositional_grammar",
+  "graph_status": "RED",
+  "not_proved": [
+    "full h.compositional_grammar law",
+    "grounded multilingual acquisition envelope",
+    "agreement/coordination full envelope",
+    "N=512 natural-demand capacity envelope",
+    "source withdrawal/reacquisition broad envelope",
+    "deoptimization/rematerialization broad envelope",
+    "human grammar/prose/dialogue"
+  ],
+  "proved": {
+    "canonical_resident_occurrence": true,
+    "compositional_depth": 3,
+    "context_tie_refuse": true,
+    "missing_child_refuse": true,
+    "replay": true,
+    "resident_units": 23,
+    "reusable_recipes": 2,
+    "same_surface_distinct_structure": true
+  },
+  "run_exit_code": 0,
+  "schema": "0x1.foundry-direct-compositional-submechanism.v2",
+  "status": "GREEN_EXACT_WORKTREE_SUBMECHANISM_NOT_NODE_GREEN"
+}

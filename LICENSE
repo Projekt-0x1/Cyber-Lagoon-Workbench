@@ -1,0 +1,73 @@
+Cyber-Lagoon Studio Source-Available License v1.0
+
+Copyright (c) 2026 Stefan Buesch / Cyber-Lagoon.
+All rights reserved.
+
+This license governs use of this repository and all included source code,
+documentation, tests, and related materials (the "Software").
+
+1. Grant
+Subject to this license, you may:
+- use, copy, modify, and distribute the Software for personal, research,
+  educational, and non-commercial purposes; and
+- evaluate the Software in commercial contexts as allowed below.
+
+2. Commercial Use Model
+Commercial use is permitted only under the terms in `COMMERCIAL_TERMS.md`,
+which is incorporated by reference into this license.
+
+The commercial model has two tracks:
+- Track A (Substrate-Embedded Commercial Use): 7% royalty on attributable
+  gross revenue above USD 100,000 per calendar year.
+- Track B (Substrate Republication): 10% royalty on attributable gross revenue
+  from first commercial revenue.
+- Track B is additionally subject to the grant-back terms in
+  `COMMERCIAL_TERMS.md`.
+
+If you commercially use the Software, you agree to the applicable commercial
+terms before or at first commercial deployment.
+
+3. Attribution
+You must preserve copyright and license notices in source distributions.
+Public-facing distributions or services based on this Software must include:
+"Built on Cyber-Lagoon substrate"
+
+4. Trademarks
+No trademark rights are granted by this license. Use of names and marks such
+as "AGI", "Cyber-Lagoon", or "The Architect" is governed by `TRADEMARK.md`.
+
+5. Patent Grant
+Licensor grants a non-exclusive patent license for patent claims necessarily
+infringed by the Software as distributed, solely to the extent needed to use
+rights granted by this license and the applicable commercial terms.
+This patent license terminates if you initiate patent litigation alleging the
+Software infringes your patent.
+
+6. Restrictions
+You may not:
+- remove or falsify authorship, license, or attribution notices;
+- represent your fork as the official Cyber-Lagoon AGI;
+- use the Software in violation of applicable law.
+
+7. Termination
+This license terminates automatically if you materially breach it and do not
+cure the breach within 30 days after notice. On termination, you must stop use
+and distribution of the Software.
+
+8. Warranty Disclaimer
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND
+NON-INFRINGEMENT.
+
+9. Limitation of Liability
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, LICENSOR IS NOT LIABLE FOR ANY
+INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR EXEMPLARY DAMAGES ARISING
+FROM USE OF THE SOFTWARE.
+
+10. Governing Law
+Unless otherwise required by non-waivable law, this license is governed by the
+laws of the Federal Republic of Germany.
+
+11. Contact
+For commercial licensing, enterprise terms, or clarifications:
+maskedshadowlive@gmail.com

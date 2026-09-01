@@ -1,0 +1,24 @@
+{
+  "constitutional_schema": "0x1-constitutional-dependency-graph/v3",
+  "required_nodes": [
+    "a.continuing_adult",
+    "a.no_answer_key",
+    "a.checkpoint_same_subject_continuity",
+    "b.life_function",
+    "b.authority_handoff",
+    "b.knowledge_blank_computationally_rich_juvenile",
+    "g.no_semantic_streams",
+    "c.networks_of_networks",
+    "g.active_frontier_cost",
+    "d.actual_frontier",
+    "d.speculative_provenance"
+  ],
+  "foundation_required": true,
+  "foundation_complete": true,
+  "mature_state_fixture_forbidden": true,
+  "host_semantic_authority_forbidden": true,
+  "claim_scope": "DEVELOPMENT_C2",
+  "canonical_subject_root": "seed_atlas_canonical_species",
+  "stimulus_language_like": false,
+  "notes": "github #1303: life.canonical_sit_body. Exercises the production hardware_native/tools/direct_adult_sitdown.cu binary itself as a subprocess -- not an in-process fixture genome -- against a disposable clone of the operator-supplied checkpoint for the one designated retained Life-Function Adult. It never births a substitute. Proves --new refuses an existing checkpoint before compilation, that three --resume sittings never recompile and reproduce the retained birth_root, that a live --resume session reaches status=RUNNING and accepts real raw sensor contact through the terminal membrane before EOF-stopping, that checkpoint replacement is atomic and advances the clone, and that the designated source checkpoint remains byte-identical. Does not claim language competence, authenticated physical provenance, or recursive condensation; h.usable_dialogue GREEN is mechanism-only and cannot satisfy this node."
+}

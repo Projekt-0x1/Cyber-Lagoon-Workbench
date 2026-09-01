@@ -1,0 +1,14 @@
+#include <cstdint>
+#include <cstdio>
+#include "hardware_native/direct_causal_program_route_lowering.cuh"
+using namespace substrate::direct_causal_program;
+using namespace substrate::direct_network;
+struct Parent{std::uint32_t target_node;std::int32_t eligibility_q16;std::uint32_t expiry_tick,live;std::uint32_t lineage_expiry_tick;};
+static Program program(){Program p{};p.identity=0xCA11;p.initiation_participation_identity=0xabc;p.initiation_parent_eligibility_ref=(5ull<<32)|4ull;p.initiation_expiry_tick=140;p.depth=2;p.step_count=5;for(unsigned i=0;i<5;++i){p.steps[i].node=300+i;p.steps[i].channel=20+i;p.steps[i].due_offset=i+1;}return p;}
+static DirectRoute route(unsigned s,unsigned t,unsigned delay){DirectRoute r{};r.source=s;r.target=t;r.flags=kRouteFlagActive;r.delay=delay;r.conductance_q16=1<<16;r.eligibility_q16=1<<15;r.eligibility_context=0x5511;r.eligibility_expires=200;return r;}
+int main(){auto p=program();ProgramExecutionState e{};begin_execution(&e,p,0xabc,100);Parent parent{100,1<<15,140,1,140};std::uint64_t parent_ref=(5ull<<32)|4ull;DirectRoute routes[7]={route(100,300,1),route(300,301,1),route(301,302,1),route(302,303,1),route(303,304,1),route(900,901,1),route(902,903,1)};std::uint64_t inc[7]={11,12,13,14,15,16,17};unsigned lowered=0;bool exact=true;for(unsigned i=0;i<5;++i){auto lr=resolve_program_step_route(e,parent,routes,inc,7,parent_ref,100+i);if(!lr.admitted)break;++lowered;exact&=lr.source_node==parent.target_node&&lr.target_node==p.steps[i].node&&lr.due_tick==101+i&&lr.parent_eligibility_ref==parent_ref;parent.target_node=lr.target_node;parent_ref=((6ull+i)<<32)|(10ull+i);auto c=due_candidate(e,101+i,0xabc);if(!c.admitted||!confirm_emitted_step(&e,c,101+i,c.step.node,c.step.channel))break;}
+ProgramExecutionState missing{};begin_execution(&missing,p,0xabc,100);Parent root{100,1<<15,140,1,140};DirectRoute none[1]={route(999,300,1)};std::uint64_t ni[1]={1};const bool absent=resolve_program_step_route(missing,root,none,ni,1,(5ull<<32)|4ull,100).admitted!=0;
+DirectRoute amb[2]={route(100,300,1),route(100,300,1)};std::uint64_t ai[2]={1,2};const bool ambiguous=resolve_program_step_route(missing,root,amb,ai,2,(5ull<<32)|4ull,100).admitted!=0;
+DirectRoute lesion[1]={route(100,300,1)};lesion[0].flags=0;const bool lesioned=resolve_program_step_route(missing,root,lesion,ni,1,(5ull<<32)|4ull,100).admitted!=0;
+DirectRoute mistimed[1]={route(100,300,2)};const bool timing=resolve_program_step_route(missing,root,mistimed,ni,1,(5ull<<32)|4ull,100).admitted!=0;
+const bool green=lowered==5&&e.completed&&exact&&!absent&&!ambiguous&&!lesioned&&!timing;std::printf("FOUNDRY_DIRECT_CAUSAL_PROGRAM_ROUTE_%s baseline_public_steps=0 route_backed_steps=%u bytes=79 depth=2 completed=%u absent=0 ambiguous=0 lesion=0 mistimed=0\n",green?"GREEN":"RED",lowered,e.completed);return green?0:1;}

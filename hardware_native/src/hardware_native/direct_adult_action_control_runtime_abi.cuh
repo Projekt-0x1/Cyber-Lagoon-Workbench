@@ -1,0 +1,10 @@
+#ifndef HARDWARE_NATIVE_DIRECT_ADULT_ACTION_CONTROL_RUNTIME_ABI_CUH
+#define HARDWARE_NATIVE_DIRECT_ADULT_ACTION_CONTROL_RUNTIME_ABI_CUH
+#include <cstddef>
+namespace substrate::direct_adult_core {
+struct DirectAdultActionControlRuntimeBlock;
+std::size_t direct_adult_action_control_runtime_storage_bytes() noexcept;
+DirectAdultActionControlRuntimeBlock* create_direct_adult_action_control_runtime();
+void destroy_direct_adult_action_control_runtime(DirectAdultActionControlRuntimeBlock*) noexcept;
+}
+#endif

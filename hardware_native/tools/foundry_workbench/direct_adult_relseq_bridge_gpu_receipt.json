@@ -1,0 +1,20 @@
+{
+  "schema": "0x1.direct-adult-relseq-bridge-gpu-parity.v1",
+  "status": "GREEN",
+  "provider": "modal",
+  "gpu": "NVIDIA L4, 580.95.05, 23034 MiB",
+  "artifact_sha256": "02885d89265b715941c5222b7af5ff437a21abca824467decb531b2e46d8daaf",
+  "production_sequence_header_sha256": "5534b073eb77fb4ee073017d557077b1f2eb0f052de79fdbff7e7ad3c6e5a3dc",
+  "adult_bridge_header_sha256": "7afad1ff4cd7c86f71796fa3c2ae5bbec649fa6f7cad36177ef41bf4f1e582f8",
+  "contract_source_sha256": "8458a2ab4980c5847f26de351b9ecc3441383c689a886a0d0ce257d98546efdf",
+  "canonical_recipe_cell": true,
+  "canonical_recipe_occurrence": true,
+  "occurrence_local_child_sidecar": true,
+  "resident_units": 11,
+  "depth_peak": 1,
+  "gpu_run_exit_code": 0,
+  "compute_sanitizer_exit_code": 0,
+  "compute_sanitizer_errors": 0,
+  "claim": "CANONICAL_ADULT_IDENTITY_TO_RELATIONAL_SEQUENCE_GPU_EXECUTION_BRIDGE",
+  "scope_limit": "Bridge/evaluator parity only; scheduler/bucket integration into the continuing Adult runtime remains a separate integration change."
+}

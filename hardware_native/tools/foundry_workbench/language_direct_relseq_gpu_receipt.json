@@ -1,0 +1,23 @@
+{
+  "artifact_sha256": "2ba31c819d83e764840deb031e659b0bab278db7b8f2b46b4d41bc19dfd5523c",
+  "claim": "LEARNED_SEQUENCE_COMPOSITION_REFERENCE_TO_GPU_PRODUCTION_LAW_PARITY",
+  "compute_sanitizer_errors": 0,
+  "compute_sanitizer_exit_code": 0,
+  "cuda_contract_builder_sha256": "3b065bf0e15f66e57992895a05de7221c12cd17dc67eebd14d0a550daed84bf6",
+  "depth_peak": 3,
+  "gpu": "NVIDIA L4, 580.95.05, 23034 MiB",
+  "gpu_run_exit_code": 0,
+  "learner_v6_sha256": "4218595e5e6c621fce765489c4037fd2ff284120881d45d41f98194746af1540",
+  "production_header": "hardware_native/direct_relational_sequence_composition.cuh",
+  "production_occurrences": 15,
+  "production_recipes": 5,
+  "production_sequence_header_sha256": "5534b073eb77fb4ee073017d557077b1f2eb0f052de79fdbff7e7ad3c6e5a3dc",
+  "provider": "modal",
+  "reference_prose_snapshot_sha256": "eca158ce6afaf3626364dcf715a73f4e06945ef3f395fbf8200bac3ef2a578f3",
+  "reference_source": "language_crossmodal_prose_snapshot_v1.py / learner v6",
+  "resident_units": 124,
+  "schema": "0x1.learned-language-direct-relseq-gpu-parity.v1",
+  "scope_limit": "This receipt covers DirectRelSeq learned sequence/discourse evaluation only; it does not claim whole-Adult executor parity or human-level language.",
+  "status": "GREEN",
+  "unit_digest": "678d2c11f65bb208"
+}

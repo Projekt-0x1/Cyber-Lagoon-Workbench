@@ -1,0 +1,7 @@
+#ifndef HARDWARE_NATIVE_DIRECT_ADULT_LANGUAGE_CANDIDATE_PHASE_CUH
+#define HARDWARE_NATIVE_DIRECT_ADULT_LANGUAGE_CANDIDATE_PHASE_CUH
+namespace substrate::direct_adult_core {
+struct DirectAdultRuntime;
+void launch_resident_language_candidate_admission_phase(DirectAdultRuntime* runtime);
+}
+#endif

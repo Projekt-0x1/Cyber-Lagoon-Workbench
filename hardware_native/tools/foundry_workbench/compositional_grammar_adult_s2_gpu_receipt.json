@@ -1,0 +1,64 @@
+{
+  "artifact": "/root/worktrees/codex-6/language_testing/hardware_native/build_cuda/cuda_direct_compositional_grammar_adult_s2_contract.real",
+  "artifact_sha256": "6240f3b8542e7d1fc7c81947367b68c4d7631b5fb88242d3614af29a86643577",
+  "compute_sanitizer_errors": 0,
+  "evidence_binding": "exact current worktree artifact copied by absolute path into Modal; normal and compute-sanitizer runners verified the same SHA",
+  "gpu": "NVIDIA L4",
+  "graph_node": "h.compositional_grammar",
+  "graph_status": "RED",
+  "not_proved": [
+    "full h.compositional_grammar law",
+    "grounded multilingual acquisition envelope",
+    "agreement and coordination broad envelope",
+    "held-out relation recombination broad envelope",
+    "recursive public byte trajectory",
+    "N=512 natural-demand capacity envelope",
+    "checkpoint and rematerialization broad envelope",
+    "human grammar, prose or dialogue"
+  ],
+  "proved": {
+    "current_action_participants_first": 16,
+    "current_action_participants_second": 16,
+    "expected_output_authority": false,
+    "host_scorer_authority": false,
+    "learned_recruitment_reuse": true,
+    "network_backed_action": true,
+    "network_credit_after_first_consequence": 3798,
+    "network_credit_after_second_consequence": 5794,
+    "permutation_stable_recruitment": true,
+    "same_continuing_adult": true,
+    "semantic_runtime_ids": false
+  },
+  "regressions": {
+    "cuda_direct_coactive_relational_networks": {
+      "artifact_sha256": "153530edad6832f3330c6ab50a01074314a1e2c31da24a5f2fcf964dada1a073",
+      "host_device_exact": true,
+      "permutation_stable": true,
+      "recruitment_reuse": true,
+      "run_url": "https://modal.com/apps/stefanbuesch/main/ap-xwOFt2hlKbgffYP5wAwzmp"
+    },
+    "cuda_direct_knowledge_kg1_source_withdrawn_relation": {
+      "artifact_sha256": "8fe5bb06e0a893640c349c750ae350815ede43fe13791f00151bcc8a715fb790",
+      "checkpoint_unfolding": true,
+      "fact_table": false,
+      "run_url": "https://modal.com/apps/stefanbuesch/main/ap-llzwl2VmnNn7kHOqvkEq9g",
+      "transcript_lookup": false,
+      "xi_input": false
+    },
+    "cuda_foundry_parent_isolation": {
+      "artifact_sha256": "11781a36eb9d368b234f3e175ccbdbcc34a8b02abc4574064bca729a0403ccad",
+      "compute_sanitizer_errors": 0,
+      "host_device_match": true,
+      "multilingual_shared_recruitment": true,
+      "run_url": "https://modal.com/apps/stefanbuesch/main/ap-ySYhHVZ2ee7bQm6FFe2tF8",
+      "surface_inherits_credit": true,
+      "surface_reuses_recruitment": true
+    }
+  },
+  "run_exit_code": 0,
+  "run_url": "https://modal.com/apps/stefanbuesch/main/ap-YbkrKli3267ZWXaxzG47pm",
+  "sanitizer_exit_code": 0,
+  "sanitizer_url": "https://modal.com/apps/stefanbuesch/main/ap-YbkrKli3267ZWXaxzG47pm",
+  "schema": "0x1.direct-compositional-grammar-adult-s2-submechanism.v1",
+  "status": "GREEN_EXACT_WORKTREE_SUBMECHANISM_NOT_NODE_GREEN"
+}

@@ -1,0 +1,42 @@
+FOUNDRY_REFERENCE_ORGANISM_HIERARCHY GREEN depths=[0, 1, 2, 3] incremental=1
+{
+  "checks": {
+    "bounded_width": true,
+    "checkpoint_continuation": true,
+    "closure_contributors": true,
+    "cumulative_resident": true,
+    "depths": true,
+    "incremental_public": true,
+    "scene_order": true,
+    "terminal_silence": true,
+    "withdrawal_reopens_structure": true
+  },
+  "claim": "CONTINUING_RECURSIVE_DISCOURSE_CLOSURE_REFERENCE_NOT_DIRECT_GRAMMAR_GREEN",
+  "closure_count": 7,
+  "depths": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "elapsed_ms": 557.651,
+  "final_ancestry": 6,
+  "final_resident_bytes": 174,
+  "pass": true,
+  "public_action_bytes": [
+    43,
+    41,
+    46,
+    44
+  ],
+  "quantity": {
+    "closure_count": 7,
+    "current_ancestry": 6,
+    "current_child_width": 2,
+    "current_depth": 3,
+    "current_surface_bytes": 174,
+    "last_child_touches": 2,
+    "max_depth": 3
+  },
+  "schema": "0x1.reference-organism-hierarchy.v1"
+}

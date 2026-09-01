@@ -1,0 +1,5683 @@
+{
+  "adult_count": 1,
+  "checks": {
+    "checkpoint_continuity_and_bounded_hot_public_actions": true,
+    "fresh_answer_changes_real_action_without_host_selector": true,
+    "independent_counterevidence_revises_source_credibility": true,
+    "independent_world_return_confirms_word_and_sources": true,
+    "inquiry_and_discourse_are_learned_surfaces": true,
+    "learned_source_credibility_breaks_later_novel_conflict": true,
+    "mid_discourse_checkpoint_plus_same_future_input_replays": true,
+    "new_evidence_after_revision_changes_selected_action": true,
+    "new_word_reenters_novel_outward_composition_after_delay": true,
+    "new_word_starts_provisional": true,
+    "one_continuing_adult_no_prompt_or_speak_api": true,
+    "pre_question_checkpoint_replays_exact_public_action": true,
+    "removing_one_conflicting_voice_removes_question": true,
+    "same_conflict_geometry_returns_to_uncertainty_after_counterevidence": true,
+    "settled_public_transcript_not_checkpoint_authority": true,
+    "source_conflict_autonomously_reaches_learned_inquiry": true,
+    "sustained_consequence_gated_discourse_continuity": true,
+    "yoked_same_return_cannot_confirm_word_or_source": true
+  },
+  "contact_manifest": [
+    {
+      "independent": true,
+      "index": 0,
+      "kind": 16,
+      "live": true,
+      "payload": [
+        201,
+        4,
+        11,
+        12,
+        13,
+        14
+      ],
+      "phase": "development",
+      "result": 201,
+      "source": 8001
+    },
+    {
+      "independent": true,
+      "index": 1,
+      "kind": 16,
+      "live": true,
+      "payload": [
+        501,
+        4,
+        11,
+        12,
+        13,
+        99
+      ],
+      "phase": "development",
+      "result": 501,
+      "source": 8003
+    },
+    {
+      "independent": true,
+      "index": 2,
+      "kind": 16,
+      "live": true,
+      "payload": [
+        202,
+        4,
+        21,
+        22,
+        23,
+        24
+      ],
+      "phase": "development",
+      "result": 202,
+      "source": 8002
+    },
+    {
+      "independent": true,
+      "index": 3,
+      "kind": 16,
+      "live": true,
+      "payload": [
+        601,
+        4,
+        71,
+        72,
+        73,
+        74
+      ],
+      "phase": "development",
+      "result": 601,
+      "source": 8004
+    },
+    {
+      "independent": true,
+      "index": 4,
+      "kind": 16,
+      "live": true,
+      "payload": [
+        302,
+        2,
+        33,
+        34
+      ],
+      "phase": "development",
+      "result": 302,
+      "source": 8013
+    },
+    {
+      "independent": true,
+      "index": 5,
+      "kind": 16,
+      "live": true,
+      "payload": [
+        402,
+        2,
+        43,
+        44
+      ],
+      "phase": "development",
+      "result": 402,
+      "source": 8014
+    },
+    {
+      "independent": true,
+      "index": 6,
+      "kind": 16,
+      "live": true,
+      "payload": [
+        303,
+        2,
+        35,
+        36
+      ],
+      "phase": "development",
+      "result": 303,
+      "source": 8015
+    },
+    {
+      "independent": true,
+      "index": 7,
+      "kind": 16,
+      "live": true,
+      "payload": [
+        403,
+        2,
+        45,
+        46
+      ],
+      "phase": "development",
+      "result": 403,
+      "source": 8016
+    },
+    {
+      "independent": true,
+      "index": 8,
+      "kind": 16,
+      "live": true,
+      "payload": [
+        9999,
+        2,
+        55,
+        56
+      ],
+      "phase": "development",
+      "result": 9999,
+      "source": 8017
+    },
+    {
+      "independent": true,
+      "index": 9,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        201
+      ],
+      "phase": "development",
+      "result": 1,
+      "source": 10201
+    },
+    {
+      "independent": true,
+      "index": 10,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        97,
+        108,
+        105,
+        99,
+        101
+      ],
+      "phase": "development",
+      "result": 1,
+      "source": 11201
+    },
+    {
+      "independent": true,
+      "index": 11,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        201
+      ],
+      "phase": "development",
+      "result": 2,
+      "source": 11201
+    },
+    {
+      "independent": true,
+      "index": 12,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        97,
+        108,
+        105,
+        99,
+        101
+      ],
+      "phase": "development",
+      "result": 2,
+      "source": 12201
+    },
+    {
+      "independent": true,
+      "index": 13,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        501
+      ],
+      "phase": "development",
+      "result": 3,
+      "source": 10501
+    },
+    {
+      "independent": true,
+      "index": 14,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        97,
+        108,
+        105,
+        99,
+        101
+      ],
+      "phase": "development",
+      "result": 3,
+      "source": 11501
+    },
+    {
+      "independent": true,
+      "index": 15,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        501
+      ],
+      "phase": "development",
+      "result": 4,
+      "source": 11501
+    },
+    {
+      "independent": true,
+      "index": 16,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        97,
+        108,
+        105,
+        99,
+        101
+      ],
+      "phase": "development",
+      "result": 4,
+      "source": 12501
+    },
+    {
+      "independent": true,
+      "index": 17,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        202
+      ],
+      "phase": "development",
+      "result": 5,
+      "source": 10202
+    },
+    {
+      "independent": true,
+      "index": 18,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        98,
+        111,
+        98
+      ],
+      "phase": "development",
+      "result": 5,
+      "source": 11202
+    },
+    {
+      "independent": true,
+      "index": 19,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        202
+      ],
+      "phase": "development",
+      "result": 6,
+      "source": 11202
+    },
+    {
+      "independent": true,
+      "index": 20,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        98,
+        111,
+        98
+      ],
+      "phase": "development",
+      "result": 6,
+      "source": 12202
+    },
+    {
+      "independent": true,
+      "index": 21,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        601
+      ],
+      "phase": "development",
+      "result": 7,
+      "source": 10601
+    },
+    {
+      "independent": true,
+      "index": 22,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        122,
+        111,
+        101
+      ],
+      "phase": "development",
+      "result": 7,
+      "source": 11601
+    },
+    {
+      "independent": true,
+      "index": 23,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        601
+      ],
+      "phase": "development",
+      "result": 8,
+      "source": 11601
+    },
+    {
+      "independent": true,
+      "index": 24,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        122,
+        111,
+        101
+      ],
+      "phase": "development",
+      "result": 8,
+      "source": 12601
+    },
+    {
+      "independent": true,
+      "index": 25,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        302
+      ],
+      "phase": "development",
+      "result": 9,
+      "source": 10302
+    },
+    {
+      "independent": true,
+      "index": 26,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        116,
+        101,
+        115,
+        116,
+        115
+      ],
+      "phase": "development",
+      "result": 9,
+      "source": 11302
+    },
+    {
+      "independent": true,
+      "index": 27,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        302
+      ],
+      "phase": "development",
+      "result": 10,
+      "source": 11302
+    },
+    {
+      "independent": true,
+      "index": 28,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        116,
+        101,
+        115,
+        116,
+        115
+      ],
+      "phase": "development",
+      "result": 10,
+      "source": 12302
+    },
+    {
+      "independent": true,
+      "index": 29,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        402
+      ],
+      "phase": "development",
+      "result": 11,
+      "source": 10402
+    },
+    {
+      "independent": true,
+      "index": 30,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        118,
+        97,
+        108,
+        118,
+        101
+      ],
+      "phase": "development",
+      "result": 11,
+      "source": 11402
+    },
+    {
+      "independent": true,
+      "index": 31,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        402
+      ],
+      "phase": "development",
+      "result": 12,
+      "source": 11402
+    },
+    {
+      "independent": true,
+      "index": 32,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        118,
+        97,
+        108,
+        118,
+        101
+      ],
+      "phase": "development",
+      "result": 12,
+      "source": 12402
+    },
+    {
+      "independent": true,
+      "index": 33,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        303
+      ],
+      "phase": "development",
+      "result": 13,
+      "source": 10303
+    },
+    {
+      "independent": true,
+      "index": 34,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        105,
+        110,
+        115,
+        112,
+        101,
+        99,
+        116,
+        115
+      ],
+      "phase": "development",
+      "result": 13,
+      "source": 11303
+    },
+    {
+      "independent": true,
+      "index": 35,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        303
+      ],
+      "phase": "development",
+      "result": 14,
+      "source": 11303
+    },
+    {
+      "independent": true,
+      "index": 36,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        105,
+        110,
+        115,
+        112,
+        101,
+        99,
+        116,
+        115
+      ],
+      "phase": "development",
+      "result": 14,
+      "source": 12303
+    },
+    {
+      "independent": true,
+      "index": 37,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        403
+      ],
+      "phase": "development",
+      "result": 15,
+      "source": 10403
+    },
+    {
+      "independent": true,
+      "index": 38,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        115,
+        101,
+        110,
+        115,
+        111,
+        114
+      ],
+      "phase": "development",
+      "result": 15,
+      "source": 11403
+    },
+    {
+      "independent": true,
+      "index": 39,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        403
+      ],
+      "phase": "development",
+      "result": 16,
+      "source": 11403
+    },
+    {
+      "independent": true,
+      "index": 40,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        115,
+        101,
+        110,
+        115,
+        111,
+        114
+      ],
+      "phase": "development",
+      "result": 16,
+      "source": 12403
+    },
+    {
+      "independent": true,
+      "index": 41,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        9999
+      ],
+      "phase": "development",
+      "result": 17,
+      "source": 19999
+    },
+    {
+      "independent": true,
+      "index": 42,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        116,
+        97,
+        114,
+        103,
+        101,
+        116
+      ],
+      "phase": "development",
+      "result": 17,
+      "source": 20999
+    },
+    {
+      "independent": true,
+      "index": 43,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        9999
+      ],
+      "phase": "development",
+      "result": 18,
+      "source": 20999
+    },
+    {
+      "independent": true,
+      "index": 44,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        116,
+        97,
+        114,
+        103,
+        101,
+        116
+      ],
+      "phase": "development",
+      "result": 18,
+      "source": 21999
+    },
+    {
+      "independent": true,
+      "index": 45,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        8801,
+        3,
+        202,
+        302,
+        402
+      ],
+      "phase": "development",
+      "result": 19,
+      "source": 30005
+    },
+    {
+      "independent": true,
+      "index": 46,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        98,
+        111,
+        98,
+        32,
+        116,
+        101,
+        115,
+        116,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        118,
+        97,
+        108,
+        118,
+        101,
+        46
+      ],
+      "phase": "development",
+      "result": 19,
+      "source": 32005
+    },
+    {
+      "independent": true,
+      "index": 47,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        8801,
+        3,
+        202,
+        302,
+        402
+      ],
+      "phase": "development",
+      "result": 20,
+      "source": 30006
+    },
+    {
+      "independent": true,
+      "index": 48,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        98,
+        111,
+        98,
+        32,
+        116,
+        101,
+        115,
+        116,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        118,
+        97,
+        108,
+        118,
+        101,
+        46
+      ],
+      "phase": "development",
+      "result": 20,
+      "source": 32006
+    },
+    {
+      "independent": true,
+      "index": 49,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        8801,
+        3,
+        601,
+        303,
+        403
+      ],
+      "phase": "development",
+      "result": 21,
+      "source": 30009
+    },
+    {
+      "independent": true,
+      "index": 50,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        122,
+        111,
+        101,
+        32,
+        105,
+        110,
+        115,
+        112,
+        101,
+        99,
+        116,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        115,
+        101,
+        110,
+        115,
+        111,
+        114,
+        46
+      ],
+      "phase": "development",
+      "result": 21,
+      "source": 32009
+    },
+    {
+      "independent": true,
+      "index": 51,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        8801,
+        3,
+        601,
+        303,
+        403
+      ],
+      "phase": "development",
+      "result": 22,
+      "source": 30010
+    },
+    {
+      "independent": true,
+      "index": 52,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        122,
+        111,
+        101,
+        32,
+        105,
+        110,
+        115,
+        112,
+        101,
+        99,
+        116,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        115,
+        101,
+        110,
+        115,
+        111,
+        114,
+        46
+      ],
+      "phase": "development",
+      "result": 22,
+      "source": 32010
+    },
+    {
+      "independent": true,
+      "index": 53,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        21001
+      ],
+      "phase": "development",
+      "result": 23,
+      "source": 86001
+    },
+    {
+      "independent": true,
+      "index": 54,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        99,
+        97,
+        114,
+        101,
+        102,
+        117,
+        108
+      ],
+      "phase": "development",
+      "result": 23,
+      "source": 106001
+    },
+    {
+      "independent": true,
+      "index": 55,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        21001
+      ],
+      "phase": "development",
+      "result": 24,
+      "source": 116001
+    },
+    {
+      "independent": true,
+      "index": 56,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        99,
+        97,
+        114,
+        101,
+        102,
+        117,
+        108
+      ],
+      "phase": "development",
+      "result": 24,
+      "source": 136001
+    },
+    {
+      "independent": true,
+      "index": 57,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        21002
+      ],
+      "phase": "development",
+      "result": 25,
+      "source": 86002
+    },
+    {
+      "independent": true,
+      "index": 58,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        113,
+        117,
+        105,
+        101,
+        116
+      ],
+      "phase": "development",
+      "result": 25,
+      "source": 106002
+    },
+    {
+      "independent": true,
+      "index": 59,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        21002
+      ],
+      "phase": "development",
+      "result": 26,
+      "source": 116002
+    },
+    {
+      "independent": true,
+      "index": 60,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        113,
+        117,
+        105,
+        101,
+        116
+      ],
+      "phase": "development",
+      "result": 26,
+      "source": 136002
+    },
+    {
+      "independent": true,
+      "index": 61,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        21101
+      ],
+      "phase": "development",
+      "result": 27,
+      "source": 86101
+    },
+    {
+      "independent": true,
+      "index": 62,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        101,
+        110,
+        103,
+        105,
+        110,
+        101,
+        101,
+        114
+      ],
+      "phase": "development",
+      "result": 27,
+      "source": 106101
+    },
+    {
+      "independent": true,
+      "index": 63,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        21101
+      ],
+      "phase": "development",
+      "result": 28,
+      "source": 116101
+    },
+    {
+      "independent": true,
+      "index": 64,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        101,
+        110,
+        103,
+        105,
+        110,
+        101,
+        101,
+        114
+      ],
+      "phase": "development",
+      "result": 28,
+      "source": 136101
+    },
+    {
+      "independent": true,
+      "index": 65,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        21102
+      ],
+      "phase": "development",
+      "result": 29,
+      "source": 86102
+    },
+    {
+      "independent": true,
+      "index": 66,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        116,
+        101,
+        99,
+        104,
+        110,
+        105,
+        99,
+        105,
+        97,
+        110
+      ],
+      "phase": "development",
+      "result": 29,
+      "source": 106102
+    },
+    {
+      "independent": true,
+      "index": 67,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        21102
+      ],
+      "phase": "development",
+      "result": 30,
+      "source": 116102
+    },
+    {
+      "independent": true,
+      "index": 68,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        116,
+        101,
+        99,
+        104,
+        110,
+        105,
+        99,
+        105,
+        97,
+        110
+      ],
+      "phase": "development",
+      "result": 30,
+      "source": 136102
+    },
+    {
+      "independent": true,
+      "index": 69,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        21201
+      ],
+      "phase": "development",
+      "result": 31,
+      "source": 86201
+    },
+    {
+      "independent": true,
+      "index": 70,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        114,
+        101,
+        118,
+        105,
+        101,
+        119,
+        115
+      ],
+      "phase": "development",
+      "result": 31,
+      "source": 106201
+    },
+    {
+      "independent": true,
+      "index": 71,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        21201
+      ],
+      "phase": "development",
+      "result": 32,
+      "source": 116201
+    },
+    {
+      "independent": true,
+      "index": 72,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        114,
+        101,
+        118,
+        105,
+        101,
+        119,
+        115
+      ],
+      "phase": "development",
+      "result": 32,
+      "source": 136201
+    },
+    {
+      "independent": true,
+      "index": 73,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        21202
+      ],
+      "phase": "development",
+      "result": 33,
+      "source": 86202
+    },
+    {
+      "independent": true,
+      "index": 74,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        109,
+        111,
+        110,
+        105,
+        116,
+        111,
+        114,
+        115
+      ],
+      "phase": "development",
+      "result": 33,
+      "source": 106202
+    },
+    {
+      "independent": true,
+      "index": 75,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        21202
+      ],
+      "phase": "development",
+      "result": 34,
+      "source": 116202
+    },
+    {
+      "independent": true,
+      "index": 76,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        109,
+        111,
+        110,
+        105,
+        116,
+        111,
+        114,
+        115
+      ],
+      "phase": "development",
+      "result": 34,
+      "source": 136202
+    },
+    {
+      "independent": true,
+      "index": 77,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        21301
+      ],
+      "phase": "development",
+      "result": 35,
+      "source": 86301
+    },
+    {
+      "independent": true,
+      "index": 78,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        108,
+        101,
+        100,
+        103,
+        101,
+        114
+      ],
+      "phase": "development",
+      "result": 35,
+      "source": 106301
+    },
+    {
+      "independent": true,
+      "index": 79,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        21301
+      ],
+      "phase": "development",
+      "result": 36,
+      "source": 116301
+    },
+    {
+      "independent": true,
+      "index": 80,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        108,
+        101,
+        100,
+        103,
+        101,
+        114
+      ],
+      "phase": "development",
+      "result": 36,
+      "source": 136301
+    },
+    {
+      "independent": true,
+      "index": 81,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        21302
+      ],
+      "phase": "development",
+      "result": 37,
+      "source": 86302
+    },
+    {
+      "independent": true,
+      "index": 82,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        109,
+        111,
+        100,
+        117,
+        108,
+        101
+      ],
+      "phase": "development",
+      "result": 37,
+      "source": 106302
+    },
+    {
+      "independent": true,
+      "index": 83,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        21302
+      ],
+      "phase": "development",
+      "result": 38,
+      "source": 116302
+    },
+    {
+      "independent": true,
+      "index": 84,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        109,
+        111,
+        100,
+        117,
+        108,
+        101
+      ],
+      "phase": "development",
+      "result": 38,
+      "source": 136302
+    },
+    {
+      "independent": true,
+      "index": 85,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21001,
+        21101,
+        21201,
+        21301
+      ],
+      "phase": "development",
+      "result": 39,
+      "source": 71001
+    },
+    {
+      "independent": true,
+      "index": 86,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        116,
+        104,
+        101,
+        32,
+        99,
+        97,
+        114,
+        101,
+        102,
+        117,
+        108,
+        32,
+        101,
+        110,
+        103,
+        105,
+        110,
+        101,
+        101,
+        114,
+        32,
+        114,
+        101,
+        118,
+        105,
+        101,
+        119,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        108,
+        101,
+        100,
+        103,
+        101,
+        114,
+        46
+      ],
+      "phase": "development",
+      "result": 39,
+      "source": 71101
+    },
+    {
+      "independent": true,
+      "index": 87,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21002,
+        21102,
+        21202,
+        21302
+      ],
+      "phase": "development",
+      "result": 40,
+      "source": 71002
+    },
+    {
+      "independent": true,
+      "index": 88,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        116,
+        104,
+        101,
+        32,
+        113,
+        117,
+        105,
+        101,
+        116,
+        32,
+        116,
+        101,
+        99,
+        104,
+        110,
+        105,
+        99,
+        105,
+        97,
+        110,
+        32,
+        109,
+        111,
+        110,
+        105,
+        116,
+        111,
+        114,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        109,
+        111,
+        100,
+        117,
+        108,
+        101,
+        46
+      ],
+      "phase": "development",
+      "result": 40,
+      "source": 71102
+    },
+    {
+      "independent": true,
+      "index": 89,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21001,
+        21101,
+        21201,
+        21301
+      ],
+      "phase": "development",
+      "result": 41,
+      "source": 72101
+    },
+    {
+      "independent": true,
+      "index": 90,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21002,
+        21102,
+        21202,
+        21302
+      ],
+      "phase": "development",
+      "result": 42,
+      "source": 72201
+    },
+    {
+      "independent": true,
+      "index": 91,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        41,
+        42,
+        53585
+      ],
+      "phase": "development",
+      "result": [
+        41,
+        42,
+        53585
+      ],
+      "source": 72001
+    },
+    {
+      "independent": true,
+      "index": 92,
+      "kind": 12,
+      "live": true,
+      "payload": [
+        116,
+        104,
+        101,
+        32,
+        99,
+        97,
+        114,
+        101,
+        102,
+        117,
+        108,
+        32,
+        101,
+        110,
+        103,
+        105,
+        110,
+        101,
+        101,
+        114,
+        32,
+        114,
+        101,
+        118,
+        105,
+        101,
+        119,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        108,
+        101,
+        100,
+        103,
+        101,
+        114,
+        46,
+        32,
+        116,
+        104,
+        101,
+        110,
+        32,
+        116,
+        104,
+        101,
+        32,
+        113,
+        117,
+        105,
+        101,
+        116,
+        32,
+        116,
+        101,
+        99,
+        104,
+        110,
+        105,
+        99,
+        105,
+        97,
+        110,
+        32,
+        109,
+        111,
+        110,
+        105,
+        116,
+        111,
+        114,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        109,
+        111,
+        100,
+        117,
+        108,
+        101,
+        46
+      ],
+      "phase": "development",
+      "result": 42,
+      "source": 72001
+    },
+    {
+      "independent": true,
+      "index": 93,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21002,
+        21102,
+        21202,
+        21302
+      ],
+      "phase": "development",
+      "result": 43,
+      "source": 72102
+    },
+    {
+      "independent": true,
+      "index": 94,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21001,
+        21101,
+        21201,
+        21301
+      ],
+      "phase": "development",
+      "result": 44,
+      "source": 72202
+    },
+    {
+      "independent": true,
+      "index": 95,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        43,
+        44,
+        53585
+      ],
+      "phase": "development",
+      "result": [
+        43,
+        44,
+        53585
+      ],
+      "source": 72002
+    },
+    {
+      "independent": true,
+      "index": 96,
+      "kind": 12,
+      "live": true,
+      "payload": [
+        116,
+        104,
+        101,
+        32,
+        113,
+        117,
+        105,
+        101,
+        116,
+        32,
+        116,
+        101,
+        99,
+        104,
+        110,
+        105,
+        99,
+        105,
+        97,
+        110,
+        32,
+        109,
+        111,
+        110,
+        105,
+        116,
+        111,
+        114,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        109,
+        111,
+        100,
+        117,
+        108,
+        101,
+        46,
+        32,
+        116,
+        104,
+        101,
+        110,
+        32,
+        116,
+        104,
+        101,
+        32,
+        99,
+        97,
+        114,
+        101,
+        102,
+        117,
+        108,
+        32,
+        101,
+        110,
+        103,
+        105,
+        110,
+        101,
+        101,
+        114,
+        32,
+        114,
+        101,
+        118,
+        105,
+        101,
+        119,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        108,
+        101,
+        100,
+        103,
+        101,
+        114,
+        46
+      ],
+      "phase": "development",
+      "result": 44,
+      "source": 72002
+    },
+    {
+      "independent": true,
+      "index": 97,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        7302
+      ],
+      "phase": "development",
+      "result": 45,
+      "source": 41001
+    },
+    {
+      "independent": true,
+      "index": 98,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        116,
+        101,
+        115,
+        116
+      ],
+      "phase": "development",
+      "result": 45,
+      "source": 41101
+    },
+    {
+      "independent": true,
+      "index": 99,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        7302
+      ],
+      "phase": "development",
+      "result": 46,
+      "source": 42001
+    },
+    {
+      "independent": true,
+      "index": 100,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        116,
+        101,
+        115,
+        116
+      ],
+      "phase": "development",
+      "result": 46,
+      "source": 42101
+    },
+    {
+      "independent": true,
+      "index": 101,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        8303
+      ],
+      "phase": "development",
+      "result": 47,
+      "source": 41002
+    },
+    {
+      "independent": true,
+      "index": 102,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        105,
+        110,
+        115,
+        112,
+        101,
+        99,
+        116
+      ],
+      "phase": "development",
+      "result": 47,
+      "source": 41102
+    },
+    {
+      "independent": true,
+      "index": 103,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        8303
+      ],
+      "phase": "development",
+      "result": 48,
+      "source": 42002
+    },
+    {
+      "independent": true,
+      "index": 104,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        105,
+        110,
+        115,
+        112,
+        101,
+        99,
+        116
+      ],
+      "phase": "development",
+      "result": 48,
+      "source": 42102
+    },
+    {
+      "independent": true,
+      "index": 105,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        6673,
+        2,
+        7302,
+        8303
+      ],
+      "phase": "development",
+      "result": 49,
+      "source": 42001
+    },
+    {
+      "independent": true,
+      "index": 106,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        116,
+        101,
+        115,
+        116,
+        32,
+        111,
+        114,
+        32,
+        105,
+        110,
+        115,
+        112,
+        101,
+        99,
+        116,
+        63
+      ],
+      "phase": "development",
+      "result": 49,
+      "source": 42101
+    },
+    {
+      "independent": true,
+      "index": 107,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        6673,
+        2,
+        7302,
+        8303
+      ],
+      "phase": "development",
+      "result": 50,
+      "source": 42002
+    },
+    {
+      "independent": true,
+      "index": 108,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        116,
+        101,
+        115,
+        116,
+        32,
+        111,
+        114,
+        32,
+        105,
+        110,
+        115,
+        112,
+        101,
+        99,
+        116,
+        63
+      ],
+      "phase": "development",
+      "result": 50,
+      "source": 42102
+    },
+    {
+      "independent": true,
+      "index": 109,
+      "kind": 9,
+      "live": true,
+      "payload": [
+        77
+      ],
+      "phase": "development",
+      "result": 77,
+      "source": 43001
+    },
+    {
+      "independent": true,
+      "index": 110,
+      "kind": 16,
+      "live": true,
+      "payload": [
+        7777,
+        3,
+        81,
+        82,
+        83
+      ],
+      "phase": "live_new_word",
+      "result": 7777,
+      "source": 30104
+    },
+    {
+      "independent": true,
+      "index": 111,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        7777
+      ],
+      "phase": "live_new_word",
+      "result": 51,
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 112,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        100,
+        97,
+        120
+      ],
+      "phase": "live_new_word",
+      "result": 51,
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 113,
+      "kind": 5,
+      "live": true,
+      "payload": [
+        9701
+      ],
+      "phase": "live_conflict",
+      "result": [
+        9701
+      ],
+      "source": 7701
+    },
+    {
+      "independent": true,
+      "index": 114,
+      "kind": 6,
+      "live": true,
+      "payload": [
+        7777
+      ],
+      "phase": "live_conflict",
+      "result": [
+        7777
+      ],
+      "source": 8701
+    },
+    {
+      "independent": true,
+      "index": 115,
+      "kind": 7,
+      "live": true,
+      "payload": [
+        7302,
+        8303
+      ],
+      "phase": "live_conflict",
+      "result": [
+        7302,
+        8303
+      ],
+      "source": 9701
+    },
+    {
+      "independent": true,
+      "index": 116,
+      "kind": 8,
+      "live": true,
+      "payload": [
+        1,
+        0,
+        1,
+        9701
+      ],
+      "phase": "live_conflict",
+      "result": {
+        "credit": 0,
+        "revisions": 0,
+        "source_credit": 0,
+        "source_revisions": 0,
+        "source_updates": 0
+      },
+      "source": 7701
+    },
+    {
+      "independent": true,
+      "index": 117,
+      "kind": 18,
+      "live": true,
+      "payload": [
+        122,
+        111,
+        101,
+        32,
+        105,
+        110,
+        115,
+        112,
+        101,
+        99,
+        116,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        100,
+        97,
+        120,
+        46
+      ],
+      "phase": "live_conflict",
+      "result": 532368517685268536,
+      "source": 51001
+    },
+    {
+      "independent": true,
+      "index": 118,
+      "kind": 18,
+      "live": true,
+      "payload": [
+        98,
+        111,
+        98,
+        32,
+        116,
+        101,
+        115,
+        116,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        100,
+        97,
+        120,
+        46
+      ],
+      "phase": "live_conflict",
+      "result": 425207531185694087,
+      "source": 51002
+    },
+    {
+      "independent": true,
+      "index": 119,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        2,
+        0
+      ],
+      "phase": "live_answer_and_consequence",
+      "result": {
+        "credit": 0,
+        "revisions": 0,
+        "selection_credit": 0,
+        "selection_revisions": 0
+      },
+      "source": 7701
+    },
+    {
+      "independent": true,
+      "index": 120,
+      "kind": 18,
+      "live": true,
+      "payload": [
+        122,
+        111,
+        101,
+        32,
+        105,
+        110,
+        115,
+        112,
+        101,
+        99,
+        116,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        100,
+        97,
+        120,
+        46
+      ],
+      "phase": "live_answer_and_consequence",
+      "result": 1018016102852245784,
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 121,
+      "kind": 8,
+      "live": true,
+      "payload": [
+        3,
+        1,
+        2,
+        9701,
+        7777
+      ],
+      "phase": "live_answer_and_consequence",
+      "result": {
+        "credit": 80,
+        "lexeme_settlement": [
+          100,
+          97,
+          120
+        ],
+        "revisions": 160,
+        "somatic_updates": 1,
+        "source_credit": 144,
+        "source_revisions": 288,
+        "source_updates": 2,
+        "world_updates": 1
+      },
+      "source": 7701
+    },
+    {
+      "independent": true,
+      "index": 122,
+      "kind": 10,
+      "live": true,
+      "payload": [
+        1,
+        7,
+        51003
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        1,
+        7,
+        51003
+      ],
+      "source": 60001
+    },
+    {
+      "independent": true,
+      "index": 123,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21001,
+        21101,
+        21201,
+        21301
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 53,
+      "source": 61000
+    },
+    {
+      "independent": true,
+      "index": 124,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        4,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 232,
+        "selection_network_updates": 1,
+        "selection_revisions": 464,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 125,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21002,
+        21101,
+        21202,
+        21302
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 54,
+      "source": 61001
+    },
+    {
+      "independent": true,
+      "index": 126,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        53,
+        54,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        53,
+        54,
+        53585
+      ],
+      "source": 71001
+    },
+    {
+      "independent": true,
+      "index": 127,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        5,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 128,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21001,
+        21102,
+        21202,
+        21301
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 55,
+      "source": 61002
+    },
+    {
+      "independent": true,
+      "index": 129,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        54,
+        55,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        54,
+        55,
+        53585
+      ],
+      "source": 71002
+    },
+    {
+      "independent": true,
+      "index": 130,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        6,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 131,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21002,
+        21102,
+        21201,
+        21302
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 56,
+      "source": 61003
+    },
+    {
+      "independent": true,
+      "index": 132,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        55,
+        56,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        55,
+        56,
+        53585
+      ],
+      "source": 71003
+    },
+    {
+      "independent": true,
+      "index": 133,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        7,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 134,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21001,
+        21101,
+        21202,
+        21302
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 57,
+      "source": 61004
+    },
+    {
+      "independent": true,
+      "index": 135,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        56,
+        57,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        56,
+        57,
+        53585
+      ],
+      "source": 71004
+    },
+    {
+      "independent": true,
+      "index": 136,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        8,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 137,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21002,
+        21102,
+        21202,
+        21301
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 58,
+      "source": 61005
+    },
+    {
+      "independent": true,
+      "index": 138,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        57,
+        58,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        57,
+        58,
+        53585
+      ],
+      "source": 71005
+    },
+    {
+      "independent": true,
+      "index": 139,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        9,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 140,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21001,
+        21102,
+        21201,
+        21302
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 59,
+      "source": 61006
+    },
+    {
+      "independent": true,
+      "index": 141,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        58,
+        59,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        58,
+        59,
+        53585
+      ],
+      "source": 71006
+    },
+    {
+      "independent": true,
+      "index": 142,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        10,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 143,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21002,
+        21101,
+        21201,
+        21301
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 60,
+      "source": 61007
+    },
+    {
+      "independent": true,
+      "index": 144,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        59,
+        60,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        59,
+        60,
+        53585
+      ],
+      "source": 71007
+    },
+    {
+      "independent": true,
+      "index": 145,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        11,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 146,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21001,
+        21101,
+        21201,
+        21301
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 61,
+      "source": 61008
+    },
+    {
+      "independent": true,
+      "index": 147,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        60,
+        61,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        60,
+        61,
+        53585
+      ],
+      "source": 71008
+    },
+    {
+      "independent": true,
+      "index": 148,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        12,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 149,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21002,
+        21101,
+        21202,
+        21302
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 62,
+      "source": 61009
+    },
+    {
+      "independent": true,
+      "index": 150,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        61,
+        62,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        61,
+        62,
+        53585
+      ],
+      "source": 71009
+    },
+    {
+      "independent": true,
+      "index": 151,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        13,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 152,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21001,
+        21102,
+        21202,
+        21301
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 63,
+      "source": 61010
+    },
+    {
+      "independent": true,
+      "index": 153,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        62,
+        63,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        62,
+        63,
+        53585
+      ],
+      "source": 71010
+    },
+    {
+      "independent": true,
+      "index": 154,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        14,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 155,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21002,
+        21102,
+        21201,
+        21302
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 64,
+      "source": 61011
+    },
+    {
+      "independent": true,
+      "index": 156,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        63,
+        64,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        63,
+        64,
+        53585
+      ],
+      "source": 71011
+    },
+    {
+      "independent": true,
+      "index": 157,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        15,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 158,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21001,
+        21101,
+        21202,
+        21302
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 65,
+      "source": 61012
+    },
+    {
+      "independent": true,
+      "index": 159,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        64,
+        65,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        64,
+        65,
+        53585
+      ],
+      "source": 71012
+    },
+    {
+      "independent": true,
+      "index": 160,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        16,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 161,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21002,
+        21102,
+        21202,
+        21301
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 66,
+      "source": 61013
+    },
+    {
+      "independent": true,
+      "index": 162,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        65,
+        66,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        65,
+        66,
+        53585
+      ],
+      "source": 71013
+    },
+    {
+      "independent": true,
+      "index": 163,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        17,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 164,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21001,
+        21102,
+        21201,
+        21302
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 67,
+      "source": 61014
+    },
+    {
+      "independent": true,
+      "index": 165,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        66,
+        67,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        66,
+        67,
+        53585
+      ],
+      "source": 71014
+    },
+    {
+      "independent": true,
+      "index": 166,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        18,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 167,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21002,
+        21101,
+        21201,
+        21301
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 68,
+      "source": 61015
+    },
+    {
+      "independent": true,
+      "index": 168,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        67,
+        68,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        67,
+        68,
+        53585
+      ],
+      "source": 71015
+    },
+    {
+      "independent": true,
+      "index": 169,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        19,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 170,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21001,
+        21101,
+        21201,
+        21301
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 69,
+      "source": 61016
+    },
+    {
+      "independent": true,
+      "index": 171,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        68,
+        69,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        68,
+        69,
+        53585
+      ],
+      "source": 71016
+    },
+    {
+      "independent": true,
+      "index": 172,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        20,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 173,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21002,
+        21101,
+        21202,
+        21302
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 70,
+      "source": 61017
+    },
+    {
+      "independent": true,
+      "index": 174,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        69,
+        70,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        69,
+        70,
+        53585
+      ],
+      "source": 71017
+    },
+    {
+      "independent": true,
+      "index": 175,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        21,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 176,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21001,
+        21102,
+        21202,
+        21301
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 71,
+      "source": 61018
+    },
+    {
+      "independent": true,
+      "index": 177,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        70,
+        71,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        70,
+        71,
+        53585
+      ],
+      "source": 71018
+    },
+    {
+      "independent": true,
+      "index": 178,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        22,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 179,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21002,
+        21102,
+        21201,
+        21302
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 72,
+      "source": 61019
+    },
+    {
+      "independent": true,
+      "index": 180,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        71,
+        72,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        71,
+        72,
+        53585
+      ],
+      "source": 71019
+    },
+    {
+      "independent": true,
+      "index": 181,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        23,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 182,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21001,
+        21101,
+        21202,
+        21302
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 73,
+      "source": 61020
+    },
+    {
+      "independent": true,
+      "index": 183,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        72,
+        73,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        72,
+        73,
+        53585
+      ],
+      "source": 71020
+    },
+    {
+      "independent": true,
+      "index": 184,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        24,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 185,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21002,
+        21102,
+        21202,
+        21301
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 74,
+      "source": 61021
+    },
+    {
+      "independent": true,
+      "index": 186,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        73,
+        74,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        73,
+        74,
+        53585
+      ],
+      "source": 71021
+    },
+    {
+      "independent": true,
+      "index": 187,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        25,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 384,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 188,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21001,
+        21102,
+        21201,
+        21302
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 75,
+      "source": 61022
+    },
+    {
+      "independent": true,
+      "index": 189,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        74,
+        75,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        74,
+        75,
+        53585
+      ],
+      "source": 71022
+    },
+    {
+      "independent": true,
+      "index": 190,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        26,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 352,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 191,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21002,
+        21101,
+        21201,
+        21301
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 76,
+      "source": 61023
+    },
+    {
+      "independent": true,
+      "index": 192,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        75,
+        76,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        75,
+        76,
+        53585
+      ],
+      "source": 71023
+    },
+    {
+      "independent": true,
+      "index": 193,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        27,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 352,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 194,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        8801,
+        3,
+        601,
+        303,
+        7777
+      ],
+      "phase": "live_delayed_word_reuse",
+      "result": 77,
+      "source": 88001
+    },
+    {
+      "independent": true,
+      "index": 195,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        28,
+        1
+      ],
+      "phase": "live_delayed_word_reuse",
+      "result": {
+        "credit": 104,
+        "revisions": 208,
+        "selection_credit": 183,
+        "selection_network_updates": 1,
+        "selection_revisions": 302,
+        "somatic_updates": 3
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 196,
+      "kind": 5,
+      "live": true,
+      "payload": [
+        9801
+      ],
+      "phase": "live_delayed_source_use",
+      "result": [
+        9801
+      ],
+      "source": 7801
+    },
+    {
+      "independent": true,
+      "index": 197,
+      "kind": 6,
+      "live": true,
+      "payload": [
+        7777
+      ],
+      "phase": "live_delayed_source_use",
+      "result": [
+        7777
+      ],
+      "source": 8801
+    },
+    {
+      "independent": true,
+      "index": 198,
+      "kind": 7,
+      "live": true,
+      "payload": [
+        7302,
+        8303
+      ],
+      "phase": "live_delayed_source_use",
+      "result": [
+        7302,
+        8303
+      ],
+      "source": 9801
+    },
+    {
+      "independent": true,
+      "index": 199,
+      "kind": 8,
+      "live": true,
+      "payload": [
+        29,
+        0,
+        1,
+        9801
+      ],
+      "phase": "live_delayed_source_use",
+      "result": {
+        "credit": 0,
+        "revisions": 0,
+        "source_credit": 0,
+        "source_revisions": 0,
+        "source_updates": 0
+      },
+      "source": 7801
+    },
+    {
+      "independent": true,
+      "index": 200,
+      "kind": 18,
+      "live": true,
+      "payload": [
+        122,
+        111,
+        101,
+        32,
+        105,
+        110,
+        115,
+        112,
+        101,
+        99,
+        116,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        115,
+        101,
+        110,
+        115,
+        111,
+        114,
+        46
+      ],
+      "phase": "live_delayed_source_use",
+      "result": 1104629035320417663,
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 201,
+      "kind": 18,
+      "live": true,
+      "payload": [
+        98,
+        111,
+        98,
+        32,
+        116,
+        101,
+        115,
+        116,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        118,
+        97,
+        108,
+        118,
+        101,
+        46
+      ],
+      "phase": "live_delayed_source_use",
+      "result": 977933703418452896,
+      "source": 51004
+    },
+    {
+      "independent": true,
+      "index": 202,
+      "kind": 8,
+      "live": true,
+      "payload": [
+        30,
+        -1,
+        1,
+        9801
+      ],
+      "phase": "live_delayed_source_use",
+      "result": {
+        "credit": 16,
+        "revisions": 32,
+        "source_credit": 136,
+        "source_revisions": 272,
+        "source_updates": 2
+      },
+      "source": 7801
+    },
+    {
+      "independent": true,
+      "index": 203,
+      "kind": 5,
+      "live": true,
+      "payload": [
+        9901
+      ],
+      "phase": "live_revision_question",
+      "result": [
+        9901
+      ],
+      "source": 7901
+    },
+    {
+      "independent": true,
+      "index": 204,
+      "kind": 6,
+      "live": true,
+      "payload": [
+        7777
+      ],
+      "phase": "live_revision_question",
+      "result": [
+        7777
+      ],
+      "source": 8901
+    },
+    {
+      "independent": true,
+      "index": 205,
+      "kind": 7,
+      "live": true,
+      "payload": [
+        7302,
+        8303
+      ],
+      "phase": "live_revision_question",
+      "result": [
+        7302,
+        8303
+      ],
+      "source": 9901
+    },
+    {
+      "independent": true,
+      "index": 206,
+      "kind": 8,
+      "live": true,
+      "payload": [
+        31,
+        0,
+        1,
+        9901
+      ],
+      "phase": "live_revision_question",
+      "result": {
+        "credit": 0,
+        "revisions": 0,
+        "source_credit": 0,
+        "source_revisions": 0,
+        "source_updates": 0
+      },
+      "source": 7901
+    },
+    {
+      "independent": true,
+      "index": 207,
+      "kind": 18,
+      "live": true,
+      "payload": [
+        122,
+        111,
+        101,
+        32,
+        105,
+        110,
+        115,
+        112,
+        101,
+        99,
+        116,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        115,
+        101,
+        110,
+        115,
+        111,
+        114,
+        46
+      ],
+      "phase": "live_revision_question",
+      "result": 510201196247259481,
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 208,
+      "kind": 18,
+      "live": true,
+      "payload": [
+        98,
+        111,
+        98,
+        32,
+        116,
+        101,
+        115,
+        116,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        118,
+        97,
+        108,
+        118,
+        101,
+        46
+      ],
+      "phase": "live_revision_question",
+      "result": 270091507129584291,
+      "source": 51004
+    },
+    {
+      "independent": true,
+      "index": 209,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        32,
+        0
+      ],
+      "phase": "live_revision_question",
+      "result": {
+        "credit": 0,
+        "revisions": 0,
+        "selection_credit": 0,
+        "selection_revisions": 0
+      },
+      "source": 7901
+    },
+    {
+      "independent": true,
+      "index": 210,
+      "kind": 18,
+      "live": true,
+      "payload": [
+        98,
+        111,
+        98,
+        32,
+        116,
+        101,
+        115,
+        116,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        118,
+        97,
+        108,
+        118,
+        101,
+        46
+      ],
+      "phase": "live_revision_question",
+      "result": 126801523295963060,
+      "source": 51005
+    },
+    {
+      "independent": true,
+      "index": 211,
+      "kind": 8,
+      "live": true,
+      "payload": [
+        33,
+        1,
+        2,
+        9901,
+        7777
+      ],
+      "phase": "live_revision_question",
+      "result": {
+        "credit": 80,
+        "revisions": 160,
+        "somatic_updates": 1,
+        "source_credit": 0,
+        "source_revisions": 0,
+        "source_updates": 0,
+        "world_updates": 1
+      },
+      "source": 7901
+    }
+  ],
+  "development_calls": [
+    "reference_language_guided_cognition_verify.train_language",
+    "authored generic distractor discourse surface topology",
+    "authored generic inquiry surface topology",
+    "authored generic binary discourse span topology"
+  ],
+  "final_checkpoint_bytes": 2324583,
+  "final_checkpoint_sha256": "dc8bdacb796093dc71bd3f9f3bae7d5e7358537951e7b549537b8c73ab1c350a",
+  "final_digest": "aa62da78d004642c905e1984b67d677d3f79d174c561a6d0a6b723ab6ecccdc1",
+  "host_expected_output": false,
+  "hot_actions": 27,
+  "hot_motor_actions": 6,
+  "last_touch_counts": {
+    "language_recipe": 1,
+    "prospective": 0,
+    "selection": 1,
+    "source": 6
+  },
+  "new_word_outcome": [
+    1,
+    0
+  ],
+  "pass": true,
+  "persistent_population_occurrences": 454,
+  "public_actions": [
+    {
+      "binding_identity": 0,
+      "channel": 77,
+      "contributors": [
+        52,
+        82,
+        228792530020784725,
+        83,
+        84,
+        85,
+        254638236052997312,
+        73
+      ],
+      "kind": "ActionV2",
+      "label": "source_conflict_question",
+      "lexical_identities": [
+        36302925277063369,
+        740340460762658974
+      ],
+      "payload_hex": "74657374206f7220696e73706563743f",
+      "payload_utf8": "test or inspect?",
+      "scene_identity": 52,
+      "source": 7701,
+      "span_identity": 0,
+      "template_identity": 228792530020784725,
+      "ticket": 2
+    },
+    {
+      "action_id": 8303,
+      "kind": "MotorActionV2",
+      "label": "answer_resolved_motor",
+      "prospective_recipe": 0,
+      "source": 7701,
+      "source_assertion_ids": [
+        532368517685268536,
+        1018016102852245784
+      ],
+      "source_counterfactual_action": 7302,
+      "ticket": 3
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        53,
+        95,
+        94,
+        96,
+        747820877915741671,
+        7025288712314829640,
+        868235530182488088,
+        611955243808748307,
+        302720537480860882,
+        867835109297202485,
+        97,
+        98,
+        99,
+        100,
+        101,
+        36209716535807381
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_00",
+      "lexical_identities": [
+        868235530182488088,
+        611955243808748307,
+        302720537480860882,
+        867835109297202485
+      ],
+      "payload_hex": "746865206361726566756c20656e67696e656572207265766965777320746865206c65646765722e",
+      "payload_utf8": "the careful engineer reviews the ledger.",
+      "scene_identity": 53,
+      "source": 51003,
+      "span_identity": 0,
+      "template_identity": 747820877915741671,
+      "ticket": 4
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        54,
+        102,
+        104,
+        94,
+        105,
+        747820877915741671,
+        1240318765189767565,
+        915149611207580567,
+        611955243808748307,
+        954498469268678286,
+        616105554992756595,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        998857778639265590,
+        91690141181851573,
+        1578995025377197195,
+        7025288712314829640
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_01",
+      "lexical_identities": [
+        915149611207580567,
+        611955243808748307,
+        954498469268678286,
+        616105554992756595
+      ],
+      "payload_hex": "207468656e2074686520717569657420656e67696e656572206d6f6e69746f727320746865206d6f64756c652e",
+      "payload_utf8": " then the quiet engineer monitors the module.",
+      "scene_identity": 54,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 5
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        55,
+        112,
+        114,
+        115,
+        116,
+        104,
+        94,
+        117,
+        747820877915741671,
+        4298542770926463039,
+        868235530182488088,
+        105154003178850298,
+        954498469268678286,
+        867835109297202485,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        159667033994082956,
+        91690141181851573,
+        7827234949506703484,
+        1240318765189767565
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_02",
+      "lexical_identities": [
+        868235530182488088,
+        105154003178850298,
+        954498469268678286,
+        867835109297202485
+      ],
+      "payload_hex": "207468656e20746865206361726566756c20746563686e696369616e206d6f6e69746f727320746865206c65646765722e",
+      "payload_utf8": " then the careful technician monitors the ledger.",
+      "scene_identity": 55,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 6
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        56,
+        124,
+        126,
+        127,
+        128,
+        129,
+        114,
+        115,
+        116,
+        94,
+        130,
+        747820877915741671,
+        5324562684605547846,
+        915149611207580567,
+        105154003178850298,
+        302720537480860882,
+        616105554992756595,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        857942022470017065,
+        91690141181851573,
+        11251023163247263142,
+        4298542770926463039
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_03",
+      "lexical_identities": [
+        915149611207580567,
+        105154003178850298,
+        302720537480860882,
+        616105554992756595
+      ],
+      "payload_hex": "207468656e2074686520717569657420746563686e696369616e207265766965777320746865206d6f64756c652e",
+      "payload_utf8": " then the quiet technician reviews the module.",
+      "scene_identity": 56,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 7
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        57,
+        137,
+        114,
+        139,
+        104,
+        140,
+        115,
+        141,
+        129,
+        142,
+        126,
+        127,
+        128,
+        94,
+        143,
+        747820877915741671,
+        3124599498077164153,
+        868235530182488088,
+        611955243808748307,
+        954498469268678286,
+        616105554992756595,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        985318825520495397,
+        91690141181851573,
+        3680718501916260120,
+        5324562684605547846
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_04",
+      "lexical_identities": [
+        868235530182488088,
+        611955243808748307,
+        954498469268678286,
+        616105554992756595
+      ],
+      "payload_hex": "207468656e20746865206361726566756c20656e67696e656572206d6f6e69746f727320746865206d6f64756c652e",
+      "payload_utf8": " then the careful engineer monitors the module.",
+      "scene_identity": 57,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 8
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        58,
+        150,
+        126,
+        152,
+        127,
+        153,
+        115,
+        141,
+        154,
+        116,
+        155,
+        114,
+        139,
+        104,
+        140,
+        129,
+        142,
+        94,
+        156,
+        747820877915741671,
+        7678617564528375782,
+        915149611207580567,
+        105154003178850298,
+        954498469268678286,
+        867835109297202485,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        760852861089138865,
+        91690141181851573,
+        764838081739224142,
+        3124599498077164153
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_05",
+      "lexical_identities": [
+        915149611207580567,
+        105154003178850298,
+        954498469268678286,
+        867835109297202485
+      ],
+      "payload_hex": "207468656e2074686520717569657420746563686e696369616e206d6f6e69746f727320746865206c65646765722e",
+      "payload_utf8": " then the quiet technician monitors the ledger.",
+      "scene_identity": 58,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 9
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        59,
+        163,
+        114,
+        139,
+        165,
+        127,
+        153,
+        166,
+        128,
+        167,
+        129,
+        142,
+        168,
+        126,
+        152,
+        115,
+        141,
+        154,
+        116,
+        155,
+        94,
+        169,
+        747820877915741671,
+        8119531547160398445,
+        868235530182488088,
+        105154003178850298,
+        302720537480860882,
+        616105554992756595,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        67712832199664048,
+        91690141181851573,
+        14010936432884583522,
+        7678617564528375782
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_06",
+      "lexical_identities": [
+        868235530182488088,
+        105154003178850298,
+        302720537480860882,
+        616105554992756595
+      ],
+      "payload_hex": "207468656e20746865206361726566756c20746563686e696369616e207265766965777320746865206d6f64756c652e",
+      "payload_utf8": " then the careful technician reviews the module.",
+      "scene_identity": 59,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 10
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        60,
+        176,
+        126,
+        152,
+        178,
+        104,
+        140,
+        179,
+        128,
+        167,
+        180,
+        116,
+        155,
+        181,
+        114,
+        139,
+        165,
+        127,
+        153,
+        166,
+        129,
+        142,
+        168,
+        94,
+        182,
+        747820877915741671,
+        7831190008344551291,
+        915149611207580567,
+        611955243808748307,
+        302720537480860882,
+        867835109297202485,
+        183,
+        184,
+        185,
+        186,
+        187,
+        188,
+        455698708134467389,
+        91690141181851573,
+        1583917476568194396,
+        8119531547160398445
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_07",
+      "lexical_identities": [
+        915149611207580567,
+        611955243808748307,
+        302720537480860882,
+        867835109297202485
+      ],
+      "payload_hex": "207468656e2074686520717569657420656e67696e656572207265766965777320746865206c65646765722e",
+      "payload_utf8": " then the quiet engineer reviews the ledger.",
+      "scene_identity": 60,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 11
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        61,
+        189,
+        139,
+        165,
+        191,
+        140,
+        179,
+        192,
+        167,
+        180,
+        193,
+        155,
+        181,
+        194,
+        126,
+        152,
+        178,
+        104,
+        128,
+        116,
+        94,
+        195,
+        747820877915741671,
+        8370042395678182245,
+        868235530182488088,
+        611955243808748307,
+        302720537480860882,
+        867835109297202485,
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        388137645717151859,
+        91690141181851573,
+        14931274725946660708,
+        7831190008344551291
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_08",
+      "lexical_identities": [
+        868235530182488088,
+        611955243808748307,
+        302720537480860882,
+        867835109297202485
+      ],
+      "payload_hex": "207468656e20746865206361726566756c20656e67696e656572207265766965777320746865206c65646765722e",
+      "payload_utf8": " then the careful engineer reviews the ledger.",
+      "scene_identity": 61,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 12
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        62,
+        202,
+        152,
+        178,
+        204,
+        205,
+        179,
+        192,
+        141,
+        154,
+        206,
+        142,
+        168,
+        207,
+        139,
+        165,
+        191,
+        140,
+        167,
+        180,
+        193,
+        155,
+        181,
+        194,
+        94,
+        208,
+        747820877915741671,
+        13767136320116807350,
+        915149611207580567,
+        611955243808748307,
+        954498469268678286,
+        616105554992756595,
+        209,
+        210,
+        211,
+        212,
+        213,
+        214,
+        224544337067305512,
+        91690141181851573,
+        17878029727301224666,
+        8370042395678182245
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_09",
+      "lexical_identities": [
+        915149611207580567,
+        611955243808748307,
+        954498469268678286,
+        616105554992756595
+      ],
+      "payload_hex": "207468656e2074686520717569657420656e67696e656572206d6f6e69746f727320746865206d6f64756c652e",
+      "payload_utf8": " then the quiet engineer monitors the module.",
+      "scene_identity": 62,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 13
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        63,
+        215,
+        217,
+        165,
+        191,
+        153,
+        166,
+        218,
+        219,
+        154,
+        206,
+        220,
+        181,
+        194,
+        152,
+        178,
+        204,
+        205,
+        179,
+        192,
+        141,
+        142,
+        168,
+        207,
+        94,
+        221,
+        747820877915741671,
+        13548478429698107659,
+        868235530182488088,
+        105154003178850298,
+        954498469268678286,
+        867835109297202485,
+        222,
+        223,
+        224,
+        225,
+        226,
+        227,
+        956589912727338999,
+        91690141181851573,
+        10664993595277326751,
+        13767136320116807350
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_10",
+      "lexical_identities": [
+        868235530182488088,
+        105154003178850298,
+        954498469268678286,
+        867835109297202485
+      ],
+      "payload_hex": "207468656e20746865206361726566756c20746563686e696369616e206d6f6e69746f727320746865206c65646765722e",
+      "payload_utf8": " then the careful technician monitors the ledger.",
+      "scene_identity": 63,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 14
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        64,
+        228,
+        230,
+        178,
+        204,
+        231,
+        166,
+        218,
+        232,
+        180,
+        193,
+        233,
+        168,
+        207,
+        217,
+        165,
+        191,
+        153,
+        219,
+        154,
+        206,
+        220,
+        181,
+        194,
+        94,
+        234,
+        747820877915741671,
+        15364517047507215877,
+        915149611207580567,
+        105154003178850298,
+        302720537480860882,
+        616105554992756595,
+        235,
+        236,
+        237,
+        238,
+        239,
+        240,
+        480248699524046585,
+        91690141181851573,
+        1528777486186722975,
+        13548478429698107659
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_11",
+      "lexical_identities": [
+        915149611207580567,
+        105154003178850298,
+        302720537480860882,
+        616105554992756595
+      ],
+      "payload_hex": "207468656e2074686520717569657420746563686e696369616e207265766965777320746865206d6f64756c652e",
+      "payload_utf8": " then the quiet technician reviews the module.",
+      "scene_identity": 64,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 15
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        65,
+        241,
+        217,
+        243,
+        191,
+        205,
+        244,
+        192,
+        219,
+        245,
+        206,
+        233,
+        246,
+        207,
+        230,
+        178,
+        204,
+        231,
+        166,
+        218,
+        232,
+        180,
+        193,
+        168,
+        94,
+        247,
+        747820877915741671,
+        8208867342051701472,
+        868235530182488088,
+        611955243808748307,
+        954498469268678286,
+        616105554992756595,
+        248,
+        249,
+        250,
+        251,
+        252,
+        253,
+        306991041855326432,
+        91690141181851573,
+        10622535724175252812,
+        15364517047507215877
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_12",
+      "lexical_identities": [
+        868235530182488088,
+        611955243808748307,
+        954498469268678286,
+        616105554992756595
+      ],
+      "payload_hex": "207468656e20746865206361726566756c20656e67696e656572206d6f6e69746f727320746865206d6f64756c652e",
+      "payload_utf8": " then the careful engineer monitors the module.",
+      "scene_identity": 65,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 16
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        66,
+        254,
+        230,
+        256,
+        204,
+        231,
+        257,
+        218,
+        219,
+        245,
+        258,
+        220,
+        259,
+        194,
+        217,
+        243,
+        191,
+        205,
+        244,
+        192,
+        206,
+        233,
+        246,
+        207,
+        94,
+        260,
+        747820877915741671,
+        12094765821561469060,
+        915149611207580567,
+        105154003178850298,
+        954498469268678286,
+        867835109297202485,
+        261,
+        262,
+        263,
+        264,
+        265,
+        266,
+        802021804709067924,
+        91690141181851573,
+        15710566923546934866,
+        8208867342051701472
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_13",
+      "lexical_identities": [
+        915149611207580567,
+        105154003178850298,
+        954498469268678286,
+        867835109297202485
+      ],
+      "payload_hex": "207468656e2074686520717569657420746563686e696369616e206d6f6e69746f727320746865206c65646765722e",
+      "payload_utf8": " then the quiet technician monitors the ledger.",
+      "scene_identity": 66,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 17
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        67,
+        267,
+        217,
+        243,
+        269,
+        231,
+        257,
+        270,
+        232,
+        271,
+        193,
+        233,
+        246,
+        272,
+        230,
+        256,
+        204,
+        218,
+        219,
+        245,
+        258,
+        220,
+        259,
+        194,
+        94,
+        273,
+        747820877915741671,
+        11222517281997404263,
+        868235530182488088,
+        105154003178850298,
+        302720537480860882,
+        616105554992756595,
+        274,
+        275,
+        276,
+        277,
+        278,
+        279,
+        283351317083680975,
+        91690141181851573,
+        4304465575036990615,
+        12094765821561469060
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_14",
+      "lexical_identities": [
+        868235530182488088,
+        105154003178850298,
+        302720537480860882,
+        616105554992756595
+      ],
+      "payload_hex": "207468656e20746865206361726566756c20746563686e696369616e207265766965777320746865206d6f64756c652e",
+      "payload_utf8": " then the careful technician reviews the module.",
+      "scene_identity": 67,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 18
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        68,
+        280,
+        230,
+        256,
+        282,
+        205,
+        244,
+        283,
+        232,
+        271,
+        284,
+        220,
+        259,
+        285,
+        217,
+        243,
+        269,
+        231,
+        257,
+        270,
+        193,
+        233,
+        246,
+        272,
+        94,
+        286,
+        747820877915741671,
+        11923945251556593537,
+        915149611207580567,
+        611955243808748307,
+        302720537480860882,
+        867835109297202485,
+        287,
+        288,
+        289,
+        290,
+        291,
+        292,
+        717263041581434996,
+        91690141181851573,
+        1638387851057524673,
+        11222517281997404263
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_15",
+      "lexical_identities": [
+        915149611207580567,
+        611955243808748307,
+        302720537480860882,
+        867835109297202485
+      ],
+      "payload_hex": "207468656e2074686520717569657420656e67696e656572207265766965777320746865206c65646765722e",
+      "payload_utf8": " then the quiet engineer reviews the ledger.",
+      "scene_identity": 68,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 19
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        69,
+        293,
+        243,
+        269,
+        295,
+        244,
+        283,
+        296,
+        271,
+        284,
+        297,
+        259,
+        285,
+        298,
+        230,
+        256,
+        282,
+        205,
+        232,
+        220,
+        94,
+        299,
+        747820877915741671,
+        15252427685194544095,
+        868235530182488088,
+        611955243808748307,
+        302720537480860882,
+        867835109297202485,
+        300,
+        301,
+        302,
+        303,
+        304,
+        305,
+        1150892945554677893,
+        91690141181851573,
+        10118199206002552626,
+        11923945251556593537
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_16",
+      "lexical_identities": [
+        868235530182488088,
+        611955243808748307,
+        302720537480860882,
+        867835109297202485
+      ],
+      "payload_hex": "207468656e20746865206361726566756c20656e67696e656572207265766965777320746865206c65646765722e",
+      "payload_utf8": " then the careful engineer reviews the ledger.",
+      "scene_identity": 69,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 20
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        70,
+        306,
+        256,
+        282,
+        308,
+        309,
+        283,
+        296,
+        245,
+        258,
+        310,
+        246,
+        272,
+        311,
+        243,
+        269,
+        295,
+        244,
+        271,
+        284,
+        297,
+        259,
+        285,
+        298,
+        94,
+        312,
+        747820877915741671,
+        12488849279770015105,
+        915149611207580567,
+        611955243808748307,
+        954498469268678286,
+        616105554992756595,
+        313,
+        314,
+        315,
+        316,
+        317,
+        318,
+        260398458737092112,
+        91690141181851573,
+        5960531835753546335,
+        15252427685194544095
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_17",
+      "lexical_identities": [
+        915149611207580567,
+        611955243808748307,
+        954498469268678286,
+        616105554992756595
+      ],
+      "payload_hex": "207468656e2074686520717569657420656e67696e656572206d6f6e69746f727320746865206d6f64756c652e",
+      "payload_utf8": " then the quiet engineer monitors the module.",
+      "scene_identity": 70,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 21
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        71,
+        319,
+        321,
+        269,
+        295,
+        257,
+        270,
+        322,
+        323,
+        258,
+        310,
+        324,
+        285,
+        298,
+        256,
+        282,
+        308,
+        309,
+        283,
+        296,
+        245,
+        246,
+        272,
+        311,
+        94,
+        325,
+        747820877915741671,
+        9653056884634452861,
+        868235530182488088,
+        105154003178850298,
+        954498469268678286,
+        867835109297202485,
+        326,
+        327,
+        328,
+        329,
+        330,
+        331,
+        292218665867702496,
+        91690141181851573,
+        2038096353102809634,
+        12488849279770015105
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_18",
+      "lexical_identities": [
+        868235530182488088,
+        105154003178850298,
+        954498469268678286,
+        867835109297202485
+      ],
+      "payload_hex": "207468656e20746865206361726566756c20746563686e696369616e206d6f6e69746f727320746865206c65646765722e",
+      "payload_utf8": " then the careful technician monitors the ledger.",
+      "scene_identity": 71,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 22
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        72,
+        332,
+        334,
+        282,
+        308,
+        335,
+        270,
+        322,
+        336,
+        284,
+        297,
+        337,
+        272,
+        311,
+        321,
+        269,
+        295,
+        257,
+        323,
+        258,
+        310,
+        324,
+        285,
+        298,
+        94,
+        338,
+        747820877915741671,
+        15567904991248914000,
+        915149611207580567,
+        105154003178850298,
+        302720537480860882,
+        616105554992756595,
+        339,
+        340,
+        341,
+        342,
+        343,
+        344,
+        109236559653573566,
+        91690141181851573,
+        1054900256853030339,
+        9653056884634452861
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_19",
+      "lexical_identities": [
+        915149611207580567,
+        105154003178850298,
+        302720537480860882,
+        616105554992756595
+      ],
+      "payload_hex": "207468656e2074686520717569657420746563686e696369616e207265766965777320746865206d6f64756c652e",
+      "payload_utf8": " then the quiet technician reviews the module.",
+      "scene_identity": 72,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 23
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        73,
+        345,
+        321,
+        347,
+        295,
+        309,
+        348,
+        296,
+        323,
+        349,
+        310,
+        337,
+        350,
+        311,
+        334,
+        282,
+        308,
+        335,
+        270,
+        322,
+        336,
+        284,
+        297,
+        272,
+        94,
+        351,
+        747820877915741671,
+        14103159413025933723,
+        868235530182488088,
+        611955243808748307,
+        954498469268678286,
+        616105554992756595,
+        352,
+        353,
+        354,
+        355,
+        356,
+        357,
+        607009286794511600,
+        91690141181851573,
+        13120402182127253574,
+        15567904991248914000
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_20",
+      "lexical_identities": [
+        868235530182488088,
+        611955243808748307,
+        954498469268678286,
+        616105554992756595
+      ],
+      "payload_hex": "207468656e20746865206361726566756c20656e67696e656572206d6f6e69746f727320746865206d6f64756c652e",
+      "payload_utf8": " then the careful engineer monitors the module.",
+      "scene_identity": 73,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 24
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        74,
+        358,
+        334,
+        360,
+        308,
+        335,
+        361,
+        322,
+        323,
+        349,
+        362,
+        324,
+        363,
+        298,
+        321,
+        347,
+        295,
+        309,
+        348,
+        296,
+        310,
+        337,
+        350,
+        311,
+        94,
+        364,
+        747820877915741671,
+        10989796785032882704,
+        915149611207580567,
+        105154003178850298,
+        954498469268678286,
+        867835109297202485,
+        365,
+        366,
+        367,
+        368,
+        369,
+        370,
+        795977581577719896,
+        91690141181851573,
+        15667099790435100511,
+        14103159413025933723
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_21",
+      "lexical_identities": [
+        915149611207580567,
+        105154003178850298,
+        954498469268678286,
+        867835109297202485
+      ],
+      "payload_hex": "207468656e2074686520717569657420746563686e696369616e206d6f6e69746f727320746865206c65646765722e",
+      "payload_utf8": " then the quiet technician monitors the ledger.",
+      "scene_identity": 74,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 25
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        75,
+        371,
+        321,
+        347,
+        373,
+        335,
+        361,
+        374,
+        336,
+        375,
+        297,
+        337,
+        350,
+        376,
+        334,
+        360,
+        308,
+        322,
+        323,
+        349,
+        362,
+        324,
+        363,
+        298,
+        94,
+        377,
+        747820877915741671,
+        3492647192364052872,
+        868235530182488088,
+        105154003178850298,
+        302720537480860882,
+        616105554992756595,
+        378,
+        379,
+        380,
+        381,
+        382,
+        383,
+        1045741725723809689,
+        91690141181851573,
+        17703041279473747417,
+        10989796785032882704
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_22",
+      "lexical_identities": [
+        868235530182488088,
+        105154003178850298,
+        302720537480860882,
+        616105554992756595
+      ],
+      "payload_hex": "207468656e20746865206361726566756c20746563686e696369616e207265766965777320746865206d6f64756c652e",
+      "payload_utf8": " then the careful technician reviews the module.",
+      "scene_identity": 75,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 26
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        76,
+        384,
+        334,
+        360,
+        386,
+        309,
+        348,
+        387,
+        336,
+        375,
+        388,
+        324,
+        363,
+        389,
+        321,
+        347,
+        373,
+        335,
+        361,
+        374,
+        297,
+        337,
+        350,
+        376,
+        94,
+        390,
+        747820877915741671,
+        1692693972629238276,
+        915149611207580567,
+        611955243808748307,
+        302720537480860882,
+        867835109297202485,
+        391,
+        392,
+        393,
+        394,
+        395,
+        396,
+        65512215252839337,
+        91690141181851573,
+        15781669355979037638,
+        3492647192364052872
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_23",
+      "lexical_identities": [
+        915149611207580567,
+        611955243808748307,
+        302720537480860882,
+        867835109297202485
+      ],
+      "payload_hex": "207468656e2074686520717569657420656e67696e656572207265766965777320746865206c65646765722e",
+      "payload_utf8": " then the quiet engineer reviews the ledger.",
+      "scene_identity": 76,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 27
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        77,
+        397,
+        398,
+        399,
+        94,
+        400,
+        740860916959956434,
+        12133058557046561020,
+        343124310528782863,
+        50948795679987676,
+        449893950567528144,
+        401,
+        402,
+        403,
+        404,
+        451448688990392166
+      ],
+      "kind": "ActionV2",
+      "label": "delayed_new_word_reuse",
+      "lexical_identities": [
+        343124310528782863,
+        50948795679987676,
+        449893950567528144
+      ],
+      "payload_hex": "7a6f6520696e73706563747320746865206461782e",
+      "payload_utf8": "zoe inspects the dax.",
+      "scene_identity": 77,
+      "source": 51003,
+      "span_identity": 0,
+      "template_identity": 740860916959956434,
+      "ticket": 28
+    },
+    {
+      "action_id": 8303,
+      "kind": "MotorActionV2",
+      "label": "delayed_credibility_choice",
+      "prospective_recipe": 0,
+      "source": 7801,
+      "source_assertion_ids": [
+        532368517685268536,
+        1104629035320417663
+      ],
+      "source_counterfactual_action": 7302,
+      "ticket": 30
+    },
+    {
+      "binding_identity": 0,
+      "channel": 77,
+      "contributors": [
+        78,
+        441,
+        228792530020784725,
+        442,
+        443,
+        444,
+        128832025043026658,
+        432
+      ],
+      "kind": "ActionV2",
+      "label": "post_counterevidence_question",
+      "lexical_identities": [
+        36302925277063369,
+        740340460762658974
+      ],
+      "payload_hex": "74657374206f7220696e73706563743f",
+      "payload_utf8": "test or inspect?",
+      "scene_identity": 78,
+      "source": 7901,
+      "span_identity": 0,
+      "template_identity": 228792530020784725,
+      "ticket": 32
+    },
+    {
+      "action_id": 7302,
+      "kind": "MotorActionV2",
+      "label": "post_counterevidence_resolved_motor",
+      "prospective_recipe": 0,
+      "source": 7901,
+      "source_assertion_ids": [
+        126801523295963060,
+        270091507129584291,
+        425207531185694087
+      ],
+      "source_counterfactual_action": 7302,
+      "ticket": 33
+    }
+  ],
+  "runtime_llm": false,
+  "schema": "0x1.cowen-discourse-assay-public.v1",
+  "source_calibration_final": {
+    "51001": 0,
+    "51002": 0,
+    "51003": 0,
+    "51004": 0,
+    "51005": 0
+  },
+  "source_files_sha256": {
+    "reference_language_guided_cognition_verify.py": "933371dc32ed45e726f9d895d0bc761e94a5be53757e6de7357631e7fe54ec9f",
+    "reference_organism_fast_mapping_verify.py": "8a7fed45cda7558f3a19ef79d55ff7a3b5849c7f96fc1a334bd37a6ec7a01d75",
+    "reference_organism_v2.py": "b6efd62e11f7249acffabebddfcd6914dba5f5c55fa8cec6b34904eed8466084"
+  }
+}

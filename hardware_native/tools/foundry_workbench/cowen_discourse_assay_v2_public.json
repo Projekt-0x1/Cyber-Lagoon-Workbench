@@ -1,0 +1,9079 @@
+{
+  "adult_count": 1,
+  "checks": {
+    "blocked_resident_prospection_spontaneously_reaches_public_language": true,
+    "checkpoint_continuity_and_bounded_hot_public_actions": true,
+    "fresh_answer_changes_real_action_without_host_selector": true,
+    "independent_counterevidence_revises_source_credibility": true,
+    "independent_world_return_confirms_word_and_sources": true,
+    "inquiry_and_discourse_are_learned_surfaces": true,
+    "learned_source_credibility_breaks_later_novel_conflict": true,
+    "mid_discourse_checkpoint_plus_same_future_input_replays": true,
+    "new_evidence_after_revision_changes_selected_action": true,
+    "new_word_reenters_novel_outward_composition_after_delay": true,
+    "new_word_starts_provisional": true,
+    "one_continuing_adult_no_prompt_or_speak_api": true,
+    "pre_question_checkpoint_replays_exact_public_action": true,
+    "prospective_speech_does_not_launder_imagination_into_world_evidence": true,
+    "removing_one_conflicting_voice_removes_question": true,
+    "same_conflict_geometry_returns_to_uncertainty_after_counterevidence": true,
+    "settled_public_transcript_not_checkpoint_authority": true,
+    "source_conflict_autonomously_reaches_learned_inquiry": true,
+    "spontaneous_prospection_checkpoint_replays_exact_public_action": true,
+    "sustained_consequence_gated_discourse_continuity": true,
+    "yoked_same_return_cannot_confirm_word_or_source": true
+  },
+  "contact_manifest": [
+    {
+      "independent": true,
+      "index": 0,
+      "kind": 16,
+      "live": true,
+      "payload": [
+        201,
+        4,
+        11,
+        12,
+        13,
+        14
+      ],
+      "phase": "development",
+      "result": 201,
+      "source": 8001
+    },
+    {
+      "independent": true,
+      "index": 1,
+      "kind": 16,
+      "live": true,
+      "payload": [
+        501,
+        4,
+        11,
+        12,
+        13,
+        99
+      ],
+      "phase": "development",
+      "result": 501,
+      "source": 8003
+    },
+    {
+      "independent": true,
+      "index": 2,
+      "kind": 16,
+      "live": true,
+      "payload": [
+        202,
+        4,
+        21,
+        22,
+        23,
+        24
+      ],
+      "phase": "development",
+      "result": 202,
+      "source": 8002
+    },
+    {
+      "independent": true,
+      "index": 3,
+      "kind": 16,
+      "live": true,
+      "payload": [
+        601,
+        4,
+        71,
+        72,
+        73,
+        74
+      ],
+      "phase": "development",
+      "result": 601,
+      "source": 8004
+    },
+    {
+      "independent": true,
+      "index": 4,
+      "kind": 16,
+      "live": true,
+      "payload": [
+        302,
+        2,
+        33,
+        34
+      ],
+      "phase": "development",
+      "result": 302,
+      "source": 8013
+    },
+    {
+      "independent": true,
+      "index": 5,
+      "kind": 16,
+      "live": true,
+      "payload": [
+        402,
+        2,
+        43,
+        44
+      ],
+      "phase": "development",
+      "result": 402,
+      "source": 8014
+    },
+    {
+      "independent": true,
+      "index": 6,
+      "kind": 16,
+      "live": true,
+      "payload": [
+        303,
+        2,
+        35,
+        36
+      ],
+      "phase": "development",
+      "result": 303,
+      "source": 8015
+    },
+    {
+      "independent": true,
+      "index": 7,
+      "kind": 16,
+      "live": true,
+      "payload": [
+        403,
+        2,
+        45,
+        46
+      ],
+      "phase": "development",
+      "result": 403,
+      "source": 8016
+    },
+    {
+      "independent": true,
+      "index": 8,
+      "kind": 16,
+      "live": true,
+      "payload": [
+        9999,
+        2,
+        55,
+        56
+      ],
+      "phase": "development",
+      "result": 9999,
+      "source": 8017
+    },
+    {
+      "independent": true,
+      "index": 9,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        201
+      ],
+      "phase": "development",
+      "result": 1,
+      "source": 10201
+    },
+    {
+      "independent": true,
+      "index": 10,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        97,
+        108,
+        105,
+        99,
+        101
+      ],
+      "phase": "development",
+      "result": 1,
+      "source": 11201
+    },
+    {
+      "independent": true,
+      "index": 11,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        201
+      ],
+      "phase": "development",
+      "result": 2,
+      "source": 11201
+    },
+    {
+      "independent": true,
+      "index": 12,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        97,
+        108,
+        105,
+        99,
+        101
+      ],
+      "phase": "development",
+      "result": 2,
+      "source": 12201
+    },
+    {
+      "independent": true,
+      "index": 13,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        501
+      ],
+      "phase": "development",
+      "result": 3,
+      "source": 10501
+    },
+    {
+      "independent": true,
+      "index": 14,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        97,
+        108,
+        105,
+        99,
+        101
+      ],
+      "phase": "development",
+      "result": 3,
+      "source": 11501
+    },
+    {
+      "independent": true,
+      "index": 15,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        501
+      ],
+      "phase": "development",
+      "result": 4,
+      "source": 11501
+    },
+    {
+      "independent": true,
+      "index": 16,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        97,
+        108,
+        105,
+        99,
+        101
+      ],
+      "phase": "development",
+      "result": 4,
+      "source": 12501
+    },
+    {
+      "independent": true,
+      "index": 17,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        202
+      ],
+      "phase": "development",
+      "result": 5,
+      "source": 10202
+    },
+    {
+      "independent": true,
+      "index": 18,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        98,
+        111,
+        98
+      ],
+      "phase": "development",
+      "result": 5,
+      "source": 11202
+    },
+    {
+      "independent": true,
+      "index": 19,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        202
+      ],
+      "phase": "development",
+      "result": 6,
+      "source": 11202
+    },
+    {
+      "independent": true,
+      "index": 20,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        98,
+        111,
+        98
+      ],
+      "phase": "development",
+      "result": 6,
+      "source": 12202
+    },
+    {
+      "independent": true,
+      "index": 21,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        601
+      ],
+      "phase": "development",
+      "result": 7,
+      "source": 10601
+    },
+    {
+      "independent": true,
+      "index": 22,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        122,
+        111,
+        101
+      ],
+      "phase": "development",
+      "result": 7,
+      "source": 11601
+    },
+    {
+      "independent": true,
+      "index": 23,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        601
+      ],
+      "phase": "development",
+      "result": 8,
+      "source": 11601
+    },
+    {
+      "independent": true,
+      "index": 24,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        122,
+        111,
+        101
+      ],
+      "phase": "development",
+      "result": 8,
+      "source": 12601
+    },
+    {
+      "independent": true,
+      "index": 25,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        302
+      ],
+      "phase": "development",
+      "result": 9,
+      "source": 10302
+    },
+    {
+      "independent": true,
+      "index": 26,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        116,
+        101,
+        115,
+        116,
+        115
+      ],
+      "phase": "development",
+      "result": 9,
+      "source": 11302
+    },
+    {
+      "independent": true,
+      "index": 27,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        302
+      ],
+      "phase": "development",
+      "result": 10,
+      "source": 11302
+    },
+    {
+      "independent": true,
+      "index": 28,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        116,
+        101,
+        115,
+        116,
+        115
+      ],
+      "phase": "development",
+      "result": 10,
+      "source": 12302
+    },
+    {
+      "independent": true,
+      "index": 29,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        402
+      ],
+      "phase": "development",
+      "result": 11,
+      "source": 10402
+    },
+    {
+      "independent": true,
+      "index": 30,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        118,
+        97,
+        108,
+        118,
+        101
+      ],
+      "phase": "development",
+      "result": 11,
+      "source": 11402
+    },
+    {
+      "independent": true,
+      "index": 31,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        402
+      ],
+      "phase": "development",
+      "result": 12,
+      "source": 11402
+    },
+    {
+      "independent": true,
+      "index": 32,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        118,
+        97,
+        108,
+        118,
+        101
+      ],
+      "phase": "development",
+      "result": 12,
+      "source": 12402
+    },
+    {
+      "independent": true,
+      "index": 33,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        303
+      ],
+      "phase": "development",
+      "result": 13,
+      "source": 10303
+    },
+    {
+      "independent": true,
+      "index": 34,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        105,
+        110,
+        115,
+        112,
+        101,
+        99,
+        116,
+        115
+      ],
+      "phase": "development",
+      "result": 13,
+      "source": 11303
+    },
+    {
+      "independent": true,
+      "index": 35,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        303
+      ],
+      "phase": "development",
+      "result": 14,
+      "source": 11303
+    },
+    {
+      "independent": true,
+      "index": 36,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        105,
+        110,
+        115,
+        112,
+        101,
+        99,
+        116,
+        115
+      ],
+      "phase": "development",
+      "result": 14,
+      "source": 12303
+    },
+    {
+      "independent": true,
+      "index": 37,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        403
+      ],
+      "phase": "development",
+      "result": 15,
+      "source": 10403
+    },
+    {
+      "independent": true,
+      "index": 38,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        115,
+        101,
+        110,
+        115,
+        111,
+        114
+      ],
+      "phase": "development",
+      "result": 15,
+      "source": 11403
+    },
+    {
+      "independent": true,
+      "index": 39,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        403
+      ],
+      "phase": "development",
+      "result": 16,
+      "source": 11403
+    },
+    {
+      "independent": true,
+      "index": 40,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        115,
+        101,
+        110,
+        115,
+        111,
+        114
+      ],
+      "phase": "development",
+      "result": 16,
+      "source": 12403
+    },
+    {
+      "independent": true,
+      "index": 41,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        9999
+      ],
+      "phase": "development",
+      "result": 17,
+      "source": 19999
+    },
+    {
+      "independent": true,
+      "index": 42,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        116,
+        97,
+        114,
+        103,
+        101,
+        116
+      ],
+      "phase": "development",
+      "result": 17,
+      "source": 20999
+    },
+    {
+      "independent": true,
+      "index": 43,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        9999
+      ],
+      "phase": "development",
+      "result": 18,
+      "source": 20999
+    },
+    {
+      "independent": true,
+      "index": 44,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        116,
+        97,
+        114,
+        103,
+        101,
+        116
+      ],
+      "phase": "development",
+      "result": 18,
+      "source": 21999
+    },
+    {
+      "independent": true,
+      "index": 45,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        8801,
+        3,
+        202,
+        302,
+        402
+      ],
+      "phase": "development",
+      "result": 19,
+      "source": 30005
+    },
+    {
+      "independent": true,
+      "index": 46,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        98,
+        111,
+        98,
+        32,
+        116,
+        101,
+        115,
+        116,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        118,
+        97,
+        108,
+        118,
+        101,
+        46
+      ],
+      "phase": "development",
+      "result": 19,
+      "source": 32005
+    },
+    {
+      "independent": true,
+      "index": 47,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        8801,
+        3,
+        202,
+        302,
+        402
+      ],
+      "phase": "development",
+      "result": 20,
+      "source": 30006
+    },
+    {
+      "independent": true,
+      "index": 48,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        98,
+        111,
+        98,
+        32,
+        116,
+        101,
+        115,
+        116,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        118,
+        97,
+        108,
+        118,
+        101,
+        46
+      ],
+      "phase": "development",
+      "result": 20,
+      "source": 32006
+    },
+    {
+      "independent": true,
+      "index": 49,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        8801,
+        3,
+        601,
+        303,
+        403
+      ],
+      "phase": "development",
+      "result": 21,
+      "source": 30009
+    },
+    {
+      "independent": true,
+      "index": 50,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        122,
+        111,
+        101,
+        32,
+        105,
+        110,
+        115,
+        112,
+        101,
+        99,
+        116,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        115,
+        101,
+        110,
+        115,
+        111,
+        114,
+        46
+      ],
+      "phase": "development",
+      "result": 21,
+      "source": 32009
+    },
+    {
+      "independent": true,
+      "index": 51,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        8801,
+        3,
+        601,
+        303,
+        403
+      ],
+      "phase": "development",
+      "result": 22,
+      "source": 30010
+    },
+    {
+      "independent": true,
+      "index": 52,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        122,
+        111,
+        101,
+        32,
+        105,
+        110,
+        115,
+        112,
+        101,
+        99,
+        116,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        115,
+        101,
+        110,
+        115,
+        111,
+        114,
+        46
+      ],
+      "phase": "development",
+      "result": 22,
+      "source": 32010
+    },
+    {
+      "independent": true,
+      "index": 53,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        21001
+      ],
+      "phase": "development",
+      "result": 23,
+      "source": 86001
+    },
+    {
+      "independent": true,
+      "index": 54,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        99,
+        97,
+        114,
+        101,
+        102,
+        117,
+        108
+      ],
+      "phase": "development",
+      "result": 23,
+      "source": 106001
+    },
+    {
+      "independent": true,
+      "index": 55,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        21001
+      ],
+      "phase": "development",
+      "result": 24,
+      "source": 116001
+    },
+    {
+      "independent": true,
+      "index": 56,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        99,
+        97,
+        114,
+        101,
+        102,
+        117,
+        108
+      ],
+      "phase": "development",
+      "result": 24,
+      "source": 136001
+    },
+    {
+      "independent": true,
+      "index": 57,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        21002
+      ],
+      "phase": "development",
+      "result": 25,
+      "source": 86002
+    },
+    {
+      "independent": true,
+      "index": 58,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        113,
+        117,
+        105,
+        101,
+        116
+      ],
+      "phase": "development",
+      "result": 25,
+      "source": 106002
+    },
+    {
+      "independent": true,
+      "index": 59,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        21002
+      ],
+      "phase": "development",
+      "result": 26,
+      "source": 116002
+    },
+    {
+      "independent": true,
+      "index": 60,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        113,
+        117,
+        105,
+        101,
+        116
+      ],
+      "phase": "development",
+      "result": 26,
+      "source": 136002
+    },
+    {
+      "independent": true,
+      "index": 61,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        21101
+      ],
+      "phase": "development",
+      "result": 27,
+      "source": 86101
+    },
+    {
+      "independent": true,
+      "index": 62,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        101,
+        110,
+        103,
+        105,
+        110,
+        101,
+        101,
+        114
+      ],
+      "phase": "development",
+      "result": 27,
+      "source": 106101
+    },
+    {
+      "independent": true,
+      "index": 63,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        21101
+      ],
+      "phase": "development",
+      "result": 28,
+      "source": 116101
+    },
+    {
+      "independent": true,
+      "index": 64,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        101,
+        110,
+        103,
+        105,
+        110,
+        101,
+        101,
+        114
+      ],
+      "phase": "development",
+      "result": 28,
+      "source": 136101
+    },
+    {
+      "independent": true,
+      "index": 65,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        21102
+      ],
+      "phase": "development",
+      "result": 29,
+      "source": 86102
+    },
+    {
+      "independent": true,
+      "index": 66,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        116,
+        101,
+        99,
+        104,
+        110,
+        105,
+        99,
+        105,
+        97,
+        110
+      ],
+      "phase": "development",
+      "result": 29,
+      "source": 106102
+    },
+    {
+      "independent": true,
+      "index": 67,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        21102
+      ],
+      "phase": "development",
+      "result": 30,
+      "source": 116102
+    },
+    {
+      "independent": true,
+      "index": 68,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        116,
+        101,
+        99,
+        104,
+        110,
+        105,
+        99,
+        105,
+        97,
+        110
+      ],
+      "phase": "development",
+      "result": 30,
+      "source": 136102
+    },
+    {
+      "independent": true,
+      "index": 69,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        21201
+      ],
+      "phase": "development",
+      "result": 31,
+      "source": 86201
+    },
+    {
+      "independent": true,
+      "index": 70,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        114,
+        101,
+        118,
+        105,
+        101,
+        119,
+        115
+      ],
+      "phase": "development",
+      "result": 31,
+      "source": 106201
+    },
+    {
+      "independent": true,
+      "index": 71,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        21201
+      ],
+      "phase": "development",
+      "result": 32,
+      "source": 116201
+    },
+    {
+      "independent": true,
+      "index": 72,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        114,
+        101,
+        118,
+        105,
+        101,
+        119,
+        115
+      ],
+      "phase": "development",
+      "result": 32,
+      "source": 136201
+    },
+    {
+      "independent": true,
+      "index": 73,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        21202
+      ],
+      "phase": "development",
+      "result": 33,
+      "source": 86202
+    },
+    {
+      "independent": true,
+      "index": 74,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        109,
+        111,
+        110,
+        105,
+        116,
+        111,
+        114,
+        115
+      ],
+      "phase": "development",
+      "result": 33,
+      "source": 106202
+    },
+    {
+      "independent": true,
+      "index": 75,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        21202
+      ],
+      "phase": "development",
+      "result": 34,
+      "source": 116202
+    },
+    {
+      "independent": true,
+      "index": 76,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        109,
+        111,
+        110,
+        105,
+        116,
+        111,
+        114,
+        115
+      ],
+      "phase": "development",
+      "result": 34,
+      "source": 136202
+    },
+    {
+      "independent": true,
+      "index": 77,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        21301
+      ],
+      "phase": "development",
+      "result": 35,
+      "source": 86301
+    },
+    {
+      "independent": true,
+      "index": 78,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        108,
+        101,
+        100,
+        103,
+        101,
+        114
+      ],
+      "phase": "development",
+      "result": 35,
+      "source": 106301
+    },
+    {
+      "independent": true,
+      "index": 79,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        21301
+      ],
+      "phase": "development",
+      "result": 36,
+      "source": 116301
+    },
+    {
+      "independent": true,
+      "index": 80,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        108,
+        101,
+        100,
+        103,
+        101,
+        114
+      ],
+      "phase": "development",
+      "result": 36,
+      "source": 136301
+    },
+    {
+      "independent": true,
+      "index": 81,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        21302
+      ],
+      "phase": "development",
+      "result": 37,
+      "source": 86302
+    },
+    {
+      "independent": true,
+      "index": 82,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        109,
+        111,
+        100,
+        117,
+        108,
+        101
+      ],
+      "phase": "development",
+      "result": 37,
+      "source": 106302
+    },
+    {
+      "independent": true,
+      "index": 83,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        21302
+      ],
+      "phase": "development",
+      "result": 38,
+      "source": 116302
+    },
+    {
+      "independent": true,
+      "index": 84,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        109,
+        111,
+        100,
+        117,
+        108,
+        101
+      ],
+      "phase": "development",
+      "result": 38,
+      "source": 136302
+    },
+    {
+      "independent": true,
+      "index": 85,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21001,
+        21101,
+        21201,
+        21301
+      ],
+      "phase": "development",
+      "result": 39,
+      "source": 71001
+    },
+    {
+      "independent": true,
+      "index": 86,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        116,
+        104,
+        101,
+        32,
+        99,
+        97,
+        114,
+        101,
+        102,
+        117,
+        108,
+        32,
+        101,
+        110,
+        103,
+        105,
+        110,
+        101,
+        101,
+        114,
+        32,
+        114,
+        101,
+        118,
+        105,
+        101,
+        119,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        108,
+        101,
+        100,
+        103,
+        101,
+        114,
+        46
+      ],
+      "phase": "development",
+      "result": 39,
+      "source": 71101
+    },
+    {
+      "independent": true,
+      "index": 87,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21002,
+        21102,
+        21202,
+        21302
+      ],
+      "phase": "development",
+      "result": 40,
+      "source": 71002
+    },
+    {
+      "independent": true,
+      "index": 88,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        116,
+        104,
+        101,
+        32,
+        113,
+        117,
+        105,
+        101,
+        116,
+        32,
+        116,
+        101,
+        99,
+        104,
+        110,
+        105,
+        99,
+        105,
+        97,
+        110,
+        32,
+        109,
+        111,
+        110,
+        105,
+        116,
+        111,
+        114,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        109,
+        111,
+        100,
+        117,
+        108,
+        101,
+        46
+      ],
+      "phase": "development",
+      "result": 40,
+      "source": 71102
+    },
+    {
+      "independent": true,
+      "index": 89,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21001,
+        21101,
+        21201,
+        21301
+      ],
+      "phase": "development",
+      "result": 41,
+      "source": 72101
+    },
+    {
+      "independent": true,
+      "index": 90,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21002,
+        21102,
+        21202,
+        21302
+      ],
+      "phase": "development",
+      "result": 42,
+      "source": 72201
+    },
+    {
+      "independent": true,
+      "index": 91,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        41,
+        42,
+        53585
+      ],
+      "phase": "development",
+      "result": [
+        41,
+        42,
+        53585
+      ],
+      "source": 72001
+    },
+    {
+      "independent": true,
+      "index": 92,
+      "kind": 12,
+      "live": true,
+      "payload": [
+        116,
+        104,
+        101,
+        32,
+        99,
+        97,
+        114,
+        101,
+        102,
+        117,
+        108,
+        32,
+        101,
+        110,
+        103,
+        105,
+        110,
+        101,
+        101,
+        114,
+        32,
+        114,
+        101,
+        118,
+        105,
+        101,
+        119,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        108,
+        101,
+        100,
+        103,
+        101,
+        114,
+        46,
+        32,
+        116,
+        104,
+        101,
+        110,
+        32,
+        116,
+        104,
+        101,
+        32,
+        113,
+        117,
+        105,
+        101,
+        116,
+        32,
+        116,
+        101,
+        99,
+        104,
+        110,
+        105,
+        99,
+        105,
+        97,
+        110,
+        32,
+        109,
+        111,
+        110,
+        105,
+        116,
+        111,
+        114,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        109,
+        111,
+        100,
+        117,
+        108,
+        101,
+        46
+      ],
+      "phase": "development",
+      "result": 42,
+      "source": 72001
+    },
+    {
+      "independent": true,
+      "index": 93,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21002,
+        21102,
+        21202,
+        21302
+      ],
+      "phase": "development",
+      "result": 43,
+      "source": 72102
+    },
+    {
+      "independent": true,
+      "index": 94,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21001,
+        21101,
+        21201,
+        21301
+      ],
+      "phase": "development",
+      "result": 44,
+      "source": 72202
+    },
+    {
+      "independent": true,
+      "index": 95,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        43,
+        44,
+        53585
+      ],
+      "phase": "development",
+      "result": [
+        43,
+        44,
+        53585
+      ],
+      "source": 72002
+    },
+    {
+      "independent": true,
+      "index": 96,
+      "kind": 12,
+      "live": true,
+      "payload": [
+        116,
+        104,
+        101,
+        32,
+        113,
+        117,
+        105,
+        101,
+        116,
+        32,
+        116,
+        101,
+        99,
+        104,
+        110,
+        105,
+        99,
+        105,
+        97,
+        110,
+        32,
+        109,
+        111,
+        110,
+        105,
+        116,
+        111,
+        114,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        109,
+        111,
+        100,
+        117,
+        108,
+        101,
+        46,
+        32,
+        116,
+        104,
+        101,
+        110,
+        32,
+        116,
+        104,
+        101,
+        32,
+        99,
+        97,
+        114,
+        101,
+        102,
+        117,
+        108,
+        32,
+        101,
+        110,
+        103,
+        105,
+        110,
+        101,
+        101,
+        114,
+        32,
+        114,
+        101,
+        118,
+        105,
+        101,
+        119,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        108,
+        101,
+        100,
+        103,
+        101,
+        114,
+        46
+      ],
+      "phase": "development",
+      "result": 44,
+      "source": 72002
+    },
+    {
+      "independent": true,
+      "index": 97,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        7302
+      ],
+      "phase": "development",
+      "result": 45,
+      "source": 41001
+    },
+    {
+      "independent": true,
+      "index": 98,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        116,
+        101,
+        115,
+        116
+      ],
+      "phase": "development",
+      "result": 45,
+      "source": 41101
+    },
+    {
+      "independent": true,
+      "index": 99,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        7302
+      ],
+      "phase": "development",
+      "result": 46,
+      "source": 42001
+    },
+    {
+      "independent": true,
+      "index": 100,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        116,
+        101,
+        115,
+        116
+      ],
+      "phase": "development",
+      "result": 46,
+      "source": 42101
+    },
+    {
+      "independent": true,
+      "index": 101,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        8303
+      ],
+      "phase": "development",
+      "result": 47,
+      "source": 41002
+    },
+    {
+      "independent": true,
+      "index": 102,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        105,
+        110,
+        115,
+        112,
+        101,
+        99,
+        116
+      ],
+      "phase": "development",
+      "result": 47,
+      "source": 41102
+    },
+    {
+      "independent": true,
+      "index": 103,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        8303
+      ],
+      "phase": "development",
+      "result": 48,
+      "source": 42002
+    },
+    {
+      "independent": true,
+      "index": 104,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        105,
+        110,
+        115,
+        112,
+        101,
+        99,
+        116
+      ],
+      "phase": "development",
+      "result": 48,
+      "source": 42102
+    },
+    {
+      "independent": true,
+      "index": 105,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        6673,
+        2,
+        7302,
+        8303
+      ],
+      "phase": "development",
+      "result": 49,
+      "source": 42001
+    },
+    {
+      "independent": true,
+      "index": 106,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        116,
+        101,
+        115,
+        116,
+        32,
+        111,
+        114,
+        32,
+        105,
+        110,
+        115,
+        112,
+        101,
+        99,
+        116,
+        63
+      ],
+      "phase": "development",
+      "result": 49,
+      "source": 42101
+    },
+    {
+      "independent": true,
+      "index": 107,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        6673,
+        2,
+        7302,
+        8303
+      ],
+      "phase": "development",
+      "result": 50,
+      "source": 42002
+    },
+    {
+      "independent": true,
+      "index": 108,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        116,
+        101,
+        115,
+        116,
+        32,
+        111,
+        114,
+        32,
+        105,
+        110,
+        115,
+        112,
+        101,
+        99,
+        116,
+        63
+      ],
+      "phase": "development",
+      "result": 50,
+      "source": 42102
+    },
+    {
+      "independent": true,
+      "index": 109,
+      "kind": 5,
+      "live": true,
+      "payload": [
+        101
+      ],
+      "phase": "development",
+      "result": [
+        101
+      ],
+      "source": 64513
+    },
+    {
+      "independent": true,
+      "index": 110,
+      "kind": 6,
+      "live": true,
+      "payload": [
+        102
+      ],
+      "phase": "development",
+      "result": [
+        102
+      ],
+      "source": 5001
+    },
+    {
+      "independent": true,
+      "index": 111,
+      "kind": 7,
+      "live": true,
+      "payload": [
+        7101
+      ],
+      "phase": "development",
+      "result": [
+        7101
+      ],
+      "source": 5002
+    },
+    {
+      "independent": true,
+      "index": 112,
+      "kind": 8,
+      "live": true,
+      "payload": [
+        1,
+        1,
+        1,
+        102
+      ],
+      "phase": "development",
+      "result": {
+        "credit": 16,
+        "revisions": 32,
+        "source_credit": 0,
+        "source_revisions": 0,
+        "source_updates": 0
+      },
+      "source": 64513
+    },
+    {
+      "independent": true,
+      "index": 113,
+      "kind": 5,
+      "live": true,
+      "payload": [
+        102
+      ],
+      "phase": "development",
+      "result": [
+        102
+      ],
+      "source": 64514
+    },
+    {
+      "independent": true,
+      "index": 114,
+      "kind": 6,
+      "live": true,
+      "payload": [
+        103
+      ],
+      "phase": "development",
+      "result": [
+        103
+      ],
+      "source": 5001
+    },
+    {
+      "independent": true,
+      "index": 115,
+      "kind": 7,
+      "live": true,
+      "payload": [
+        7102
+      ],
+      "phase": "development",
+      "result": [
+        7102
+      ],
+      "source": 5002
+    },
+    {
+      "independent": true,
+      "index": 116,
+      "kind": 8,
+      "live": true,
+      "payload": [
+        2,
+        1,
+        1,
+        103
+      ],
+      "phase": "development",
+      "result": {
+        "credit": 16,
+        "revisions": 32,
+        "source_credit": 0,
+        "source_revisions": 0,
+        "source_updates": 0
+      },
+      "source": 64514
+    },
+    {
+      "independent": true,
+      "index": 117,
+      "kind": 10,
+      "live": true,
+      "payload": [
+        1,
+        7,
+        59393
+      ],
+      "phase": "development",
+      "result": [
+        1,
+        7,
+        59393
+      ],
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 118,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        7101
+      ],
+      "phase": "development",
+      "result": 51,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 119,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        105,
+        110,
+        115,
+        112,
+        101,
+        99,
+        116
+      ],
+      "phase": "development",
+      "result": 51,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 120,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        102
+      ],
+      "phase": "development",
+      "result": 52,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 121,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        109,
+        105,
+        100,
+        100,
+        108,
+        101
+      ],
+      "phase": "development",
+      "result": 52,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 122,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        7102
+      ],
+      "phase": "development",
+      "result": 53,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 123,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        118,
+        101,
+        114,
+        105,
+        102,
+        121
+      ],
+      "phase": "development",
+      "result": 53,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 124,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        103
+      ],
+      "phase": "development",
+      "result": 54,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 125,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        103,
+        111,
+        97,
+        108
+      ],
+      "phase": "development",
+      "result": 54,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 126,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        7104
+      ],
+      "phase": "development",
+      "result": 55,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 127,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        112,
+        114,
+        111,
+        98,
+        101
+      ],
+      "phase": "development",
+      "result": 55,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 128,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        104
+      ],
+      "phase": "development",
+      "result": 56,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 129,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        97,
+        108,
+        116,
+        101,
+        114,
+        110,
+        97,
+        116,
+        101
+      ],
+      "phase": "development",
+      "result": 56,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 130,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        7105
+      ],
+      "phase": "development",
+      "result": 57,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 131,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        99,
+        111,
+        110,
+        102,
+        105,
+        114,
+        109
+      ],
+      "phase": "development",
+      "result": 57,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 132,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        7106
+      ],
+      "phase": "development",
+      "result": 58,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 133,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        99,
+        111,
+        110,
+        115,
+        105,
+        100,
+        101,
+        114
+      ],
+      "phase": "development",
+      "result": 58,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 134,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        105
+      ],
+      "phase": "development",
+      "result": 59,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 135,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        100,
+        101,
+        101,
+        112,
+        101,
+        114
+      ],
+      "phase": "development",
+      "result": 59,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 136,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        7107
+      ],
+      "phase": "development",
+      "result": 60,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 137,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        102,
+        105,
+        110,
+        105,
+        115,
+        104
+      ],
+      "phase": "development",
+      "result": 60,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 138,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7101,
+        102
+      ],
+      "phase": "development",
+      "result": 61,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 139,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        105,
+        110,
+        115,
+        112,
+        101,
+        99,
+        116,
+        32,
+        109,
+        105,
+        100,
+        100,
+        108,
+        101
+      ],
+      "phase": "development",
+      "result": 61,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 140,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7102,
+        103
+      ],
+      "phase": "development",
+      "result": 62,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 141,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        118,
+        101,
+        114,
+        105,
+        102,
+        121,
+        32,
+        103,
+        111,
+        97,
+        108
+      ],
+      "phase": "development",
+      "result": 62,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 142,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7104,
+        104
+      ],
+      "phase": "development",
+      "result": 63,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 143,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        112,
+        114,
+        111,
+        98,
+        101,
+        32,
+        97,
+        108,
+        116,
+        101,
+        114,
+        110,
+        97,
+        116,
+        101
+      ],
+      "phase": "development",
+      "result": 63,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 144,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7105,
+        103
+      ],
+      "phase": "development",
+      "result": 64,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 145,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        99,
+        111,
+        110,
+        102,
+        105,
+        114,
+        109,
+        32,
+        103,
+        111,
+        97,
+        108
+      ],
+      "phase": "development",
+      "result": 64,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 146,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7106,
+        105
+      ],
+      "phase": "development",
+      "result": 65,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 147,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        99,
+        111,
+        110,
+        115,
+        105,
+        100,
+        101,
+        114,
+        32,
+        100,
+        101,
+        101,
+        112,
+        101,
+        114
+      ],
+      "phase": "development",
+      "result": 65,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 148,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7107,
+        103
+      ],
+      "phase": "development",
+      "result": 66,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 149,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        102,
+        105,
+        110,
+        105,
+        115,
+        104,
+        32,
+        103,
+        111,
+        97,
+        108
+      ],
+      "phase": "development",
+      "result": 66,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 150,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        7101
+      ],
+      "phase": "development",
+      "result": 67,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 151,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        105,
+        110,
+        115,
+        112,
+        101,
+        99,
+        116
+      ],
+      "phase": "development",
+      "result": 67,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 152,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        102
+      ],
+      "phase": "development",
+      "result": 68,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 153,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        109,
+        105,
+        100,
+        100,
+        108,
+        101
+      ],
+      "phase": "development",
+      "result": 68,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 154,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        7102
+      ],
+      "phase": "development",
+      "result": 69,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 155,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        118,
+        101,
+        114,
+        105,
+        102,
+        121
+      ],
+      "phase": "development",
+      "result": 69,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 156,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        103
+      ],
+      "phase": "development",
+      "result": 70,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 157,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        103,
+        111,
+        97,
+        108
+      ],
+      "phase": "development",
+      "result": 70,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 158,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        7104
+      ],
+      "phase": "development",
+      "result": 71,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 159,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        112,
+        114,
+        111,
+        98,
+        101
+      ],
+      "phase": "development",
+      "result": 71,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 160,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        104
+      ],
+      "phase": "development",
+      "result": 72,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 161,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        97,
+        108,
+        116,
+        101,
+        114,
+        110,
+        97,
+        116,
+        101
+      ],
+      "phase": "development",
+      "result": 72,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 162,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        7105
+      ],
+      "phase": "development",
+      "result": 73,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 163,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        99,
+        111,
+        110,
+        102,
+        105,
+        114,
+        109
+      ],
+      "phase": "development",
+      "result": 73,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 164,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        7106
+      ],
+      "phase": "development",
+      "result": 74,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 165,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        99,
+        111,
+        110,
+        115,
+        105,
+        100,
+        101,
+        114
+      ],
+      "phase": "development",
+      "result": 74,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 166,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        105
+      ],
+      "phase": "development",
+      "result": 75,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 167,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        100,
+        101,
+        101,
+        112,
+        101,
+        114
+      ],
+      "phase": "development",
+      "result": 75,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 168,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        7107
+      ],
+      "phase": "development",
+      "result": 76,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 169,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        102,
+        105,
+        110,
+        105,
+        115,
+        104
+      ],
+      "phase": "development",
+      "result": 76,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 170,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7101,
+        102
+      ],
+      "phase": "development",
+      "result": 77,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 171,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        105,
+        110,
+        115,
+        112,
+        101,
+        99,
+        116,
+        32,
+        109,
+        105,
+        100,
+        100,
+        108,
+        101
+      ],
+      "phase": "development",
+      "result": 77,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 172,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7102,
+        103
+      ],
+      "phase": "development",
+      "result": 78,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 173,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        118,
+        101,
+        114,
+        105,
+        102,
+        121,
+        32,
+        103,
+        111,
+        97,
+        108
+      ],
+      "phase": "development",
+      "result": 78,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 174,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7104,
+        104
+      ],
+      "phase": "development",
+      "result": 79,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 175,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        112,
+        114,
+        111,
+        98,
+        101,
+        32,
+        97,
+        108,
+        116,
+        101,
+        114,
+        110,
+        97,
+        116,
+        101
+      ],
+      "phase": "development",
+      "result": 79,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 176,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7105,
+        103
+      ],
+      "phase": "development",
+      "result": 80,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 177,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        99,
+        111,
+        110,
+        102,
+        105,
+        114,
+        109,
+        32,
+        103,
+        111,
+        97,
+        108
+      ],
+      "phase": "development",
+      "result": 80,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 178,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7106,
+        105
+      ],
+      "phase": "development",
+      "result": 81,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 179,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        99,
+        111,
+        110,
+        115,
+        105,
+        100,
+        101,
+        114,
+        32,
+        100,
+        101,
+        101,
+        112,
+        101,
+        114
+      ],
+      "phase": "development",
+      "result": 81,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 180,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7107,
+        103
+      ],
+      "phase": "development",
+      "result": 82,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 181,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        102,
+        105,
+        110,
+        105,
+        115,
+        104,
+        32,
+        103,
+        111,
+        97,
+        108
+      ],
+      "phase": "development",
+      "result": 82,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 182,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7101,
+        102
+      ],
+      "phase": "development",
+      "result": 83,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 183,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7102,
+        103
+      ],
+      "phase": "development",
+      "result": 84,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 184,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        83,
+        84,
+        59153
+      ],
+      "phase": "development",
+      "result": [
+        83,
+        84,
+        59153
+      ],
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 185,
+      "kind": 12,
+      "live": true,
+      "payload": [
+        105,
+        110,
+        115,
+        112,
+        101,
+        99,
+        116,
+        32,
+        109,
+        105,
+        100,
+        100,
+        108,
+        101,
+        32,
+        116,
+        104,
+        101,
+        110,
+        32,
+        118,
+        101,
+        114,
+        105,
+        102,
+        121,
+        32,
+        103,
+        111,
+        97,
+        108
+      ],
+      "phase": "development",
+      "result": 84,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 186,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7104,
+        104
+      ],
+      "phase": "development",
+      "result": 85,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 187,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7105,
+        103
+      ],
+      "phase": "development",
+      "result": 86,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 188,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        85,
+        86,
+        59153
+      ],
+      "phase": "development",
+      "result": [
+        85,
+        86,
+        59153
+      ],
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 189,
+      "kind": 12,
+      "live": true,
+      "payload": [
+        112,
+        114,
+        111,
+        98,
+        101,
+        32,
+        97,
+        108,
+        116,
+        101,
+        114,
+        110,
+        97,
+        116,
+        101,
+        32,
+        116,
+        104,
+        101,
+        110,
+        32,
+        99,
+        111,
+        110,
+        102,
+        105,
+        114,
+        109,
+        32,
+        103,
+        111,
+        97,
+        108
+      ],
+      "phase": "development",
+      "result": 86,
+      "source": 59393
+    },
+    {
+      "independent": true,
+      "index": 190,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7101,
+        102
+      ],
+      "phase": "development",
+      "result": 87,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 191,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7102,
+        103
+      ],
+      "phase": "development",
+      "result": 88,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 192,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        87,
+        88,
+        59153
+      ],
+      "phase": "development",
+      "result": [
+        87,
+        88,
+        59153
+      ],
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 193,
+      "kind": 12,
+      "live": true,
+      "payload": [
+        105,
+        110,
+        115,
+        112,
+        101,
+        99,
+        116,
+        32,
+        109,
+        105,
+        100,
+        100,
+        108,
+        101,
+        32,
+        116,
+        104,
+        101,
+        110,
+        32,
+        118,
+        101,
+        114,
+        105,
+        102,
+        121,
+        32,
+        103,
+        111,
+        97,
+        108
+      ],
+      "phase": "development",
+      "result": 88,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 194,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7104,
+        104
+      ],
+      "phase": "development",
+      "result": 89,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 195,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7105,
+        103
+      ],
+      "phase": "development",
+      "result": 90,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 196,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        89,
+        90,
+        59153
+      ],
+      "phase": "development",
+      "result": [
+        89,
+        90,
+        59153
+      ],
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 197,
+      "kind": 12,
+      "live": true,
+      "payload": [
+        112,
+        114,
+        111,
+        98,
+        101,
+        32,
+        97,
+        108,
+        116,
+        101,
+        114,
+        110,
+        97,
+        116,
+        101,
+        32,
+        116,
+        104,
+        101,
+        110,
+        32,
+        99,
+        111,
+        110,
+        102,
+        105,
+        114,
+        109,
+        32,
+        103,
+        111,
+        97,
+        108
+      ],
+      "phase": "development",
+      "result": 90,
+      "source": 59649
+    },
+    {
+      "independent": true,
+      "index": 198,
+      "kind": 10,
+      "live": true,
+      "payload": [
+        1,
+        7,
+        59394
+      ],
+      "phase": "development",
+      "result": [
+        1,
+        7,
+        59394
+      ],
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 199,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        7101
+      ],
+      "phase": "development",
+      "result": 91,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 200,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        112,
+        114,
+        117,
+        101,
+        102,
+        101,
+        110
+      ],
+      "phase": "development",
+      "result": 91,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 201,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        102
+      ],
+      "phase": "development",
+      "result": 92,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 202,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        109,
+        105,
+        116,
+        116,
+        101
+      ],
+      "phase": "development",
+      "result": 92,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 203,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        7102
+      ],
+      "phase": "development",
+      "result": 93,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 204,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        116,
+        101,
+        115,
+        116,
+        101,
+        110
+      ],
+      "phase": "development",
+      "result": 93,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 205,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        103
+      ],
+      "phase": "development",
+      "result": 94,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 206,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        122,
+        105,
+        101,
+        108
+      ],
+      "phase": "development",
+      "result": 94,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 207,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        7104
+      ],
+      "phase": "development",
+      "result": 95,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 208,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        115,
+        111,
+        110,
+        100,
+        105,
+        101,
+        114,
+        101,
+        110
+      ],
+      "phase": "development",
+      "result": 95,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 209,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        104
+      ],
+      "phase": "development",
+      "result": 96,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 210,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        97,
+        108,
+        116,
+        101,
+        114,
+        110,
+        97,
+        116,
+        105,
+        118,
+        101
+      ],
+      "phase": "development",
+      "result": 96,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 211,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        7105
+      ],
+      "phase": "development",
+      "result": 97,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 212,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        98,
+        101,
+        115,
+        116,
+        97,
+        101,
+        116,
+        105,
+        103,
+        101,
+        110
+      ],
+      "phase": "development",
+      "result": 97,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 213,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        7106
+      ],
+      "phase": "development",
+      "result": 98,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 214,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        101,
+        114,
+        119,
+        97,
+        101,
+        103,
+        101,
+        110
+      ],
+      "phase": "development",
+      "result": 98,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 215,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        105
+      ],
+      "phase": "development",
+      "result": 99,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 216,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        116,
+        105,
+        101,
+        102,
+        101,
+        114
+      ],
+      "phase": "development",
+      "result": 99,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 217,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        7107
+      ],
+      "phase": "development",
+      "result": 100,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 218,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        97,
+        98,
+        115,
+        99,
+        104,
+        108,
+        105,
+        101,
+        115,
+        115,
+        101,
+        110
+      ],
+      "phase": "development",
+      "result": 100,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 219,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7101,
+        102
+      ],
+      "phase": "development",
+      "result": 101,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 220,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        112,
+        114,
+        117,
+        101,
+        102,
+        101,
+        110,
+        32,
+        109,
+        105,
+        116,
+        116,
+        101
+      ],
+      "phase": "development",
+      "result": 101,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 221,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7102,
+        103
+      ],
+      "phase": "development",
+      "result": 102,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 222,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        116,
+        101,
+        115,
+        116,
+        101,
+        110,
+        32,
+        122,
+        105,
+        101,
+        108
+      ],
+      "phase": "development",
+      "result": 102,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 223,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7104,
+        104
+      ],
+      "phase": "development",
+      "result": 103,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 224,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        115,
+        111,
+        110,
+        100,
+        105,
+        101,
+        114,
+        101,
+        110,
+        32,
+        97,
+        108,
+        116,
+        101,
+        114,
+        110,
+        97,
+        116,
+        105,
+        118,
+        101
+      ],
+      "phase": "development",
+      "result": 103,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 225,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7105,
+        103
+      ],
+      "phase": "development",
+      "result": 104,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 226,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        98,
+        101,
+        115,
+        116,
+        97,
+        101,
+        116,
+        105,
+        103,
+        101,
+        110,
+        32,
+        122,
+        105,
+        101,
+        108
+      ],
+      "phase": "development",
+      "result": 104,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 227,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7106,
+        105
+      ],
+      "phase": "development",
+      "result": 105,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 228,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        101,
+        114,
+        119,
+        97,
+        101,
+        103,
+        101,
+        110,
+        32,
+        116,
+        105,
+        101,
+        102,
+        101,
+        114
+      ],
+      "phase": "development",
+      "result": 105,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 229,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7107,
+        103
+      ],
+      "phase": "development",
+      "result": 106,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 230,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        97,
+        98,
+        115,
+        99,
+        104,
+        108,
+        105,
+        101,
+        115,
+        115,
+        101,
+        110,
+        32,
+        122,
+        105,
+        101,
+        108
+      ],
+      "phase": "development",
+      "result": 106,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 231,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        7101
+      ],
+      "phase": "development",
+      "result": 107,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 232,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        112,
+        114,
+        117,
+        101,
+        102,
+        101,
+        110
+      ],
+      "phase": "development",
+      "result": 107,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 233,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        102
+      ],
+      "phase": "development",
+      "result": 108,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 234,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        109,
+        105,
+        116,
+        116,
+        101
+      ],
+      "phase": "development",
+      "result": 108,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 235,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        7102
+      ],
+      "phase": "development",
+      "result": 109,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 236,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        116,
+        101,
+        115,
+        116,
+        101,
+        110
+      ],
+      "phase": "development",
+      "result": 109,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 237,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        103
+      ],
+      "phase": "development",
+      "result": 110,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 238,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        122,
+        105,
+        101,
+        108
+      ],
+      "phase": "development",
+      "result": 110,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 239,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        7104
+      ],
+      "phase": "development",
+      "result": 111,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 240,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        115,
+        111,
+        110,
+        100,
+        105,
+        101,
+        114,
+        101,
+        110
+      ],
+      "phase": "development",
+      "result": 111,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 241,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        104
+      ],
+      "phase": "development",
+      "result": 112,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 242,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        97,
+        108,
+        116,
+        101,
+        114,
+        110,
+        97,
+        116,
+        105,
+        118,
+        101
+      ],
+      "phase": "development",
+      "result": 112,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 243,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        7105
+      ],
+      "phase": "development",
+      "result": 113,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 244,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        98,
+        101,
+        115,
+        116,
+        97,
+        101,
+        116,
+        105,
+        103,
+        101,
+        110
+      ],
+      "phase": "development",
+      "result": 113,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 245,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        7106
+      ],
+      "phase": "development",
+      "result": 114,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 246,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        101,
+        114,
+        119,
+        97,
+        101,
+        103,
+        101,
+        110
+      ],
+      "phase": "development",
+      "result": 114,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 247,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        105
+      ],
+      "phase": "development",
+      "result": 115,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 248,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        116,
+        105,
+        101,
+        102,
+        101,
+        114
+      ],
+      "phase": "development",
+      "result": 115,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 249,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        7107
+      ],
+      "phase": "development",
+      "result": 116,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 250,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        97,
+        98,
+        115,
+        99,
+        104,
+        108,
+        105,
+        101,
+        115,
+        115,
+        101,
+        110
+      ],
+      "phase": "development",
+      "result": 116,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 251,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7101,
+        102
+      ],
+      "phase": "development",
+      "result": 117,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 252,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        112,
+        114,
+        117,
+        101,
+        102,
+        101,
+        110,
+        32,
+        109,
+        105,
+        116,
+        116,
+        101
+      ],
+      "phase": "development",
+      "result": 117,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 253,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7102,
+        103
+      ],
+      "phase": "development",
+      "result": 118,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 254,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        116,
+        101,
+        115,
+        116,
+        101,
+        110,
+        32,
+        122,
+        105,
+        101,
+        108
+      ],
+      "phase": "development",
+      "result": 118,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 255,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7104,
+        104
+      ],
+      "phase": "development",
+      "result": 119,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 256,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        115,
+        111,
+        110,
+        100,
+        105,
+        101,
+        114,
+        101,
+        110,
+        32,
+        97,
+        108,
+        116,
+        101,
+        114,
+        110,
+        97,
+        116,
+        105,
+        118,
+        101
+      ],
+      "phase": "development",
+      "result": 119,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 257,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7105,
+        103
+      ],
+      "phase": "development",
+      "result": 120,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 258,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        98,
+        101,
+        115,
+        116,
+        97,
+        101,
+        116,
+        105,
+        103,
+        101,
+        110,
+        32,
+        122,
+        105,
+        101,
+        108
+      ],
+      "phase": "development",
+      "result": 120,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 259,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7106,
+        105
+      ],
+      "phase": "development",
+      "result": 121,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 260,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        101,
+        114,
+        119,
+        97,
+        101,
+        103,
+        101,
+        110,
+        32,
+        116,
+        105,
+        101,
+        102,
+        101,
+        114
+      ],
+      "phase": "development",
+      "result": 121,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 261,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7107,
+        103
+      ],
+      "phase": "development",
+      "result": 122,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 262,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        97,
+        98,
+        115,
+        99,
+        104,
+        108,
+        105,
+        101,
+        115,
+        115,
+        101,
+        110,
+        32,
+        122,
+        105,
+        101,
+        108
+      ],
+      "phase": "development",
+      "result": 122,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 263,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7101,
+        102
+      ],
+      "phase": "development",
+      "result": 123,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 264,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7102,
+        103
+      ],
+      "phase": "development",
+      "result": 124,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 265,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        123,
+        124,
+        59153
+      ],
+      "phase": "development",
+      "result": [
+        123,
+        124,
+        59153
+      ],
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 266,
+      "kind": 12,
+      "live": true,
+      "payload": [
+        112,
+        114,
+        117,
+        101,
+        102,
+        101,
+        110,
+        32,
+        109,
+        105,
+        116,
+        116,
+        101,
+        32,
+        100,
+        97,
+        110,
+        97,
+        99,
+        104,
+        32,
+        116,
+        101,
+        115,
+        116,
+        101,
+        110,
+        32,
+        122,
+        105,
+        101,
+        108
+      ],
+      "phase": "development",
+      "result": 124,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 267,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7104,
+        104
+      ],
+      "phase": "development",
+      "result": 125,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 268,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7105,
+        103
+      ],
+      "phase": "development",
+      "result": 126,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 269,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        125,
+        126,
+        59153
+      ],
+      "phase": "development",
+      "result": [
+        125,
+        126,
+        59153
+      ],
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 270,
+      "kind": 12,
+      "live": true,
+      "payload": [
+        115,
+        111,
+        110,
+        100,
+        105,
+        101,
+        114,
+        101,
+        110,
+        32,
+        97,
+        108,
+        116,
+        101,
+        114,
+        110,
+        97,
+        116,
+        105,
+        118,
+        101,
+        32,
+        100,
+        97,
+        110,
+        97,
+        99,
+        104,
+        32,
+        98,
+        101,
+        115,
+        116,
+        97,
+        101,
+        116,
+        105,
+        103,
+        101,
+        110,
+        32,
+        122,
+        105,
+        101,
+        108
+      ],
+      "phase": "development",
+      "result": 126,
+      "source": 59394
+    },
+    {
+      "independent": true,
+      "index": 271,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7101,
+        102
+      ],
+      "phase": "development",
+      "result": 127,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 272,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7102,
+        103
+      ],
+      "phase": "development",
+      "result": 128,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 273,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        127,
+        128,
+        59153
+      ],
+      "phase": "development",
+      "result": [
+        127,
+        128,
+        59153
+      ],
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 274,
+      "kind": 12,
+      "live": true,
+      "payload": [
+        112,
+        114,
+        117,
+        101,
+        102,
+        101,
+        110,
+        32,
+        109,
+        105,
+        116,
+        116,
+        101,
+        32,
+        100,
+        97,
+        110,
+        97,
+        99,
+        104,
+        32,
+        116,
+        101,
+        115,
+        116,
+        101,
+        110,
+        32,
+        122,
+        105,
+        101,
+        108
+      ],
+      "phase": "development",
+      "result": 128,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 275,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7104,
+        104
+      ],
+      "phase": "development",
+      "result": 129,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 276,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        59152,
+        2,
+        7105,
+        103
+      ],
+      "phase": "development",
+      "result": 130,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 277,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        129,
+        130,
+        59153
+      ],
+      "phase": "development",
+      "result": [
+        129,
+        130,
+        59153
+      ],
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 278,
+      "kind": 12,
+      "live": true,
+      "payload": [
+        115,
+        111,
+        110,
+        100,
+        105,
+        101,
+        114,
+        101,
+        110,
+        32,
+        97,
+        108,
+        116,
+        101,
+        114,
+        110,
+        97,
+        116,
+        105,
+        118,
+        101,
+        32,
+        100,
+        97,
+        110,
+        97,
+        99,
+        104,
+        32,
+        98,
+        101,
+        115,
+        116,
+        97,
+        101,
+        116,
+        105,
+        103,
+        101,
+        110,
+        32,
+        122,
+        105,
+        101,
+        108
+      ],
+      "phase": "development",
+      "result": 130,
+      "source": 59651
+    },
+    {
+      "independent": true,
+      "index": 279,
+      "kind": 17,
+      "live": true,
+      "payload": [
+        59649
+      ],
+      "phase": "development",
+      "result": 164,
+      "source": 64515
+    },
+    {
+      "independent": true,
+      "index": 280,
+      "kind": 10,
+      "live": true,
+      "payload": [
+        0,
+        0,
+        0
+      ],
+      "phase": "development",
+      "result": [
+        0,
+        0,
+        0
+      ],
+      "source": 64516
+    },
+    {
+      "independent": true,
+      "index": 281,
+      "kind": 9,
+      "live": true,
+      "payload": [
+        77
+      ],
+      "phase": "development",
+      "result": 77,
+      "source": 43001
+    },
+    {
+      "independent": true,
+      "index": 282,
+      "kind": 16,
+      "live": true,
+      "payload": [
+        7777,
+        3,
+        81,
+        82,
+        83
+      ],
+      "phase": "live_new_word",
+      "result": 7777,
+      "source": 30104
+    },
+    {
+      "independent": true,
+      "index": 283,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        0,
+        1,
+        7777
+      ],
+      "phase": "live_new_word",
+      "result": 131,
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 284,
+      "kind": 2,
+      "live": true,
+      "payload": [
+        100,
+        97,
+        120
+      ],
+      "phase": "live_new_word",
+      "result": 131,
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 285,
+      "kind": 5,
+      "live": true,
+      "payload": [
+        9701
+      ],
+      "phase": "live_conflict",
+      "result": [
+        9701
+      ],
+      "source": 7701
+    },
+    {
+      "independent": true,
+      "index": 286,
+      "kind": 6,
+      "live": true,
+      "payload": [
+        7777
+      ],
+      "phase": "live_conflict",
+      "result": [
+        7777
+      ],
+      "source": 8701
+    },
+    {
+      "independent": true,
+      "index": 287,
+      "kind": 7,
+      "live": true,
+      "payload": [
+        7302,
+        8303
+      ],
+      "phase": "live_conflict",
+      "result": [
+        7302,
+        8303
+      ],
+      "source": 9701
+    },
+    {
+      "independent": true,
+      "index": 288,
+      "kind": 8,
+      "live": true,
+      "payload": [
+        3,
+        0,
+        1,
+        9701
+      ],
+      "phase": "live_conflict",
+      "result": {
+        "credit": 0,
+        "revisions": 0,
+        "source_credit": 0,
+        "source_revisions": 0,
+        "source_updates": 0
+      },
+      "source": 7701
+    },
+    {
+      "independent": true,
+      "index": 289,
+      "kind": 18,
+      "live": true,
+      "payload": [
+        122,
+        111,
+        101,
+        32,
+        105,
+        110,
+        115,
+        112,
+        101,
+        99,
+        116,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        100,
+        97,
+        120,
+        46
+      ],
+      "phase": "live_conflict",
+      "result": 532368517685268536,
+      "source": 51001
+    },
+    {
+      "independent": true,
+      "index": 290,
+      "kind": 18,
+      "live": true,
+      "payload": [
+        98,
+        111,
+        98,
+        32,
+        116,
+        101,
+        115,
+        116,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        100,
+        97,
+        120,
+        46
+      ],
+      "phase": "live_conflict",
+      "result": 425207531185694087,
+      "source": 51002
+    },
+    {
+      "independent": true,
+      "index": 291,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        4,
+        0
+      ],
+      "phase": "live_answer_and_consequence",
+      "result": {
+        "credit": 0,
+        "revisions": 0,
+        "selection_credit": 0,
+        "selection_revisions": 0
+      },
+      "source": 7701
+    },
+    {
+      "independent": true,
+      "index": 292,
+      "kind": 18,
+      "live": true,
+      "payload": [
+        122,
+        111,
+        101,
+        32,
+        105,
+        110,
+        115,
+        112,
+        101,
+        99,
+        116,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        100,
+        97,
+        120,
+        46
+      ],
+      "phase": "live_answer_and_consequence",
+      "result": 1018016102852245784,
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 293,
+      "kind": 8,
+      "live": true,
+      "payload": [
+        5,
+        1,
+        2,
+        9701,
+        7777
+      ],
+      "phase": "live_answer_and_consequence",
+      "result": {
+        "credit": 80,
+        "lexeme_settlement": [
+          100,
+          97,
+          120
+        ],
+        "revisions": 160,
+        "somatic_updates": 1,
+        "source_credit": 144,
+        "source_revisions": 288,
+        "source_updates": 2,
+        "world_updates": 1
+      },
+      "source": 7701
+    },
+    {
+      "independent": true,
+      "index": 294,
+      "kind": 10,
+      "live": true,
+      "payload": [
+        1,
+        7,
+        51003
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        1,
+        7,
+        51003
+      ],
+      "source": 60001
+    },
+    {
+      "independent": true,
+      "index": 295,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21001,
+        21101,
+        21201,
+        21301
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 133,
+      "source": 61000
+    },
+    {
+      "independent": true,
+      "index": 296,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        6,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 232,
+        "selection_network_updates": 1,
+        "selection_revisions": 464,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 297,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21002,
+        21101,
+        21202,
+        21302
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 134,
+      "source": 61001
+    },
+    {
+      "independent": true,
+      "index": 298,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        133,
+        134,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        133,
+        134,
+        53585
+      ],
+      "source": 71001
+    },
+    {
+      "independent": true,
+      "index": 299,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        7,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 300,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21001,
+        21102,
+        21202,
+        21301
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 135,
+      "source": 61002
+    },
+    {
+      "independent": true,
+      "index": 301,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        134,
+        135,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        134,
+        135,
+        53585
+      ],
+      "source": 71002
+    },
+    {
+      "independent": true,
+      "index": 302,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        8,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 303,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21002,
+        21102,
+        21201,
+        21302
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 136,
+      "source": 61003
+    },
+    {
+      "independent": true,
+      "index": 304,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        135,
+        136,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        135,
+        136,
+        53585
+      ],
+      "source": 71003
+    },
+    {
+      "independent": true,
+      "index": 305,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        9,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 306,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21001,
+        21101,
+        21202,
+        21302
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 137,
+      "source": 61004
+    },
+    {
+      "independent": true,
+      "index": 307,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        136,
+        137,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        136,
+        137,
+        53585
+      ],
+      "source": 71004
+    },
+    {
+      "independent": true,
+      "index": 308,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        10,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 309,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21002,
+        21102,
+        21202,
+        21301
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 138,
+      "source": 61005
+    },
+    {
+      "independent": true,
+      "index": 310,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        137,
+        138,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        137,
+        138,
+        53585
+      ],
+      "source": 71005
+    },
+    {
+      "independent": true,
+      "index": 311,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        11,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 312,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21001,
+        21102,
+        21201,
+        21302
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 139,
+      "source": 61006
+    },
+    {
+      "independent": true,
+      "index": 313,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        138,
+        139,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        138,
+        139,
+        53585
+      ],
+      "source": 71006
+    },
+    {
+      "independent": true,
+      "index": 314,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        12,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 315,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21002,
+        21101,
+        21201,
+        21301
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 140,
+      "source": 61007
+    },
+    {
+      "independent": true,
+      "index": 316,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        139,
+        140,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        139,
+        140,
+        53585
+      ],
+      "source": 71007
+    },
+    {
+      "independent": true,
+      "index": 317,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        13,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 318,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21001,
+        21101,
+        21201,
+        21301
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 141,
+      "source": 61008
+    },
+    {
+      "independent": true,
+      "index": 319,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        140,
+        141,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        140,
+        141,
+        53585
+      ],
+      "source": 71008
+    },
+    {
+      "independent": true,
+      "index": 320,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        14,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 321,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21002,
+        21101,
+        21202,
+        21302
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 142,
+      "source": 61009
+    },
+    {
+      "independent": true,
+      "index": 322,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        141,
+        142,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        141,
+        142,
+        53585
+      ],
+      "source": 71009
+    },
+    {
+      "independent": true,
+      "index": 323,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        15,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 324,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21001,
+        21102,
+        21202,
+        21301
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 143,
+      "source": 61010
+    },
+    {
+      "independent": true,
+      "index": 325,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        142,
+        143,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        142,
+        143,
+        53585
+      ],
+      "source": 71010
+    },
+    {
+      "independent": true,
+      "index": 326,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        16,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 327,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21002,
+        21102,
+        21201,
+        21302
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 144,
+      "source": 61011
+    },
+    {
+      "independent": true,
+      "index": 328,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        143,
+        144,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        143,
+        144,
+        53585
+      ],
+      "source": 71011
+    },
+    {
+      "independent": true,
+      "index": 329,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        17,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 330,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21001,
+        21101,
+        21202,
+        21302
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 145,
+      "source": 61012
+    },
+    {
+      "independent": true,
+      "index": 331,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        144,
+        145,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        144,
+        145,
+        53585
+      ],
+      "source": 71012
+    },
+    {
+      "independent": true,
+      "index": 332,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        18,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 333,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21002,
+        21102,
+        21202,
+        21301
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 146,
+      "source": 61013
+    },
+    {
+      "independent": true,
+      "index": 334,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        145,
+        146,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        145,
+        146,
+        53585
+      ],
+      "source": 71013
+    },
+    {
+      "independent": true,
+      "index": 335,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        19,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 336,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21001,
+        21102,
+        21201,
+        21302
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 147,
+      "source": 61014
+    },
+    {
+      "independent": true,
+      "index": 337,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        146,
+        147,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        146,
+        147,
+        53585
+      ],
+      "source": 71014
+    },
+    {
+      "independent": true,
+      "index": 338,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        20,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 339,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21002,
+        21101,
+        21201,
+        21301
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 148,
+      "source": 61015
+    },
+    {
+      "independent": true,
+      "index": 340,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        147,
+        148,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        147,
+        148,
+        53585
+      ],
+      "source": 71015
+    },
+    {
+      "independent": true,
+      "index": 341,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        21,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 342,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21001,
+        21101,
+        21201,
+        21301
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 149,
+      "source": 61016
+    },
+    {
+      "independent": true,
+      "index": 343,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        148,
+        149,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        148,
+        149,
+        53585
+      ],
+      "source": 71016
+    },
+    {
+      "independent": true,
+      "index": 344,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        22,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 345,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21002,
+        21101,
+        21202,
+        21302
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 150,
+      "source": 61017
+    },
+    {
+      "independent": true,
+      "index": 346,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        149,
+        150,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        149,
+        150,
+        53585
+      ],
+      "source": 71017
+    },
+    {
+      "independent": true,
+      "index": 347,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        23,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 348,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21001,
+        21102,
+        21202,
+        21301
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 151,
+      "source": 61018
+    },
+    {
+      "independent": true,
+      "index": 349,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        150,
+        151,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        150,
+        151,
+        53585
+      ],
+      "source": 71018
+    },
+    {
+      "independent": true,
+      "index": 350,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        24,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 351,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21002,
+        21102,
+        21201,
+        21302
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 152,
+      "source": 61019
+    },
+    {
+      "independent": true,
+      "index": 352,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        151,
+        152,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        151,
+        152,
+        53585
+      ],
+      "source": 71019
+    },
+    {
+      "independent": true,
+      "index": 353,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        25,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 354,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21001,
+        21101,
+        21202,
+        21302
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 153,
+      "source": 61020
+    },
+    {
+      "independent": true,
+      "index": 355,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        152,
+        153,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        152,
+        153,
+        53585
+      ],
+      "source": 71020
+    },
+    {
+      "independent": true,
+      "index": 356,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        26,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 544,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 357,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21002,
+        21102,
+        21202,
+        21301
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 154,
+      "source": 61021
+    },
+    {
+      "independent": true,
+      "index": 358,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        153,
+        154,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        153,
+        154,
+        53585
+      ],
+      "source": 71021
+    },
+    {
+      "independent": true,
+      "index": 359,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        27,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 384,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 360,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21001,
+        21102,
+        21201,
+        21302
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 155,
+      "source": 61022
+    },
+    {
+      "independent": true,
+      "index": 361,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        154,
+        155,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        154,
+        155,
+        53585
+      ],
+      "source": 71022
+    },
+    {
+      "independent": true,
+      "index": 362,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        28,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 352,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 363,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        53584,
+        4,
+        21002,
+        21101,
+        21201,
+        21301
+      ],
+      "phase": "live_distractor_discourse",
+      "result": 156,
+      "source": 61023
+    },
+    {
+      "independent": true,
+      "index": 364,
+      "kind": 11,
+      "live": true,
+      "payload": [
+        155,
+        156,
+        53585
+      ],
+      "phase": "live_distractor_discourse",
+      "result": [
+        155,
+        156,
+        53585
+      ],
+      "source": 71023
+    },
+    {
+      "independent": true,
+      "index": 365,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        29,
+        1
+      ],
+      "phase": "live_distractor_discourse",
+      "result": {
+        "credit": 64,
+        "revisions": 128,
+        "selection_credit": 272,
+        "selection_network_updates": 1,
+        "selection_revisions": 352,
+        "somatic_updates": 4
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 366,
+      "kind": 1,
+      "live": true,
+      "payload": [
+        7,
+        8801,
+        3,
+        601,
+        303,
+        7777
+      ],
+      "phase": "live_delayed_word_reuse",
+      "result": 157,
+      "source": 88001
+    },
+    {
+      "independent": true,
+      "index": 367,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        30,
+        1
+      ],
+      "phase": "live_delayed_word_reuse",
+      "result": {
+        "credit": 104,
+        "revisions": 208,
+        "selection_credit": 183,
+        "selection_network_updates": 1,
+        "selection_revisions": 302,
+        "somatic_updates": 3
+      },
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 368,
+      "kind": 5,
+      "live": true,
+      "payload": [
+        9801
+      ],
+      "phase": "live_delayed_source_use",
+      "result": [
+        9801
+      ],
+      "source": 7801
+    },
+    {
+      "independent": true,
+      "index": 369,
+      "kind": 6,
+      "live": true,
+      "payload": [
+        7777
+      ],
+      "phase": "live_delayed_source_use",
+      "result": [
+        7777
+      ],
+      "source": 8801
+    },
+    {
+      "independent": true,
+      "index": 370,
+      "kind": 7,
+      "live": true,
+      "payload": [
+        7302,
+        8303
+      ],
+      "phase": "live_delayed_source_use",
+      "result": [
+        7302,
+        8303
+      ],
+      "source": 9801
+    },
+    {
+      "independent": true,
+      "index": 371,
+      "kind": 8,
+      "live": true,
+      "payload": [
+        31,
+        0,
+        1,
+        9801
+      ],
+      "phase": "live_delayed_source_use",
+      "result": {
+        "credit": 0,
+        "revisions": 0,
+        "source_credit": 0,
+        "source_revisions": 0,
+        "source_updates": 0
+      },
+      "source": 7801
+    },
+    {
+      "independent": true,
+      "index": 372,
+      "kind": 18,
+      "live": true,
+      "payload": [
+        122,
+        111,
+        101,
+        32,
+        105,
+        110,
+        115,
+        112,
+        101,
+        99,
+        116,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        115,
+        101,
+        110,
+        115,
+        111,
+        114,
+        46
+      ],
+      "phase": "live_delayed_source_use",
+      "result": 1104629035320417663,
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 373,
+      "kind": 18,
+      "live": true,
+      "payload": [
+        98,
+        111,
+        98,
+        32,
+        116,
+        101,
+        115,
+        116,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        118,
+        97,
+        108,
+        118,
+        101,
+        46
+      ],
+      "phase": "live_delayed_source_use",
+      "result": 977933703418452896,
+      "source": 51004
+    },
+    {
+      "independent": true,
+      "index": 374,
+      "kind": 8,
+      "live": true,
+      "payload": [
+        32,
+        -1,
+        1,
+        9801
+      ],
+      "phase": "live_delayed_source_use",
+      "result": {
+        "credit": 16,
+        "revisions": 32,
+        "source_credit": 136,
+        "source_revisions": 272,
+        "source_updates": 2
+      },
+      "source": 7801
+    },
+    {
+      "independent": true,
+      "index": 375,
+      "kind": 5,
+      "live": true,
+      "payload": [
+        9901
+      ],
+      "phase": "live_revision_question",
+      "result": [
+        9901
+      ],
+      "source": 7901
+    },
+    {
+      "independent": true,
+      "index": 376,
+      "kind": 6,
+      "live": true,
+      "payload": [
+        7777
+      ],
+      "phase": "live_revision_question",
+      "result": [
+        7777
+      ],
+      "source": 8901
+    },
+    {
+      "independent": true,
+      "index": 377,
+      "kind": 7,
+      "live": true,
+      "payload": [
+        7302,
+        8303
+      ],
+      "phase": "live_revision_question",
+      "result": [
+        7302,
+        8303
+      ],
+      "source": 9901
+    },
+    {
+      "independent": true,
+      "index": 378,
+      "kind": 8,
+      "live": true,
+      "payload": [
+        33,
+        0,
+        1,
+        9901
+      ],
+      "phase": "live_revision_question",
+      "result": {
+        "credit": 0,
+        "revisions": 0,
+        "source_credit": 0,
+        "source_revisions": 0,
+        "source_updates": 0
+      },
+      "source": 7901
+    },
+    {
+      "independent": true,
+      "index": 379,
+      "kind": 18,
+      "live": true,
+      "payload": [
+        122,
+        111,
+        101,
+        32,
+        105,
+        110,
+        115,
+        112,
+        101,
+        99,
+        116,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        115,
+        101,
+        110,
+        115,
+        111,
+        114,
+        46
+      ],
+      "phase": "live_revision_question",
+      "result": 510201196247259481,
+      "source": 51003
+    },
+    {
+      "independent": true,
+      "index": 380,
+      "kind": 18,
+      "live": true,
+      "payload": [
+        98,
+        111,
+        98,
+        32,
+        116,
+        101,
+        115,
+        116,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        118,
+        97,
+        108,
+        118,
+        101,
+        46
+      ],
+      "phase": "live_revision_question",
+      "result": 270091507129584291,
+      "source": 51004
+    },
+    {
+      "independent": true,
+      "index": 381,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        34,
+        0
+      ],
+      "phase": "live_revision_question",
+      "result": {
+        "credit": 0,
+        "revisions": 0,
+        "selection_credit": 0,
+        "selection_revisions": 0
+      },
+      "source": 7901
+    },
+    {
+      "independent": true,
+      "index": 382,
+      "kind": 18,
+      "live": true,
+      "payload": [
+        98,
+        111,
+        98,
+        32,
+        116,
+        101,
+        115,
+        116,
+        115,
+        32,
+        116,
+        104,
+        101,
+        32,
+        118,
+        97,
+        108,
+        118,
+        101,
+        46
+      ],
+      "phase": "live_revision_question",
+      "result": 126801523295963060,
+      "source": 51005
+    },
+    {
+      "independent": true,
+      "index": 383,
+      "kind": 8,
+      "live": true,
+      "payload": [
+        35,
+        1,
+        2,
+        9901,
+        7777
+      ],
+      "phase": "live_revision_question",
+      "result": {
+        "credit": 80,
+        "revisions": 160,
+        "somatic_updates": 1,
+        "source_credit": 0,
+        "source_revisions": 0,
+        "source_updates": 0,
+        "world_updates": 1
+      },
+      "source": 7901
+    },
+    {
+      "independent": true,
+      "index": 384,
+      "kind": 17,
+      "live": true,
+      "payload": [
+        59649
+      ],
+      "phase": "live_spontaneous_prospection",
+      "result": 552,
+      "source": 64528
+    },
+    {
+      "independent": true,
+      "index": 385,
+      "kind": 10,
+      "live": true,
+      "payload": [
+        1,
+        7,
+        59393
+      ],
+      "phase": "live_spontaneous_prospection",
+      "result": [
+        1,
+        7,
+        59393
+      ],
+      "source": 64529
+    },
+    {
+      "independent": true,
+      "index": 386,
+      "kind": 5,
+      "live": true,
+      "payload": [
+        101
+      ],
+      "phase": "live_spontaneous_prospection",
+      "result": [
+        101
+      ],
+      "source": 64530
+    },
+    {
+      "independent": true,
+      "index": 387,
+      "kind": 6,
+      "live": true,
+      "payload": [
+        103
+      ],
+      "phase": "live_spontaneous_prospection",
+      "result": [
+        103
+      ],
+      "source": 5001
+    },
+    {
+      "independent": true,
+      "index": 388,
+      "kind": 7,
+      "live": true,
+      "payload": [
+        7103
+      ],
+      "phase": "live_spontaneous_prospection",
+      "result": [
+        7103
+      ],
+      "source": 5002
+    },
+    {
+      "independent": true,
+      "index": 389,
+      "kind": 3,
+      "live": true,
+      "payload": [
+        36,
+        0
+      ],
+      "phase": "live_spontaneous_prospection",
+      "result": {
+        "credit": 0,
+        "revisions": 0
+      },
+      "source": 59393
+    }
+  ],
+  "development_calls": [
+    "reference_language_guided_cognition_verify.train_language",
+    "authored generic distractor discourse surface topology",
+    "authored generic inquiry surface topology",
+    "authored generic binary discourse span topology",
+    "ordinary lived prospective transition history",
+    "learned partner prospective-expression surface topology"
+  ],
+  "final_checkpoint_bytes": 218198,
+  "final_checkpoint_sha256": "01374e3ec27077e1a27087f536227251d673b97bb5c6023033d7e3fdd91d4d93",
+  "final_digest": "0e45693df7347a35cc3e832572bf7d2c5b5bac092a4d975a56d5678965a1a1f9",
+  "host_expected_output": false,
+  "hot_actions": 28,
+  "hot_motor_actions": 8,
+  "last_touch_counts": {
+    "language_recipe": 1,
+    "prospective": 2,
+    "selection": 1,
+    "source": 6
+  },
+  "new_word_outcome": [
+    1,
+    0
+  ],
+  "pass": true,
+  "persistent_population_occurrences": 365,
+  "public_actions": [
+    {
+      "binding_identity": 0,
+      "channel": 77,
+      "contributors": [
+        132,
+        179,
+        228792530020784725,
+        180,
+        181,
+        182,
+        618455101724698003,
+        170
+      ],
+      "kind": "ActionV2",
+      "label": "source_conflict_question",
+      "lexical_identities": [
+        36302925277063369,
+        740340460762658974
+      ],
+      "payload_hex": "74657374206f7220696e73706563743f",
+      "payload_utf8": "test or inspect?",
+      "scene_identity": 132,
+      "source": 7701,
+      "span_identity": 0,
+      "template_identity": 228792530020784725,
+      "ticket": 4
+    },
+    {
+      "action_id": 8303,
+      "kind": "MotorActionV2",
+      "label": "answer_resolved_motor",
+      "prospective_recipe": 0,
+      "source": 7701,
+      "source_assertion_ids": [
+        532368517685268536,
+        1018016102852245784
+      ],
+      "source_counterfactual_action": 7302,
+      "ticket": 5
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        133,
+        192,
+        191,
+        193,
+        747820877915741671,
+        18134542504678231766,
+        868235530182488088,
+        611955243808748307,
+        302720537480860882,
+        867835109297202485,
+        194,
+        195,
+        196,
+        197,
+        198,
+        30114694969251334
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_00",
+      "lexical_identities": [
+        868235530182488088,
+        611955243808748307,
+        302720537480860882,
+        867835109297202485
+      ],
+      "payload_hex": "746865206361726566756c20656e67696e656572207265766965777320746865206c65646765722e",
+      "payload_utf8": "the careful engineer reviews the ledger.",
+      "scene_identity": 133,
+      "source": 51003,
+      "span_identity": 0,
+      "template_identity": 747820877915741671,
+      "ticket": 6
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        134,
+        199,
+        201,
+        191,
+        202,
+        747820877915741671,
+        10048885290920340667,
+        915149611207580567,
+        611955243808748307,
+        954498469268678286,
+        616105554992756595,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        476712523475631156,
+        91690141181851573,
+        14729831308404516124,
+        18134542504678231766
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_01",
+      "lexical_identities": [
+        915149611207580567,
+        611955243808748307,
+        954498469268678286,
+        616105554992756595
+      ],
+      "payload_hex": "207468656e2074686520717569657420656e67696e656572206d6f6e69746f727320746865206d6f64756c652e",
+      "payload_utf8": " then the quiet engineer monitors the module.",
+      "scene_identity": 134,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 7
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        135,
+        209,
+        211,
+        212,
+        213,
+        201,
+        191,
+        214,
+        747820877915741671,
+        8465607232636949294,
+        868235530182488088,
+        105154003178850298,
+        954498469268678286,
+        867835109297202485,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        198010003070749623,
+        91690141181851573,
+        3918185742923436448,
+        10048885290920340667
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_02",
+      "lexical_identities": [
+        868235530182488088,
+        105154003178850298,
+        954498469268678286,
+        867835109297202485
+      ],
+      "payload_hex": "207468656e20746865206361726566756c20746563686e696369616e206d6f6e69746f727320746865206c65646765722e",
+      "payload_utf8": " then the careful technician monitors the ledger.",
+      "scene_identity": 135,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 8
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        136,
+        221,
+        223,
+        224,
+        225,
+        226,
+        211,
+        212,
+        213,
+        191,
+        227,
+        747820877915741671,
+        9684323515692805989,
+        915149611207580567,
+        105154003178850298,
+        302720537480860882,
+        616105554992756595,
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        107132418624397557,
+        91690141181851573,
+        2552259381430398636,
+        8465607232636949294
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_03",
+      "lexical_identities": [
+        915149611207580567,
+        105154003178850298,
+        302720537480860882,
+        616105554992756595
+      ],
+      "payload_hex": "207468656e2074686520717569657420746563686e696369616e207265766965777320746865206d6f64756c652e",
+      "payload_utf8": " then the quiet technician reviews the module.",
+      "scene_identity": 136,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 9
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        137,
+        234,
+        211,
+        236,
+        201,
+        237,
+        212,
+        238,
+        226,
+        239,
+        223,
+        224,
+        225,
+        191,
+        240,
+        747820877915741671,
+        10427120914984557649,
+        868235530182488088,
+        611955243808748307,
+        954498469268678286,
+        616105554992756595,
+        241,
+        242,
+        243,
+        244,
+        245,
+        246,
+        1142694768756939330,
+        91690141181851573,
+        4925640916693034392,
+        9684323515692805989
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_04",
+      "lexical_identities": [
+        868235530182488088,
+        611955243808748307,
+        954498469268678286,
+        616105554992756595
+      ],
+      "payload_hex": "207468656e20746865206361726566756c20656e67696e656572206d6f6e69746f727320746865206d6f64756c652e",
+      "payload_utf8": " then the careful engineer monitors the module.",
+      "scene_identity": 137,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 10
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        138,
+        247,
+        223,
+        249,
+        224,
+        250,
+        212,
+        238,
+        251,
+        213,
+        252,
+        211,
+        236,
+        201,
+        237,
+        226,
+        239,
+        191,
+        253,
+        747820877915741671,
+        1500015663336081694,
+        915149611207580567,
+        105154003178850298,
+        954498469268678286,
+        867835109297202485,
+        254,
+        255,
+        256,
+        257,
+        258,
+        259,
+        429191946986804320,
+        91690141181851573,
+        3696305895253165393,
+        10427120914984557649
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_05",
+      "lexical_identities": [
+        915149611207580567,
+        105154003178850298,
+        954498469268678286,
+        867835109297202485
+      ],
+      "payload_hex": "207468656e2074686520717569657420746563686e696369616e206d6f6e69746f727320746865206c65646765722e",
+      "payload_utf8": " then the quiet technician monitors the ledger.",
+      "scene_identity": 138,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 11
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        139,
+        260,
+        211,
+        236,
+        262,
+        224,
+        250,
+        263,
+        225,
+        264,
+        226,
+        239,
+        265,
+        223,
+        249,
+        212,
+        238,
+        251,
+        213,
+        252,
+        191,
+        266,
+        747820877915741671,
+        10545395257726803251,
+        868235530182488088,
+        105154003178850298,
+        302720537480860882,
+        616105554992756595,
+        267,
+        268,
+        269,
+        270,
+        271,
+        272,
+        642535396099963290,
+        91690141181851573,
+        4314660560805581065,
+        1500015663336081694
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_06",
+      "lexical_identities": [
+        868235530182488088,
+        105154003178850298,
+        302720537480860882,
+        616105554992756595
+      ],
+      "payload_hex": "207468656e20746865206361726566756c20746563686e696369616e207265766965777320746865206d6f64756c652e",
+      "payload_utf8": " then the careful technician reviews the module.",
+      "scene_identity": 139,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 12
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        140,
+        273,
+        223,
+        249,
+        275,
+        201,
+        237,
+        276,
+        225,
+        264,
+        277,
+        213,
+        252,
+        278,
+        211,
+        236,
+        262,
+        224,
+        250,
+        263,
+        226,
+        239,
+        265,
+        191,
+        279,
+        747820877915741671,
+        14337376717624886161,
+        915149611207580567,
+        611955243808748307,
+        302720537480860882,
+        867835109297202485,
+        280,
+        281,
+        282,
+        283,
+        284,
+        285,
+        743296271291617753,
+        91690141181851573,
+        2119364780969444622,
+        10545395257726803251
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_07",
+      "lexical_identities": [
+        915149611207580567,
+        611955243808748307,
+        302720537480860882,
+        867835109297202485
+      ],
+      "payload_hex": "207468656e2074686520717569657420656e67696e656572207265766965777320746865206c65646765722e",
+      "payload_utf8": " then the quiet engineer reviews the ledger.",
+      "scene_identity": 140,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 13
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        141,
+        286,
+        236,
+        262,
+        288,
+        237,
+        276,
+        289,
+        264,
+        277,
+        290,
+        252,
+        278,
+        291,
+        223,
+        249,
+        275,
+        201,
+        225,
+        213,
+        191,
+        292,
+        747820877915741671,
+        10775912950138035263,
+        868235530182488088,
+        611955243808748307,
+        302720537480860882,
+        867835109297202485,
+        293,
+        294,
+        295,
+        296,
+        297,
+        298,
+        679701597366274712,
+        91690141181851573,
+        18351629803945966724,
+        14337376717624886161
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_08",
+      "lexical_identities": [
+        868235530182488088,
+        611955243808748307,
+        302720537480860882,
+        867835109297202485
+      ],
+      "payload_hex": "207468656e20746865206361726566756c20656e67696e656572207265766965777320746865206c65646765722e",
+      "payload_utf8": " then the careful engineer reviews the ledger.",
+      "scene_identity": 141,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 14
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        142,
+        299,
+        249,
+        275,
+        301,
+        302,
+        276,
+        289,
+        238,
+        251,
+        303,
+        239,
+        265,
+        304,
+        236,
+        262,
+        288,
+        237,
+        264,
+        277,
+        290,
+        252,
+        278,
+        291,
+        191,
+        305,
+        747820877915741671,
+        16999077183963535133,
+        915149611207580567,
+        611955243808748307,
+        954498469268678286,
+        616105554992756595,
+        306,
+        307,
+        308,
+        309,
+        310,
+        311,
+        452103816331953569,
+        91690141181851573,
+        10014510046520735,
+        10775912950138035263
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_09",
+      "lexical_identities": [
+        915149611207580567,
+        611955243808748307,
+        954498469268678286,
+        616105554992756595
+      ],
+      "payload_hex": "207468656e2074686520717569657420656e67696e656572206d6f6e69746f727320746865206d6f64756c652e",
+      "payload_utf8": " then the quiet engineer monitors the module.",
+      "scene_identity": 142,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 15
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        143,
+        312,
+        314,
+        262,
+        288,
+        250,
+        263,
+        315,
+        316,
+        251,
+        303,
+        317,
+        278,
+        291,
+        249,
+        275,
+        301,
+        302,
+        276,
+        289,
+        238,
+        239,
+        265,
+        304,
+        191,
+        318,
+        747820877915741671,
+        16115219901222783446,
+        868235530182488088,
+        105154003178850298,
+        954498469268678286,
+        867835109297202485,
+        319,
+        320,
+        321,
+        322,
+        323,
+        324,
+        940162778055185314,
+        91690141181851573,
+        8770220442162537771,
+        16999077183963535133
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_10",
+      "lexical_identities": [
+        868235530182488088,
+        105154003178850298,
+        954498469268678286,
+        867835109297202485
+      ],
+      "payload_hex": "207468656e20746865206361726566756c20746563686e696369616e206d6f6e69746f727320746865206c65646765722e",
+      "payload_utf8": " then the careful technician monitors the ledger.",
+      "scene_identity": 143,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 16
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        144,
+        325,
+        327,
+        275,
+        301,
+        328,
+        263,
+        315,
+        329,
+        277,
+        290,
+        330,
+        265,
+        304,
+        314,
+        262,
+        288,
+        250,
+        316,
+        251,
+        303,
+        317,
+        278,
+        291,
+        191,
+        331,
+        747820877915741671,
+        18316701345324852241,
+        915149611207580567,
+        105154003178850298,
+        302720537480860882,
+        616105554992756595,
+        332,
+        333,
+        334,
+        335,
+        336,
+        337,
+        779673136217041988,
+        91690141181851573,
+        11643009679208403765,
+        16115219901222783446
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_11",
+      "lexical_identities": [
+        915149611207580567,
+        105154003178850298,
+        302720537480860882,
+        616105554992756595
+      ],
+      "payload_hex": "207468656e2074686520717569657420746563686e696369616e207265766965777320746865206d6f64756c652e",
+      "payload_utf8": " then the quiet technician reviews the module.",
+      "scene_identity": 144,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 17
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        145,
+        338,
+        314,
+        340,
+        288,
+        302,
+        341,
+        289,
+        316,
+        342,
+        303,
+        330,
+        343,
+        304,
+        327,
+        275,
+        301,
+        328,
+        263,
+        315,
+        329,
+        277,
+        290,
+        265,
+        191,
+        344,
+        747820877915741671,
+        17820737644399152620,
+        868235530182488088,
+        611955243808748307,
+        954498469268678286,
+        616105554992756595,
+        345,
+        346,
+        347,
+        348,
+        349,
+        350,
+        34733782659717153,
+        91690141181851573,
+        7198999549827677901,
+        18316701345324852241
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_12",
+      "lexical_identities": [
+        868235530182488088,
+        611955243808748307,
+        954498469268678286,
+        616105554992756595
+      ],
+      "payload_hex": "207468656e20746865206361726566756c20656e67696e656572206d6f6e69746f727320746865206d6f64756c652e",
+      "payload_utf8": " then the careful engineer monitors the module.",
+      "scene_identity": 145,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 18
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        146,
+        351,
+        327,
+        353,
+        301,
+        328,
+        354,
+        315,
+        316,
+        342,
+        355,
+        317,
+        356,
+        291,
+        314,
+        340,
+        288,
+        302,
+        341,
+        289,
+        303,
+        330,
+        343,
+        304,
+        191,
+        357,
+        747820877915741671,
+        8606753020786481491,
+        915149611207580567,
+        105154003178850298,
+        954498469268678286,
+        867835109297202485,
+        358,
+        359,
+        360,
+        361,
+        362,
+        363,
+        1045756554811333646,
+        91690141181851573,
+        15551361772877603886,
+        17820737644399152620
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_13",
+      "lexical_identities": [
+        915149611207580567,
+        105154003178850298,
+        954498469268678286,
+        867835109297202485
+      ],
+      "payload_hex": "207468656e2074686520717569657420746563686e696369616e206d6f6e69746f727320746865206c65646765722e",
+      "payload_utf8": " then the quiet technician monitors the ledger.",
+      "scene_identity": 146,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 19
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        147,
+        364,
+        314,
+        340,
+        366,
+        328,
+        354,
+        367,
+        329,
+        368,
+        290,
+        330,
+        343,
+        369,
+        327,
+        353,
+        301,
+        315,
+        316,
+        342,
+        355,
+        317,
+        356,
+        291,
+        191,
+        370,
+        747820877915741671,
+        14630834889227764214,
+        868235530182488088,
+        105154003178850298,
+        302720537480860882,
+        616105554992756595,
+        371,
+        372,
+        373,
+        374,
+        375,
+        376,
+        325868531161530754,
+        91690141181851573,
+        10618071029133755414,
+        8606753020786481491
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_14",
+      "lexical_identities": [
+        868235530182488088,
+        105154003178850298,
+        302720537480860882,
+        616105554992756595
+      ],
+      "payload_hex": "207468656e20746865206361726566756c20746563686e696369616e207265766965777320746865206d6f64756c652e",
+      "payload_utf8": " then the careful technician reviews the module.",
+      "scene_identity": 147,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 20
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        148,
+        377,
+        327,
+        353,
+        379,
+        302,
+        341,
+        380,
+        329,
+        368,
+        381,
+        317,
+        356,
+        382,
+        314,
+        340,
+        366,
+        328,
+        354,
+        367,
+        290,
+        330,
+        343,
+        369,
+        191,
+        383,
+        747820877915741671,
+        3580742764456873190,
+        915149611207580567,
+        611955243808748307,
+        302720537480860882,
+        867835109297202485,
+        384,
+        385,
+        386,
+        387,
+        388,
+        389,
+        708351773845394443,
+        91690141181851573,
+        3335477328727204688,
+        14630834889227764214
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_15",
+      "lexical_identities": [
+        915149611207580567,
+        611955243808748307,
+        302720537480860882,
+        867835109297202485
+      ],
+      "payload_hex": "207468656e2074686520717569657420656e67696e656572207265766965777320746865206c65646765722e",
+      "payload_utf8": " then the quiet engineer reviews the ledger.",
+      "scene_identity": 148,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 21
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        149,
+        390,
+        340,
+        366,
+        392,
+        341,
+        380,
+        393,
+        368,
+        381,
+        394,
+        356,
+        382,
+        395,
+        327,
+        353,
+        379,
+        302,
+        329,
+        317,
+        191,
+        396,
+        747820877915741671,
+        2886216010149820747,
+        868235530182488088,
+        611955243808748307,
+        302720537480860882,
+        867835109297202485,
+        397,
+        398,
+        399,
+        400,
+        401,
+        402,
+        1102285904970740229,
+        91690141181851573,
+        17060242772825164162,
+        3580742764456873190
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_16",
+      "lexical_identities": [
+        868235530182488088,
+        611955243808748307,
+        302720537480860882,
+        867835109297202485
+      ],
+      "payload_hex": "207468656e20746865206361726566756c20656e67696e656572207265766965777320746865206c65646765722e",
+      "payload_utf8": " then the careful engineer reviews the ledger.",
+      "scene_identity": 149,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 22
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        150,
+        403,
+        353,
+        379,
+        405,
+        406,
+        380,
+        393,
+        342,
+        355,
+        407,
+        343,
+        369,
+        408,
+        340,
+        366,
+        392,
+        341,
+        368,
+        381,
+        394,
+        356,
+        382,
+        395,
+        191,
+        409,
+        747820877915741671,
+        3977786278754706140,
+        915149611207580567,
+        611955243808748307,
+        954498469268678286,
+        616105554992756595,
+        410,
+        411,
+        412,
+        413,
+        414,
+        415,
+        957224356928606860,
+        91690141181851573,
+        11599836861857922396,
+        2886216010149820747
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_17",
+      "lexical_identities": [
+        915149611207580567,
+        611955243808748307,
+        954498469268678286,
+        616105554992756595
+      ],
+      "payload_hex": "207468656e2074686520717569657420656e67696e656572206d6f6e69746f727320746865206d6f64756c652e",
+      "payload_utf8": " then the quiet engineer monitors the module.",
+      "scene_identity": 150,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 23
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        151,
+        416,
+        418,
+        366,
+        392,
+        354,
+        367,
+        419,
+        420,
+        355,
+        407,
+        421,
+        382,
+        395,
+        353,
+        379,
+        405,
+        406,
+        380,
+        393,
+        342,
+        343,
+        369,
+        408,
+        191,
+        422,
+        747820877915741671,
+        13747952367870953395,
+        868235530182488088,
+        105154003178850298,
+        954498469268678286,
+        867835109297202485,
+        423,
+        424,
+        425,
+        426,
+        427,
+        428,
+        942559057053316374,
+        91690141181851573,
+        13450817393062382473,
+        3977786278754706140
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_18",
+      "lexical_identities": [
+        868235530182488088,
+        105154003178850298,
+        954498469268678286,
+        867835109297202485
+      ],
+      "payload_hex": "207468656e20746865206361726566756c20746563686e696369616e206d6f6e69746f727320746865206c65646765722e",
+      "payload_utf8": " then the careful technician monitors the ledger.",
+      "scene_identity": 151,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 24
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        152,
+        429,
+        431,
+        379,
+        405,
+        432,
+        367,
+        419,
+        433,
+        381,
+        394,
+        434,
+        369,
+        408,
+        418,
+        366,
+        392,
+        354,
+        420,
+        355,
+        407,
+        421,
+        382,
+        395,
+        191,
+        435,
+        747820877915741671,
+        4116651115042720840,
+        915149611207580567,
+        105154003178850298,
+        302720537480860882,
+        616105554992756595,
+        436,
+        437,
+        438,
+        439,
+        440,
+        441,
+        502441077280606645,
+        91690141181851573,
+        13245166032656202265,
+        13747952367870953395
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_19",
+      "lexical_identities": [
+        915149611207580567,
+        105154003178850298,
+        302720537480860882,
+        616105554992756595
+      ],
+      "payload_hex": "207468656e2074686520717569657420746563686e696369616e207265766965777320746865206d6f64756c652e",
+      "payload_utf8": " then the quiet technician reviews the module.",
+      "scene_identity": 152,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 25
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        153,
+        442,
+        418,
+        444,
+        392,
+        406,
+        445,
+        393,
+        420,
+        446,
+        407,
+        434,
+        447,
+        408,
+        431,
+        379,
+        405,
+        432,
+        367,
+        419,
+        433,
+        381,
+        394,
+        369,
+        191,
+        448,
+        747820877915741671,
+        199296845043796835,
+        868235530182488088,
+        611955243808748307,
+        954498469268678286,
+        616105554992756595,
+        449,
+        450,
+        451,
+        452,
+        453,
+        454,
+        171682008055569782,
+        91690141181851573,
+        15376143637180210790,
+        4116651115042720840
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_20",
+      "lexical_identities": [
+        868235530182488088,
+        611955243808748307,
+        954498469268678286,
+        616105554992756595
+      ],
+      "payload_hex": "207468656e20746865206361726566756c20656e67696e656572206d6f6e69746f727320746865206d6f64756c652e",
+      "payload_utf8": " then the careful engineer monitors the module.",
+      "scene_identity": 153,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 26
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        154,
+        455,
+        431,
+        457,
+        405,
+        432,
+        458,
+        419,
+        420,
+        446,
+        459,
+        421,
+        460,
+        395,
+        418,
+        444,
+        392,
+        406,
+        445,
+        393,
+        407,
+        434,
+        447,
+        408,
+        191,
+        461,
+        747820877915741671,
+        11779560236254970218,
+        915149611207580567,
+        105154003178850298,
+        954498469268678286,
+        867835109297202485,
+        462,
+        463,
+        464,
+        465,
+        466,
+        467,
+        431431096201471608,
+        91690141181851573,
+        13544061335511630205,
+        199296845043796835
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_21",
+      "lexical_identities": [
+        915149611207580567,
+        105154003178850298,
+        954498469268678286,
+        867835109297202485
+      ],
+      "payload_hex": "207468656e2074686520717569657420746563686e696369616e206d6f6e69746f727320746865206c65646765722e",
+      "payload_utf8": " then the quiet technician monitors the ledger.",
+      "scene_identity": 154,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 27
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        155,
+        468,
+        418,
+        444,
+        470,
+        432,
+        458,
+        471,
+        433,
+        472,
+        394,
+        434,
+        447,
+        473,
+        431,
+        457,
+        405,
+        419,
+        420,
+        446,
+        459,
+        421,
+        460,
+        395,
+        191,
+        474,
+        747820877915741671,
+        2602586852552750244,
+        868235530182488088,
+        105154003178850298,
+        302720537480860882,
+        616105554992756595,
+        475,
+        476,
+        477,
+        478,
+        479,
+        480,
+        999587981696471029,
+        91690141181851573,
+        11274689565802592046,
+        11779560236254970218
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_22",
+      "lexical_identities": [
+        868235530182488088,
+        105154003178850298,
+        302720537480860882,
+        616105554992756595
+      ],
+      "payload_hex": "207468656e20746865206361726566756c20746563686e696369616e207265766965777320746865206d6f64756c652e",
+      "payload_utf8": " then the careful technician reviews the module.",
+      "scene_identity": 155,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 28
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        156,
+        481,
+        431,
+        457,
+        483,
+        406,
+        445,
+        484,
+        433,
+        472,
+        485,
+        421,
+        460,
+        486,
+        418,
+        444,
+        470,
+        432,
+        458,
+        471,
+        394,
+        434,
+        447,
+        473,
+        191,
+        487,
+        747820877915741671,
+        8227060096712194422,
+        915149611207580567,
+        611955243808748307,
+        302720537480860882,
+        867835109297202485,
+        488,
+        489,
+        490,
+        491,
+        492,
+        493,
+        881434104677193803,
+        91690141181851573,
+        4873125145803315158,
+        2602586852552750244
+      ],
+      "kind": "ActionV2",
+      "label": "distractor_23",
+      "lexical_identities": [
+        915149611207580567,
+        611955243808748307,
+        302720537480860882,
+        867835109297202485
+      ],
+      "payload_hex": "207468656e2074686520717569657420656e67696e656572207265766965777320746865206c65646765722e",
+      "payload_utf8": " then the quiet engineer reviews the ledger.",
+      "scene_identity": 156,
+      "source": 51003,
+      "span_identity": 91690141181851573,
+      "template_identity": 747820877915741671,
+      "ticket": 29
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        157,
+        494,
+        495,
+        496,
+        191,
+        497,
+        740860916959956434,
+        2192675756566328732,
+        343124310528782863,
+        50948795679987676,
+        449893950567528144,
+        498,
+        499,
+        500,
+        501,
+        596454953570883340
+      ],
+      "kind": "ActionV2",
+      "label": "delayed_new_word_reuse",
+      "lexical_identities": [
+        343124310528782863,
+        50948795679987676,
+        449893950567528144
+      ],
+      "payload_hex": "7a6f6520696e73706563747320746865206461782e",
+      "payload_utf8": "zoe inspects the dax.",
+      "scene_identity": 157,
+      "source": 51003,
+      "span_identity": 0,
+      "template_identity": 740860916959956434,
+      "ticket": 30
+    },
+    {
+      "action_id": 8303,
+      "kind": "MotorActionV2",
+      "label": "delayed_credibility_choice",
+      "prospective_recipe": 0,
+      "source": 7801,
+      "source_assertion_ids": [
+        532368517685268536,
+        1104629035320417663
+      ],
+      "source_counterfactual_action": 7302,
+      "ticket": 32
+    },
+    {
+      "binding_identity": 0,
+      "channel": 77,
+      "contributors": [
+        158,
+        538,
+        228792530020784725,
+        539,
+        540,
+        541,
+        489029324825272608,
+        529
+      ],
+      "kind": "ActionV2",
+      "label": "post_counterevidence_question",
+      "lexical_identities": [
+        36302925277063369,
+        740340460762658974
+      ],
+      "payload_hex": "74657374206f7220696e73706563743f",
+      "payload_utf8": "test or inspect?",
+      "scene_identity": 158,
+      "source": 7901,
+      "span_identity": 0,
+      "template_identity": 228792530020784725,
+      "ticket": 34
+    },
+    {
+      "action_id": 7302,
+      "kind": "MotorActionV2",
+      "label": "post_counterevidence_resolved_motor",
+      "prospective_recipe": 0,
+      "source": 7901,
+      "source_assertion_ids": [
+        126801523295963060,
+        270091507129584291,
+        425207531185694087
+      ],
+      "source_counterfactual_action": 7302,
+      "ticket": 35
+    },
+    {
+      "binding_identity": 0,
+      "channel": 7,
+      "contributors": [
+        817301372472300723,
+        641123824863914674,
+        75741768305164532,
+        14035427932291915948,
+        1850380231255365101,
+        553,
+        552,
+        560
+      ],
+      "kind": "ActionV2",
+      "label": "spontaneous_blocked_prospective_thought",
+      "lexical_identities": [],
+      "payload_hex": "696e7370656374206d6964646c65207468656e2076657269667920676f616c",
+      "payload_utf8": "inspect middle then verify goal",
+      "scene_identity": 817301372472300723,
+      "source": 59393,
+      "span_identity": 531476433202437830,
+      "template_identity": 531476433202437830,
+      "ticket": 36
+    }
+  ],
+  "runtime_llm": false,
+  "schema": "0x1.cowen-discourse-assay-public.v2",
+  "source_calibration_final": {
+    "51001": 0,
+    "51002": 0,
+    "51003": 0,
+    "51004": 0,
+    "51005": 0
+  },
+  "source_files_sha256": {
+    "reference_endogenous_prospection_verify.py": "0291cd49f21aaccce4607416fc55a24ad2e8c0ac088da80b4b2f2052e2253332",
+    "reference_language_guided_cognition_verify.py": "933371dc32ed45e726f9d895d0bc761e94a5be53757e6de7357631e7fe54ec9f",
+    "reference_organism_fast_mapping_verify.py": "8a7fed45cda7558f3a19ef79d55ff7a3b5849c7f96fc1a334bd37a6ec7a01d75",
+    "reference_organism_v2.py": "c0dc2c05ba4b6c21b9d9db1d71123273727fb7fb2b9c1ccb4e045c60b4f0ab4f"
+  }
+}

@@ -1,0 +1,4 @@
+#ifndef HARDWARE_NATIVE_DIRECT_ADULT_ACTION_COMMIT_PHASE_CUH
+#define HARDWARE_NATIVE_DIRECT_ADULT_ACTION_COMMIT_PHASE_CUH
+namespace substrate::direct_adult_core { struct DirectAdultRuntime; void launch_resident_action_commit_phase(DirectAdultRuntime* runtime); }
+#endif

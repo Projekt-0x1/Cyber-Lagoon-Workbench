@@ -1,0 +1,9 @@
+# Production Resident Recipe IR data. Edit values, then run ./bench.
+# Q16: 65536 == 1.0. This is an engineering/shadow experiment, not a
+# host instruction to a living Adult.
+layout_stride=1
+scale_q16=65536
+clamp_q16=262144
+exact_credit_delta_q16=32768
+evidence_seed=1
+recipe_cell=0

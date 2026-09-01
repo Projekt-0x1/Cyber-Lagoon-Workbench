@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")" && pwd)"
+cd "$ROOT"
+
+reference_only=0
+require_direct=0
+reset_reference=0
+while (($#)); do
+  case "$1" in
+    --reference-only) reference_only=1 ;;
+    --require-direct) require_direct=1 ;;
+    --reset-reference) reset_reference=1 ;;
+    *) echo "unknown option: $1" >&2; exit 2 ;;
+  esac
+  shift
+done
+
+mkdir -p .state .build
+materialize=(python3 tools/public_materialize_adult.py --state-dir .state)
+if ((reset_reference)); then materialize+=(--reset); fi
+"${materialize[@]}"
+
+if ((reference_only)); then
+  echo "CYBER_LAGOON_BUILD status=PASS backend=reference"
+  exit 0
+fi
+
+if ! command -v cmake >/dev/null || ! command -v nvcc >/dev/null; then
+  if ((require_direct)); then
+    echo "Direct build requested but CUDA/CMake toolchain is unavailable" >&2
+    exit 1
+  fi
+  echo "CYBER_LAGOON_BUILD status=PASS backend=reference direct=toolchain-unavailable"
+  exit 0
+fi
+
+cmake -S . -B .build/direct \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_CUDA_ARCHITECTURES=89
+cmake --build .build/direct \
+    --target direct_adult_sitdown direct_recipe_ir_lab \
+    -j"${SUBSTRATE_BUILD_JOBS:-4}"
+
+probe_log=".state/direct-probe.log"
+set +e
+.build/direct/direct_recipe_ir_lab experiments/current_recipe.ir >"$probe_log" 2>&1
+probe_status=$?
+set -e
+cat "$probe_log"
+
+if ((probe_status == 77)); then
+  if ((require_direct)); then
+    echo "Direct artifacts built, but no CUDA device is available" >&2
+    exit 1
+  fi
+  echo "CYBER_LAGOON_BUILD status=PASS backend=reference direct=built-device-unavailable"
+  exit 0
+fi
+if ((probe_status != 0)); then
+  echo "Direct compile-once evaluator failed its startup probe" >&2
+  exit "$probe_status"
+fi
+
+if [[ ! -f .state/direct-adult.xcb ]]; then
+  if ! .build/direct/direct_adult_sitdown \
+      --new .state/direct-adult.xcb \
+      --environment-seed 0x63796265726c6167 \
+      --once; then
+    rm -f .state/direct-adult.xcb
+    echo "Direct Adult birth failed" >&2
+    exit 1
+  fi
+fi
+
+echo "CYBER_LAGOON_BUILD status=PASS backend=direct compile_boundary=closed"
