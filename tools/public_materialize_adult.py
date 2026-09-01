@@ -11,6 +11,7 @@ import sys
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
+STATE = ROOT / ".state"
 WORKBENCH = ROOT / "hardware_native" / "tools" / "foundry_workbench"
 sys.path.insert(0, str(WORKBENCH))
 
@@ -62,21 +63,25 @@ def existing_provenance(checkpoint_path: Path, provenance_path: Path) -> dict:
         or provenance.get("checkpoint") != checkpoint_path.name
     ):
         raise RuntimeError("public-adult:invalid-provenance")
+    os.chmod(checkpoint_path, 0o600)
+    os.chmod(provenance_path, 0o600)
     return provenance
 
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--state-dir", type=Path, default=ROOT / ".state")
     parser.add_argument("--reset", action="store_true")
     parser.add_argument("--strict-tail", action="store_true", help="fail if the current experimental curriculum tail refuses")
     args = parser.parse_args()
 
-    state_dir = args.state_dir.resolve()
-    state_dir.mkdir(parents=True, exist_ok=True, mode=0o700)
-    os.chmod(state_dir, 0o700)
-    checkpoint_path = state_dir / "adult.json"
-    provenance_path = state_dir / "adult.provenance.json"
+    if STATE.is_symlink():
+        raise RuntimeError("public-adult:state-symlink-refused")
+    STATE.mkdir(parents=True, exist_ok=True, mode=0o700)
+    if not STATE.is_dir():
+        raise RuntimeError("public-adult:state-directory-unavailable")
+    os.chmod(STATE, 0o700)
+    checkpoint_path = STATE / "adult.json"
+    provenance_path = STATE / "adult.provenance.json"
     if checkpoint_path.exists() and provenance_path.exists() and not args.reset:
         provenance = existing_provenance(checkpoint_path, provenance_path)
         print(json.dumps({"status": "PUBLIC_ADULT_EXISTS", **provenance}, sort_keys=True))
