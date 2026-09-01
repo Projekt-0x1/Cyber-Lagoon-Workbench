@@ -60,9 +60,42 @@ def main() -> int:
     for relative in ("build", "adult", "bench", "verify"):
         require((ROOT / relative).stat().st_mode & 0o111 != 0, f"verify:not-executable:{relative}")
 
+    build = (ROOT / "build").read_text(encoding="utf-8")
+    for required in (
+        "umask 077",
+        '[[ -L "$directory" ]]',
+        "chmod 700 .state",
+        "mktemp -d .state/.direct-birth.XXXXXX",
+        '[[ -L .state/direct-adult.xcb ]]',
+    ):
+        require(required in build, f"verify:build-hardening:{required}")
+
     bench = (ROOT / "tools" / "public_bench.py").read_text(encoding="utf-8").lower()
     for forbidden in ("cmake", "nvcc", "build_concurrency_guard", "public_materialize_adult"):
         require(forbidden not in bench, f"verify:bench-crosses-build-boundary:{forbidden}")
+
+    materialize = (ROOT / "tools" / "public_materialize_adult.py").read_text(encoding="utf-8")
+    for required in (
+        "tempfile.NamedTemporaryFile",
+        "os.fsync",
+        "os.replace",
+        "public-adult:state-symlink-refused",
+        "os.chmod(state_dir, 0o700)",
+    ):
+        require(required in materialize, f"verify:state-hardening:{required}")
+
+    adult = (ROOT / "tools" / "public_adult.py").read_text(encoding="utf-8")
+    require("os.environ.copy(" not in adult, "verify:adult-inherits-ambient-environment")
+    for required in (
+        "GATEWAY_BOOTSTRAP",
+        "stdin=subprocess.PIPE",
+        "secrets.token_hex(32)",
+        "cwd=body_dir",
+        "CLAUDE_CONFIG_DIR",
+        "NO_PROXY",
+        "public-adult:repo-local-claude-refused",
+    ):
+        require(required in adult, f"verify:adult-body-isolation:{required}")
 
     direct_lab = (ROOT / "hardware_native" / "tools" / "direct_recipe_ir_lab.cu").read_text(encoding="utf-8")
     for required in (
@@ -111,7 +144,7 @@ def main() -> int:
         check=True,
     )
     verify_manifest()
-    print("CYBER_LAGOON_PUBLIC_VERIFY status=PASS build_boundary=closed adult=continuing")
+    print("CYBER_LAGOON_PUBLIC_VERIFY status=PASS build_boundary=closed adult=continuing hardened=1")
     return 0
 
 
