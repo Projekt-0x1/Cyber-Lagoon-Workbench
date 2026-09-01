@@ -10,6 +10,7 @@ import selectors
 import shutil
 import subprocess
 import sys
+import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
 STATE = ROOT / ".state"
@@ -95,7 +96,7 @@ def gateway_command(backend: str) -> list[str]:
     ]
 
 
-def isolated_body_environment(port: int, credential: str, config: Path, body_dir: Path, temp_dir: Path) -> dict[str, str]:
+def isolated_body_environment(port: int, credential: str, body_dir: Path) -> dict[str, str]:
     env = {name: os.environ[name] for name in BODY_ENV_ALLOW if os.environ.get(name)}
     path_entries = []
     for raw in env.get("PATH", "").split(os.pathsep):
@@ -109,14 +110,16 @@ def isolated_body_environment(port: int, credential: str, config: Path, body_dir
         env["PATH"] = os.pathsep.join(path_entries)
     else:
         env.pop("PATH", None)
-    env["HOME"] = str(config)
-    env["PWD"] = str(body_dir)
-    env["TMPDIR"] = str(temp_dir)
+    isolated = str(body_dir)
+    env["HOME"] = isolated
+    env["PWD"] = isolated
+    env["TMPDIR"] = isolated
+    env["CLAUDE_CONFIG_DIR"] = isolated
     env["ANTHROPIC_BASE_URL"] = f"http://127.0.0.1:{port}"
     env["ANTHROPIC_" + "AUTH_TOKEN"] = credential
     env["ANTHROPIC_" + "API_KEY"] = credential
     env["CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC"] = "1"
-    env["CLAUDE_CONFIG_DIR"] = str(config)
+    env["CLAUDE_CODE_SKIP_PROMPT_HISTORY"] = "1"
     env["NO_PROXY"] = "127.0.0.1,localhost"
     env["no_proxy"] = env["NO_PROXY"]
     return env
@@ -164,31 +167,38 @@ def run_claude(backend: str, model: str, prompt: str | None) -> int:
             gateway.stdin.close()
 
         port = gateway_ready(gateway)
-        config = STATE / "claude-config"
-        body_dir = config / "body"
-        temp_dir = config / "tmp"
-        for directory in (config, body_dir, temp_dir):
-            private_directory(directory)
-        env = isolated_body_environment(port, credential, config, body_dir, temp_dir)
+        with tempfile.TemporaryDirectory(prefix=".claude-body.", dir=STATE) as temporary:
+            body_dir = Path(temporary)
+            private_directory(body_dir)
+            env = isolated_body_environment(port, credential, body_dir)
 
-        print(f"CYBER_LAGOON_ADULT backend={backend} body=claude-code", flush=True)
-        command = [str(claude_path), "--bare", "--no-chrome", "--model", model]
-        if prompt is not None:
+            print(f"CYBER_LAGOON_ADULT backend={backend} body=claude-code", flush=True)
             command = [
                 str(claude_path),
                 "--bare",
+                "--restricted",
                 "--no-chrome",
-                "-p",
-                "--no-session-persistence",
                 "--model",
                 model,
+            ]
+            if prompt is None:
+                return subprocess.run(command, cwd=body_dir, env=env, check=False).returncode
+            command += [
+                "-p",
+                "--no-session-persistence",
                 "--max-turns",
                 "1",
                 "--output-format",
                 "json",
-                prompt,
             ]
-        return subprocess.run(command, cwd=body_dir, env=env, check=False).returncode
+            return subprocess.run(
+                command,
+                cwd=body_dir,
+                env=env,
+                input=prompt,
+                text=True,
+                check=False,
+            ).returncode
     finally:
         if gateway.poll() is None:
             gateway.terminate()
