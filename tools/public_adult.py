@@ -19,6 +19,18 @@ REFERENCE_GATEWAY = ROOT / "hardware_native" / "tools" / "foundry_workbench" / "
 REFERENCE_TERMINAL = ROOT / "hardware_native" / "tools" / "foundry_workbench" / "reference_language_mastery_terminal_v1.py"
 DIRECT_GATEWAY = ROOT / "tools" / "public_direct_adult_gateway.py"
 BODY_ENV_ALLOW = ("PATH", "LANG", "LC_ALL", "LC_CTYPE", "TERM", "COLORTERM", "SHELL", "TMPDIR", "USER", "LOGNAME")
+GATEWAY_BOOTSTRAP = """\
+import runpy
+import sys
+from pathlib import Path
+credential = sys.stdin.readline().rstrip("\\n")
+if not credential:
+    raise SystemExit("body:empty-gateway-credential")
+script, credential_flag, *args = sys.argv[1:]
+sys.path.insert(0, str(Path(script).resolve().parent))
+sys.argv = [script, *args, credential_flag, credential]
+runpy.run_path(script, run_name="__main__")
+"""
 
 
 def regular_file(path: Path, executable: bool = False) -> bool:
@@ -48,25 +60,27 @@ def choose_backend(requested: str) -> str:
 
 def gateway_command(backend: str) -> list[str]:
     if backend == "direct":
-        return [
-            sys.executable,
-            str(DIRECT_GATEWAY),
+        script = DIRECT_GATEWAY
+        credential_flag = "--credential"
+        args = [
             "--sitdown",
             str(DIRECT_SITDOWN),
             "--resume",
             str(DIRECT_CHECKPOINT),
-            "--credential-stdin",
             "--port",
             "0",
         ]
+    else:
+        script = REFERENCE_GATEWAY
+        credential_flag = "--auth-token"
+        args = ["--resume", str(REFERENCE_CHECKPOINT), "--port", "0"]
     return [
         sys.executable,
-        str(REFERENCE_GATEWAY),
-        "--resume",
-        str(REFERENCE_CHECKPOINT),
-        "--auth-token-stdin",
-        "--port",
-        "0",
+        "-c",
+        GATEWAY_BOOTSTRAP,
+        str(script),
+        credential_flag,
+        *args,
     ]
 
 
