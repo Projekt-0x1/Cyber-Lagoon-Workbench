@@ -17,15 +17,20 @@ while (($#)); do
   shift
 done
 
-for directory in .state .build; do
-  if [[ -L "$directory" ]]; then
-    echo "refusing symlinked workbench directory: $directory" >&2
+if [[ -L .state ]]; then
+  echo "refusing symlinked workbench directory: .state" >&2
+  exit 1
+fi
+if [[ -e .build ]]; then
+  if [[ -L .build || ! -d .build ]]; then
+    echo "refusing non-directory workbench build boundary: .build" >&2
     exit 1
   fi
-done
-mkdir -p .state .build
-chmod 700 .state .build
-materialize=(python3 tools/public_materialize_adult.py --state-dir .state)
+  chmod 700 .build
+fi
+mkdir -p .state
+chmod 700 .state
+materialize=(python3 tools/public_materialize_adult.py)
 if ((reset_reference)); then materialize+=(--reset); fi
 "${materialize[@]}"
 
@@ -48,6 +53,8 @@ if [[ ! "$build_jobs" =~ ^[1-9][0-9]*$ ]]; then
   echo "SUBSTRATE_BUILD_JOBS must be a positive integer" >&2
   exit 2
 fi
+mkdir -p .build
+chmod 700 .build
 if [[ -L .build/direct ]]; then
   echo "refusing symlinked Direct build directory" >&2
   exit 1
@@ -104,5 +111,6 @@ if [[ ! -f .state/direct-adult.xcb ]]; then
   rmdir "$birth_dir"
   trap - EXIT
 fi
+chmod 600 .state/direct-adult.xcb
 
 echo "CYBER_LAGOON_BUILD status=PASS backend=direct compile_boundary=closed"
