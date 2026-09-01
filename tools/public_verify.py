@@ -137,7 +137,8 @@ def main() -> int:
     for required in (
         "umask 077",
         '[[ -L "$directory" ]]',
-        "chmod 700 .state",
+        "chmod 700 .state .build",
+        '[[ -L .build/direct ]]',
         "mktemp -d .state/.direct-birth.XXXXXX",
         '[[ -L .state/direct-adult.xcb ]]',
     ):
@@ -163,9 +164,15 @@ def main() -> int:
         "GATEWAY_BOOTSTRAP",
         "stdin=subprocess.PIPE",
         "secrets.token_hex(32)",
+        "GATEWAY_STARTUP_SECONDS",
+        "private_directory(STATE)",
         "cwd=body_dir",
+        "TMPDIR",
         "CLAUDE_CONFIG_DIR",
         "NO_PROXY",
+        '"--bare"',
+        '"--no-chrome"',
+        '"--no-session-persistence"',
         "public-adult:repo-local-claude-refused",
     ):
         require(required in adult, f"verify:adult-body-isolation:{required}")
