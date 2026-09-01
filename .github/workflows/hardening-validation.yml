@@ -12,14 +12,17 @@ jobs:
     if: >-
       github.event.pull_request.head.repo.full_name == github.repository &&
       github.event.pull_request.head.ref == 'hardening/vital-workbench-boundary'
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - name: Check out hardening branch
-        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-        with:
-          ref: hardening/vital-workbench-boundary
-          fetch-depth: 0
+      - name: Check out exact hardening head with Git
+        env:
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          git init .
+          git remote add origin "https://github.com/${GITHUB_REPOSITORY}.git"
+          git fetch --depth=1 origin "$HEAD_SHA"
+          git checkout -B hardening/vital-workbench-boundary FETCH_HEAD
 
       - name: Refresh publication receipt in working tree
         run: ./verify --refresh-manifest
@@ -66,6 +69,8 @@ jobs:
         run: ./verify
 
       - name: Commit refreshed publication receipt after all checks pass
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
           if git diff --quiet -- EXPORT_MANIFEST.json; then
             echo 'publication receipt already current'
@@ -73,6 +78,8 @@ jobs:
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git config credential.helper '!f() { echo username=x-access-token; echo "password=$GITHUB_TOKEN"; }; f'
           git add EXPORT_MANIFEST.json
           git commit -m 'Refresh public export manifest after hardening'
           git push origin HEAD:hardening/vital-workbench-boundary
+          git config --unset credential.helper
