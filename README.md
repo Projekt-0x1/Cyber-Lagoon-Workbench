@@ -17,7 +17,7 @@ After cloning:
 ./verify
 ```
 
-There is one user-facing Adult path. The reference Workbench and Direct CUDA implementation are implementation strata behind that path, not separate products.
+There is one user-facing Adult path. The reference Workbench and Direct CUDA implementation are implementation strata behind that path, not separate products. Workbench-owned Python entrypoints and child Python tools run in isolated mode; verification also invokes its local Git inventory with a scrubbed environment rather than inheriting developer Git/Python authority.
 
 `./build` is the only normal compilation boundary. It materializes the last completed canonical checkpoint mark of the continuing reference Adult; if the current experimental curriculum tail is RED, that failure is retained in `.state/adult.provenance.json` rather than blocking access to the completed Adult. Reference-only work creates no Direct build tree. When a compatible CUDA toolchain/device is available, `./build` also builds the minimal Direct dependency closure (Life Function + Adult Core + sit-down + fixed Resident Recipe IR evaluator) once, then births the Direct Adult once. Use `./build --require-direct` when lack of the Direct backend must be fatal.
 

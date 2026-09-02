@@ -13,6 +13,7 @@ import sys
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
+PYTHON = (sys.executable, "-I")
 REQUIRED = (
     "build",
     "adult",
@@ -60,6 +61,7 @@ def tracked_paths() -> list[str] | None:
         run = subprocess.run(
             [str(git_path), "ls-files", "-z"],
             cwd=ROOT,
+            env={"LC_ALL": "C", "GIT_CONFIG_NOSYSTEM": "1"},
             check=True,
             capture_output=True,
         )
@@ -190,6 +192,9 @@ def main() -> int:
         require((ROOT / relative).is_file(), f"verify:missing:{relative}")
     for relative in ("build", "adult", "bench", "verify"):
         require((ROOT / relative).stat().st_mode & 0o111 != 0, f"verify:not-executable:{relative}")
+    for relative in ("adult", "bench", "verify"):
+        launcher = (ROOT / relative).read_text(encoding="utf-8")
+        require("exec python3 -I" in launcher, f"verify:ambient-python-launcher:{relative}")
 
     # Authenticate the pinned tree before executing any Workbench subprocess.
     verify_manifest()
@@ -198,6 +203,7 @@ def main() -> int:
     require("--state-dir" not in build, "verify:configurable-state-root")
     for required in (
         "umask 077",
+        "materialize=(python3 -I tools/public_materialize_adult.py)",
         "[[ -L .state ]]",
         "if [[ -e .build ]]",
         "chmod 700 .state",
@@ -211,6 +217,7 @@ def main() -> int:
         require(required in build, f"verify:build-hardening:{required}")
 
     bench = (ROOT / "tools" / "public_bench.py").read_text(encoding="utf-8").lower()
+    require('python = (sys.executable, "-i")' in bench, "verify:bench-ambient-python")
     for forbidden in ("cmake", "nvcc", "build_concurrency_guard", "public_materialize_adult"):
         require(forbidden not in bench, f"verify:bench-crosses-build-boundary:{forbidden}")
 
@@ -298,11 +305,11 @@ def main() -> int:
         ROOT / "tools" / "public_direct_adult_gateway.py",
         ROOT / "tools" / "public_materialize_adult.py",
     )
-    subprocess.run([sys.executable, "-m", "py_compile", *map(str, scripts)], cwd=ROOT, check=True)
-    subprocess.run([sys.executable, str(ROOT / "tools" / "public_bench.py"), "--no-ir"], cwd=ROOT, check=True)
+    subprocess.run([*PYTHON, "-m", "py_compile", *map(str, scripts)], cwd=ROOT, check=True)
+    subprocess.run([*PYTHON, str(ROOT / "tools" / "public_bench.py"), "--no-ir"], cwd=ROOT, check=True)
     require((ROOT / ".state" / "adult.json").is_file(), "verify:run-build-first")
     subprocess.run(
-        [sys.executable, str(ROOT / "tools" / "public_adult.py"), "--print-backend"],
+        [*PYTHON, str(ROOT / "tools" / "public_adult.py"), "--print-backend"],
         cwd=ROOT,
         check=True,
     )

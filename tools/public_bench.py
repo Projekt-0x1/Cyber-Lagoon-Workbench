@@ -8,6 +8,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
+PYTHON = (sys.executable, "-I")
 WORKBENCH = ROOT / "hardware_native" / "tools" / "foundry_workbench"
 DEFAULT_REFERENCE = ROOT / "tools" / "public_adult_smoke.py"
 DEFAULT_IR = ROOT / "experiments" / "current_recipe.ir"
@@ -47,7 +48,7 @@ def main() -> int:
         script = reference_path(args.reference)
         if not script.is_file():
             raise FileNotFoundError(script)
-        failed = run([sys.executable, str(script)]) != 0
+        failed = run([*PYTHON, str(script)]) != 0
 
     direct_seen = False
     direct_skipped = False
@@ -66,7 +67,7 @@ def main() -> int:
         direct_seen = True
         code = run(
             [
-                sys.executable,
+                *PYTHON,
                 str(DIRECT_ADULT_LAB),
                 "--checkpoint",
                 str(DIRECT_CHECKPOINT),
