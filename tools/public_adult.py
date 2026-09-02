@@ -28,7 +28,6 @@ GATEWAY_ENV_ALLOW = (
     "LANG",
     "LC_ALL",
     "LC_CTYPE",
-    "LD_LIBRARY_PATH",
     "CUDA_VISIBLE_DEVICES",
     "CUDA_DEVICE_ORDER",
     "NVIDIA_VISIBLE_DEVICES",
@@ -114,6 +113,27 @@ def state_lock():
         os.close(descriptor)
 
 
+@contextmanager
+def body_checkpoint(backend: str):
+    if backend != "direct":
+        yield REFERENCE_CHECKPOINT
+        return
+    if not regular_file(DIRECT_CHECKPOINT):
+        raise RuntimeError("public-adult:direct-backend-unavailable; run ./build")
+    branch = STATE / f".direct-claude.{secrets.token_hex(16)}.xcb"
+    try:
+        os.link(DIRECT_CHECKPOINT, branch, follow_symlinks=False)
+        os.chmod(branch, 0o600)
+    except OSError as error:
+        branch.unlink(missing_ok=True)
+        raise RuntimeError("public-adult:direct-branch-unavailable") from error
+    try:
+        yield branch
+    finally:
+        branch.unlink(missing_ok=True)
+        branch.with_name(branch.name + ".next").unlink(missing_ok=True)
+
+
 def backend_available(name: str) -> bool:
     if name == "direct":
         return regular_file(DIRECT_CHECKPOINT) and regular_file(DIRECT_SITDOWN, executable=True)
@@ -131,7 +151,7 @@ def choose_backend(requested: str) -> str:
     return requested
 
 
-def gateway_command(backend: str) -> list[str]:
+def gateway_command(backend: str, checkpoint: Path) -> list[str]:
     if backend == "direct":
         script = DIRECT_GATEWAY
         credential_flag = "--credential"
@@ -139,14 +159,14 @@ def gateway_command(backend: str) -> list[str]:
             "--sitdown",
             str(DIRECT_SITDOWN),
             "--resume",
-            str(DIRECT_CHECKPOINT),
+            str(checkpoint),
             "--port",
             "0",
         ]
     else:
         script = REFERENCE_GATEWAY
         credential_flag = "--auth-token"
-        args = ["--resume", str(REFERENCE_CHECKPOINT), "--port", "0"]
+        args = ["--resume", str(checkpoint), "--port", "0"]
     if not regular_file(script):
         raise RuntimeError("public-adult:gateway-unavailable")
     return [
@@ -221,65 +241,66 @@ def run_claude(backend: str, model: str, prompt: str | None) -> int:
         raise RuntimeError("public-adult:repo-local-claude-refused")
 
     credential = "local-" + secrets.token_hex(32)
-    gateway = subprocess.Popen(
-        gateway_command(backend),
-        cwd=ROOT,
-        env=gateway_environment(),
-        stdin=subprocess.PIPE,
-        stdout=subprocess.PIPE,
-        text=True,
-    )
-    try:
-        assert gateway.stdin is not None
+    with body_checkpoint(backend) as checkpoint:
+        gateway = subprocess.Popen(
+            gateway_command(backend, checkpoint),
+            cwd=ROOT,
+            env=gateway_environment(),
+            stdin=subprocess.PIPE,
+            stdout=subprocess.PIPE,
+            text=True,
+        )
         try:
-            gateway.stdin.write(credential + "\n")
-            gateway.stdin.flush()
-        except BrokenPipeError as error:
-            raise RuntimeError("public-adult:gateway-credential-refused") from error
-        finally:
-            gateway.stdin.close()
-
-        port = gateway_ready(gateway)
-        with tempfile.TemporaryDirectory(prefix=".claude-body.", dir=STATE) as temporary:
-            body_dir = Path(temporary)
-            private_directory(body_dir)
-            env = isolated_body_environment(port, credential, body_dir)
-
-            print(f"CYBER_LAGOON_ADULT backend={backend} body=claude-code", flush=True)
-            command = [
-                str(claude_path),
-                "--bare",
-                "--restricted",
-                "--no-chrome",
-                "--model",
-                model,
-            ]
-            if prompt is None:
-                return subprocess.run(command, cwd=body_dir, env=env, check=False).returncode
-            command += [
-                "-p",
-                "--no-session-persistence",
-                "--max-turns",
-                "1",
-                "--output-format",
-                "json",
-            ]
-            return subprocess.run(
-                command,
-                cwd=body_dir,
-                env=env,
-                input=prompt,
-                text=True,
-                check=False,
-            ).returncode
-    finally:
-        if gateway.poll() is None:
-            gateway.terminate()
+            assert gateway.stdin is not None
             try:
-                gateway.wait(timeout=10)
-            except subprocess.TimeoutExpired:
-                gateway.kill()
-                gateway.wait(timeout=10)
+                gateway.stdin.write(credential + "\n")
+                gateway.stdin.flush()
+            except BrokenPipeError as error:
+                raise RuntimeError("public-adult:gateway-credential-refused") from error
+            finally:
+                gateway.stdin.close()
+
+            port = gateway_ready(gateway)
+            with tempfile.TemporaryDirectory(prefix=".claude-body.", dir=STATE) as temporary:
+                body_dir = Path(temporary)
+                private_directory(body_dir)
+                env = isolated_body_environment(port, credential, body_dir)
+
+                print(f"CYBER_LAGOON_ADULT backend={backend} body=claude-code", flush=True)
+                command = [
+                    str(claude_path),
+                    "--bare",
+                    "--restricted",
+                    "--no-chrome",
+                    "--model",
+                    model,
+                ]
+                if prompt is None:
+                    return subprocess.run(command, cwd=body_dir, env=env, check=False).returncode
+                command += [
+                    "-p",
+                    "--no-session-persistence",
+                    "--max-turns",
+                    "1",
+                    "--output-format",
+                    "json",
+                ]
+                return subprocess.run(
+                    command,
+                    cwd=body_dir,
+                    env=env,
+                    input=prompt,
+                    text=True,
+                    check=False,
+                ).returncode
+        finally:
+            if gateway.poll() is None:
+                gateway.terminate()
+                try:
+                    gateway.wait(timeout=10)
+                except subprocess.TimeoutExpired:
+                    gateway.kill()
+                    gateway.wait(timeout=10)
 
 
 def main() -> int:

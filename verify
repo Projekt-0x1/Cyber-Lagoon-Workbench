@@ -1,4 +1,8 @@
-#!/usr/bin/env bash
-set -euo pipefail
-ROOT="$(cd "$(dirname "$0")" && pwd)"
-exec python3 -I "$ROOT/tools/public_verify.py" "$@"
+#!/usr/bin/python3 -I
+import os
+from pathlib import Path
+import runpy
+
+for name in ("LD_PRELOAD", "LD_LIBRARY_PATH", "LD_AUDIT"):
+    os.environ.pop(name, None)
+runpy.run_path(str(Path(__file__).resolve().parent / "tools" / "public_verify.py"), run_name="__main__")

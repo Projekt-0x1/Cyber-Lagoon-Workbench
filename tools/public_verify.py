@@ -194,7 +194,14 @@ def main() -> int:
         require((ROOT / relative).stat().st_mode & 0o111 != 0, f"verify:not-executable:{relative}")
     for relative in ("adult", "bench", "verify"):
         launcher = (ROOT / relative).read_text(encoding="utf-8")
-        require("exec python3 -I" in launcher, f"verify:ambient-python-launcher:{relative}")
+        for required in (
+            "#!/usr/bin/python3 -I",
+            "LD_PRELOAD",
+            "LD_LIBRARY_PATH",
+            "LD_AUDIT",
+            "runpy.run_path",
+        ):
+            require(required in launcher, f"verify:isolated-launcher:{relative}:{required}")
 
     # Authenticate the pinned tree before executing any Workbench subprocess.
     verify_manifest()
@@ -202,24 +209,61 @@ def main() -> int:
     build = (ROOT / "build").read_text(encoding="utf-8")
     require("--state-dir" not in build, "verify:configurable-state-root")
     for required in (
+        "#!/bin/bash -p",
         "umask 077",
-        "materialize=(python3 -I tools/public_materialize_adult.py)",
+        "unset LD_PRELOAD LD_LIBRARY_PATH LD_AUDIT",
+        'PYTHON="$(command -p -v python3)"',
+        'materialize=("$PYTHON" -I tools/public_materialize_adult.py)',
+        "canonical_direct_tool",
+        "type -P c++",
+        "command -p readlink -f",
+        "command -p env -i",
+        '"HOME=$ROOT/.build/home"',
+        '"TMPDIR=$ROOT/.build/tmp"',
+        "-DCMAKE_CXX_COMPILER=",
+        "-DCMAKE_CUDA_COMPILER=",
+        "-DCMAKE_CUDA_HOST_COMPILER=",
         "[[ -L .state ]]",
         "if [[ -e .build ]]",
         "chmod 700 .state",
         "chmod 700 .build",
-        '[[ -L .build/direct ]]',
+        "refusing non-directory Direct build boundary",
+        "refusing non-regular Direct build artifact",
         "mktemp -d .state/.direct-birth.XXXXXX",
         '[[ -L .state/direct-adult.xcb ]]',
         "refusing non-regular Direct Adult checkpoint",
         "chmod 600 .state/direct-adult.xcb",
     ):
         require(required in build, f"verify:build-hardening:{required}")
+    require(
+        "LC_CTYPE LD_LIBRARY_PATH" not in build,
+        "verify:build-loader-path-authority",
+    )
 
     bench = (ROOT / "tools" / "public_bench.py").read_text(encoding="utf-8").lower()
     require('python = (sys.executable, "-i")' in bench, "verify:bench-ambient-python")
-    for forbidden in ("cmake", "nvcc", "build_concurrency_guard", "public_materialize_adult"):
+    for required in (
+        "direct_env_allow",
+        "direct_environment()",
+        "symlink_free_local",
+        "trusted_local_file",
+        "public-bench:direct-artifact-refused",
+    ):
+        require(required in bench, f"verify:bench-direct-boundary:{required}")
+    for forbidden in ("cmake", "nvcc", "build_concurrency_guard", "public_materialize_adult", "ld_library_path"):
         require(forbidden not in bench, f"verify:bench-crosses-build-boundary:{forbidden}")
+    for required in ('"--timeout"', '"8"'):
+        require(required in bench, f"verify:bench-contact-bound:{required}")
+
+    direct_contact_lab = (ROOT / "tools" / "direct_adult_lab.py").read_text(encoding="utf-8")
+    for required in (
+        "os.link(source, branch)",
+        "forced_disposable",
+        "accepted_input_bytes",
+        "require_clean_stop",
+        "green_eligible",
+    ):
+        require(required in direct_contact_lab, f"verify:direct-contact-lab:{required}")
 
     materialize = (ROOT / "tools" / "public_materialize_adult.py").read_text(encoding="utf-8")
     require("--state-dir" not in materialize, "verify:configurable-materializer-state-root")
@@ -252,6 +296,9 @@ def main() -> int:
         "fcntl.LOCK_EX",
         "public-adult:state-busy",
         "os.set_inheritable(lock_descriptor, True)",
+        "body_checkpoint",
+        "os.link(DIRECT_CHECKPOINT, branch",
+        ".direct-claude.",
         "tempfile.TemporaryDirectory",
         "cwd=body_dir",
         "TMPDIR",
@@ -266,15 +313,16 @@ def main() -> int:
         "public-adult:repo-local-claude-refused",
     ):
         require(required in adult, f"verify:adult-body-isolation:{required}")
+    require("LD_LIBRARY_PATH" not in adult, "verify:adult-loader-path-authority")
 
-    direct_lab = (ROOT / "hardware_native" / "tools" / "direct_recipe_ir_lab.cu").read_text(encoding="utf-8")
+    direct_recipe_lab = (ROOT / "hardware_native" / "tools" / "direct_recipe_ir_lab.cu").read_text(encoding="utf-8")
     for required in (
         "DirectPreinstantiatedRecipeFamily",
         "semantic_authority=0",
         "current_thought_authority=0",
         "claim_scope=experiment_only",
     ):
-        require(required in direct_lab, f"verify:direct-lab-boundary:{required}")
+        require(required in direct_recipe_lab, f"verify:direct-recipe-lab-boundary:{required}")
 
     gateway = (
         ROOT
@@ -295,12 +343,30 @@ def main() -> int:
         "body:duplicate_boundary",
         '"usage": {"input_tokens": 0, "output_tokens": 0}',
         "SILENCE_FRAME",
+        'f"S {TERMINAL_CHANNEL:08x} {word:08x}',
+        '"text/event-stream"',
+        'request.get("stream")',
+        "self.process.kill()",
+        "signal.signal(signal.SIGTERM, graceful_stop)",
     ):
         require(required in direct_gateway, f"verify:direct-gateway-boundary:{required}")
+    for forbidden in ("contact_context", "last_motor", "LD_LIBRARY_PATH"):
+        require(forbidden not in direct_gateway, f"verify:direct-gateway-obsolete:{forbidden}")
+
+    sitdown = (ROOT / "hardware_native" / "tools" / "direct_adult_sitdown.cu").read_text(encoding="utf-8")
+    for required in (
+        "motors[i].trajectory.trajectory_identity",
+        "motors[i].trajectory.cursor",
+        "motors[i].trajectory.extent",
+        "DIRECT_ADULT_SITDOWN_INPUT total=",
+        "if (stop_requested) return;",
+    ):
+        require(required in sitdown, f"verify:direct-sitdown-transport:{required}")
 
     scripts = (
         ROOT / "tools" / "public_adult.py",
         ROOT / "tools" / "public_adult_smoke.py",
+        ROOT / "tools" / "direct_adult_lab.py",
         ROOT / "tools" / "public_bench.py",
         ROOT / "tools" / "public_direct_adult_gateway.py",
         ROOT / "tools" / "public_materialize_adult.py",

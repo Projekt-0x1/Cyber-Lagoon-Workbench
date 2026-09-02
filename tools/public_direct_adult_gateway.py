@@ -12,7 +12,7 @@ import argparse
 from dataclasses import dataclass
 import json
 import queue
-import secrets
+import signal
 import subprocess
 import sys
 import threading
@@ -71,7 +71,6 @@ def claude_contacts(request: dict, claude_session: bool) -> tuple[bytes, ...]:
 @dataclass
 class SessionBoundary:
     contacts: tuple[bytes, ...] = ()
-    last_motor: bytes = b""
 
     def suffix(self, current: tuple[bytes, ...]) -> tuple[bytes, ...]:
         if len(current) < len(self.contacts) or current[: len(self.contacts)] != self.contacts:
@@ -106,7 +105,6 @@ class DirectBody:
         self.ready = threading.Event()
         self.outputs: queue.Queue[bytes | BaseException] = queue.Queue()
         self.write_lock = threading.Lock()
-        self.contact_context = secrets.randbits(32) or 1
         self.motor_wait_seconds = motor_wait_seconds
         self.active_trajectory = 0
         self.next_cursor = 0
@@ -170,10 +168,9 @@ class DirectBody:
         assert self.process.stdin is not None
         with self.write_lock:
             for contact in contacts:
-                self.contact_context = (self.contact_context + 1) & 0xFFFFFFFF or 1
                 for word in contact:
                     self.process.stdin.write(
-                        f"S {self.contact_context:08x} {TERMINAL_CHANNEL:08x} {word:08x}\n"
+                        f"S {TERMINAL_CHANNEL:08x} {word:08x}\n"
                     )
             self.process.stdin.flush()
         try:
@@ -191,11 +188,8 @@ class DirectBody:
             return
         if self.process.stdin is not None:
             self.process.stdin.close()
-        try:
-            self.process.wait(timeout=30)
-        except subprocess.TimeoutExpired:
-            self.process.terminate()
-            self.process.wait(timeout=30)
+        self.process.kill()
+        self.process.wait(timeout=10)
 
 
 class MessagesHandler(BaseHTTPRequestHandler):
@@ -239,8 +233,6 @@ class MessagesHandler(BaseHTTPRequestHandler):
             if len(contacts) != 1:
                 raise ValueError("body:one_contact_at_a_time")
             motor = self.server.body.contact(contacts)
-            if session_id:
-                self.server.sessions[session_id].last_motor = motor
             text = motor.decode("utf-8") if motor else SILENCE_FRAME
         except (KeyError, TypeError, ValueError, UnicodeError, json.JSONDecodeError, RuntimeError) as error:
             print("DIRECT_PUBLIC_GATEWAY_REFUSED", str(error), file=sys.stderr, flush=True)
@@ -259,6 +251,56 @@ class MessagesHandler(BaseHTTPRequestHandler):
             "stop_sequence": None,
             "usage": {"input_tokens": 0, "output_tokens": 0},
         }
+        if request.get("stream"):
+            events = (
+                (
+                    "message_start",
+                    {
+                        "type": "message_start",
+                        "message": {**payload, "content": [], "stop_reason": None},
+                    },
+                ),
+                (
+                    "content_block_start",
+                    {
+                        "type": "content_block_start",
+                        "index": 0,
+                        "content_block": {"type": "text", "text": ""},
+                    },
+                ),
+                (
+                    "content_block_delta",
+                    {
+                        "type": "content_block_delta",
+                        "index": 0,
+                        "delta": {"type": "text_delta", "text": text},
+                    },
+                ),
+                ("content_block_stop", {"type": "content_block_stop", "index": 0}),
+                (
+                    "message_delta",
+                    {
+                        "type": "message_delta",
+                        "delta": {"stop_reason": "end_turn", "stop_sequence": None},
+                        "usage": {"output_tokens": 0},
+                    },
+                ),
+                ("message_stop", {"type": "message_stop"}),
+            )
+            body = b"".join(
+                (
+                    "event: " + event + "\ndata: " + json.dumps(data, separators=(",", ":")) + "\n\n"
+                ).encode()
+                for event, data in events
+            )
+            self.send_response(200)
+            self.send_header("content-type", "text/event-stream")
+            self.send_header("content-length", str(len(body)))
+            self.send_header("connection", "close")
+            self.end_headers()
+            self.wfile.write(body)
+            self.close_connection = True
+            return
         self._json(200, payload)
 
 
@@ -288,6 +330,11 @@ def main() -> None:
     )
     server = HTTPServer(("127.0.0.1", args.port), MessagesHandler)
     server.credential, server.body, server.sequence, server.sessions = args.credential, body, 0, {}
+
+    def graceful_stop(_signum: int, _frame: object) -> None:
+        raise KeyboardInterrupt
+
+    signal.signal(signal.SIGTERM, graceful_stop)
     print("DIRECT_PUBLIC_ADULT_GATEWAY", server.server_port, flush=True)
     try:
         server.serve_forever()
