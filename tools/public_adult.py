@@ -46,6 +46,15 @@ sys.path.insert(0, str(Path(script).resolve().parent))
 sys.argv = [script, *args, credential_flag, credential]
 runpy.run_path(script, run_name="__main__")
 """
+TERMINAL_BOOTSTRAP = """\
+import runpy
+import sys
+from pathlib import Path
+script, *args = sys.argv[1:]
+sys.path.insert(0, str(Path(script).resolve().parent))
+sys.argv = [script, *args]
+runpy.run_path(script, run_name="__main__")
+"""
 
 
 def symlink_free(path: Path) -> bool:
@@ -298,7 +307,15 @@ def main() -> int:
             os.set_inheritable(lock_descriptor, True)
             os.execv(
                 sys.executable,
-                [sys.executable, str(REFERENCE_TERMINAL), "--resume", str(REFERENCE_CHECKPOINT)],
+                [
+                    sys.executable,
+                    "-I",
+                    "-c",
+                    TERMINAL_BOOTSTRAP,
+                    str(REFERENCE_TERMINAL),
+                    "--resume",
+                    str(REFERENCE_CHECKPOINT),
+                ],
             )
         if backend == "direct" and args.prompt is None:
             raise RuntimeError(

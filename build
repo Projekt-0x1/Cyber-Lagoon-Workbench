@@ -30,7 +30,7 @@ if [[ -e .build ]]; then
 fi
 mkdir -p .state
 chmod 700 .state
-materialize=(python3 tools/public_materialize_adult.py)
+materialize=(python3 -I tools/public_materialize_adult.py)
 if ((reset_reference)); then materialize+=(--reset); fi
 "${materialize[@]}"
 
