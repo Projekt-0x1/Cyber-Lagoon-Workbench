@@ -56,9 +56,9 @@ if [[ -e .build ]]; then
 fi
 mkdir -p .state
 chmod 700 .state
-materialize=("$PYTHON" -I tools/public_materialize_adult.py)
-if ((reset_reference)); then materialize+=(--reset); fi
-"${materialize[@]}"
+materialize_args=()
+if ((reset_reference)); then materialize_args+=(--reset); fi
+command -p env -i "$PYTHON" -I tools/public_materialize_adult.py "${materialize_args[@]}"
 
 if ((reference_only)); then
   echo "CYBER_LAGOON_BUILD status=PASS backend=reference"

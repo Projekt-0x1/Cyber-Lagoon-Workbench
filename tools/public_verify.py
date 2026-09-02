@@ -14,6 +14,7 @@ import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
 PYTHON = (sys.executable, "-I")
+CLEAN_CHILD_ENV: dict[str, str] = {}
 REQUIRED = (
     "build",
     "adult",
@@ -213,7 +214,8 @@ def main() -> int:
         "umask 077",
         "unset LD_PRELOAD LD_LIBRARY_PATH LD_AUDIT",
         'PYTHON="$(command -p -v python3)"',
-        'materialize=("$PYTHON" -I tools/public_materialize_adult.py)',
+        "materialize_args=()",
+        'command -p env -i "$PYTHON" -I tools/public_materialize_adult.py',
         "canonical_direct_tool",
         "type -P c++",
         "command -p readlink -f",
@@ -382,11 +384,17 @@ def main() -> int:
             raise RuntimeError(
                 f"verify:python-syntax:{script.relative_to(ROOT)}:{error.msg}"
             ) from error
-    subprocess.run([*PYTHON, str(ROOT / "tools" / "public_bench.py"), "--no-ir"], cwd=ROOT, check=True)
+    subprocess.run(
+        [*PYTHON, str(ROOT / "tools" / "public_bench.py"), "--no-ir"],
+        cwd=ROOT,
+        env=CLEAN_CHILD_ENV,
+        check=True,
+    )
     require((ROOT / ".state" / "adult.json").is_file(), "verify:run-build-first")
     subprocess.run(
         [*PYTHON, str(ROOT / "tools" / "public_adult.py"), "--print-backend"],
         cwd=ROOT,
+        env=CLEAN_CHILD_ENV,
         check=True,
     )
     print("CYBER_LAGOON_PUBLIC_VERIFY status=PASS build_boundary=closed adult=continuing")
