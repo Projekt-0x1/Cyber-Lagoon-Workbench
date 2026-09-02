@@ -51,7 +51,7 @@ def require(condition: bool, message: str) -> None:
 def tracked_paths() -> list[str] | None:
     if not (ROOT / ".git").exists():
         return None
-    git = shutil.which("git")
+    git = shutil.which("git", path=os.defpath)
     if not git:
         raise RuntimeError("verify:git-unavailable")
     git_path = Path(git).resolve()
@@ -223,6 +223,8 @@ def main() -> int:
         "-DCMAKE_CXX_COMPILER=",
         "-DCMAKE_CUDA_COMPILER=",
         "-DCMAKE_CUDA_HOST_COMPILER=",
+        "-DCMAKE_CXX_COMPILER_LAUNCHER=",
+        "-DCMAKE_CUDA_COMPILER_LAUNCHER=",
         "[[ -L .state ]]",
         "if [[ -e .build ]]",
         "chmod 700 .state",
@@ -239,6 +241,8 @@ def main() -> int:
         "LC_CTYPE LD_LIBRARY_PATH" not in build,
         "verify:build-loader-path-authority",
     )
+    cmake = (ROOT / "CMakeLists.txt").read_text(encoding="utf-8").lower()
+    require("ccache" not in cmake, "verify:implicit-compiler-launcher")
 
     bench = (ROOT / "tools" / "public_bench.py").read_text(encoding="utf-8").lower()
     require('python = (sys.executable, "-i")' in bench, "verify:bench-ambient-python")

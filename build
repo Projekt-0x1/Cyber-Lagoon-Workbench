@@ -117,6 +117,8 @@ run_direct "$cmake_bin" -S . -B .build/direct \
   -DCMAKE_CXX_COMPILER="$cxx_bin" \
   -DCMAKE_CUDA_COMPILER="$nvcc_bin" \
   -DCMAKE_CUDA_HOST_COMPILER="$cxx_bin" \
+  -DCMAKE_CXX_COMPILER_LAUNCHER= \
+  -DCMAKE_CUDA_COMPILER_LAUNCHER= \
   -DCMAKE_BUILD_TYPE=Release \
   -DCMAKE_CUDA_ARCHITECTURES=89
 run_direct "$cmake_bin" --build .build/direct \

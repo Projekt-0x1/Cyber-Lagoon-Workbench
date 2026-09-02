@@ -177,7 +177,7 @@ def main(argv: list[str] | None = None) -> int:
     temp_parent = (
         output_directory.parent
         if output_directory
-        else output.parent if output else None
+        else output.parent if output else source.parent
     )
     started = time.monotonic()
     try:
