@@ -8,17 +8,18 @@ from autotrans_species_ir_v0 import FoundrySpeciesProgramV0,SpeciesLawV0
 from reference_language_mastery_contact_adapter_v1 import CONTACT_DISCOURSE_SURFACE,CONTACT_RELATION,CONTACT_SCENE,CONTACT_SURFACE,CONTACT_UTTERANCE,LanguageMasteryContactAdapterV1,RelationContactV1,SceneContactV1
 from reference_language_learning_v1 import LearnedSurfaceEcologyV1
 from reference_mathematical_adult_workbench_v1 import MathematicalWorkbenchAdultV1
+from reference_persistent_ambient_language_stream_v1 import PersistentAmbientLanguageStreamV1
 from reference_resident_variable_depth_endogenous_unfolding_v1 import (
     AFFINE,BISIMULATION,POLYNOMIAL,Q,SCHUR,EndogenousNeedV1,ReductionTermV1,
     ResidentProgramStateV1,ResidentReductionNodeV1,
 )
 from reference_species_language_life_function import birth_language_mastery_adult,source_support_from_species
 
-SCHEMA='cyber-lagoon.life-function-curriculum.v2';CHECKPOINT_SCHEMA='cyber-lagoon.life-function-runtime.v4';MAX_OCCURRENCES=65536
+SCHEMA='cyber-lagoon.life-function-curriculum.v2';CHECKPOINT_SCHEMA='cyber-lagoon.life-function-runtime.v5';MAX_OCCURRENCES=65536
 HISTORY_SEED=hashlib.sha256(b'CYBER_LAGOON_LIFE_HISTORY_V3').hexdigest()
 ALLOWED_LANES={
     'scene','surface','relation','discourse_surface','utterance','authenticated_utterance','raw_speech_contact','observed_source_action',
-    'quiet','body_load','causal_field','resident_world_step','source_withdrawal','language_source_withdrawal','action_consequence',
+    'quiet','body_load','ambient_social_post','ambient_social_drain','causal_field','resident_world_step','source_withdrawal','language_source_withdrawal','action_consequence',
     'operator_node','operator_need','operator_binding','operator_join','operator_source_withdrawal',
     'public_opportunity','operator_return','relation_basis_edge','relation_basis_opportunity',
     'causal_dialogue_opportunity','partner_causal_dialogue_opportunity','causal_dialogue_return','causal_dialogue_background',
@@ -50,7 +51,7 @@ class LifeCurriculumEventV2:
     sequence:int;lane:str;source:int=0;payload:tuple=()
     def validate(self):
         if self.sequence<=0 or self.lane not in ALLOWED_LANES:raise ValueError('life-curriculum:event')
-        if self.lane not in {'quiet','checkpoint_mark'} and self.source<=0:raise ValueError('life-curriculum:source')
+        if self.lane not in {'quiet','checkpoint_mark','ambient_social_drain'} and self.source<=0:raise ValueError('life-curriculum:source')
         if self.lane in {'surface','discourse_surface','utterance','authenticated_utterance'} and not self.payload:raise ValueError('life-curriculum:surface')
     def document(self):
         def norm(value):
@@ -501,11 +502,12 @@ def canonical_life_function_curriculum_v2():
 
 class ReferenceLifeFunctionRuntimeV2:
     """One birth and one continuing heterogeneous mathematical Adult chronology."""
-    def __init__(self,program:FoundrySpeciesProgramV0,adult=None,cursor=0,occurrences=None,history_root=None,marks=None,transport=None):
+    def __init__(self,program:FoundrySpeciesProgramV0,adult=None,cursor=0,occurrences=None,history_root=None,marks=None,transport=None,ambient_stream=None):
         program.validate();self.program=program
         if adult is None:
             language_adult=birth_language_mastery_adult(program);operators=ResidentProgramStateV1(source_support_from_species(program));adult=MathematicalWorkbenchAdultV1(language_adult,operators)
         self.adult=adult;self.contact=LanguageMasteryContactAdapterV1(self.adult.language_adult);self.cursor=int(cursor);self.occurrences=dict(occurrences or {});self._history_root=str(history_root or HISTORY_SEED);self.marks={str(k):int(v) for k,v in dict(marks or {}).items()}
+        self.ambient_stream=PersistentAmbientLanguageStreamV1() if ambient_stream is None else ambient_stream
         if transport is not None:self._restore_transport(transport)
     def _transport_checkpoint(self):
         return {'scenes':[{'identity':row.identity,'context':row.context,'atoms':list(row.atoms),'source':row.source} for row in sorted(self.contact.scenes.values(),key=lambda row:row.identity)],'relations':[{'identity':row.identity,'context':row.context,'scenes':list(row.scenes),'source':row.source} for row in sorted(self.contact.relations.values(),key=lambda row:row.identity)],'current_scene':self.contact.current_scene,'current_relation':self.contact.current_relation,'next_identity':self.contact.next_identity}
@@ -587,6 +589,12 @@ class ReferenceLifeFunctionRuntimeV2:
             if len(payload)!=1:raise ValueError('life-curriculum:observed-source-action')
             result=self.adult.language_action_affordances.observe_action(int(payload[0]),source,event.sequence)
             if not result:raise ValueError('life-curriculum:observed-source-action-refused')
+        elif lane=='ambient_social_post':
+            if len(payload)<2:raise ValueError('life-curriculum:ambient-social-post')
+            result=self.ambient_stream.admit(int(payload[0]),source,tuple(map(int,payload[1:])))
+        elif lane=='ambient_social_drain':
+            if len(payload)!=1:raise ValueError('life-curriculum:ambient-social-drain')
+            result=self.ambient_stream.drain_until(self.adult,int(payload[0]))
         elif lane=='causal_field':
             cause_sequence,rival_sequence,effect_sequence,horizon=map(int,payload)
             cause=self._language_leaf(cause_sequence);rival=self._language_leaf(rival_sequence);effect=self._language_leaf(effect_sequence)
@@ -827,15 +835,21 @@ class ReferenceLifeFunctionRuntimeV2:
         if chosen:return self._emit_language_choice(self.adult.language_adult,chosen)
         surface,_receipt=self.adult.externalize_endogenous_inquiry(source,channel)
         return bytes(surface or b'')
+    def admit_ambient_language_contact(self,tick,source,raw):
+        return self.ambient_stream.admit(tick,source,raw)
+    def drain_ambient_language_until(self,tick):
+        return self.ambient_stream.drain_until(self.adult,tick)
     def internal_work_pending(self,channel=0):
-        return (self.adult.causal_continuation_work_pending(channel)
+        return (self.ambient_stream.pending_count>0
+                or self.adult.causal_continuation_work_pending(channel)
                 or self.adult.endogenous_inquiry_work_pending(channel)
                 or self.adult.language_adult.internal_work_pending())
-    def checkpoint(self):return {'schema':CHECKPOINT_SCHEMA,'species_root':self.program.root(),'cursor':self.cursor,'history_root':self.history_root(),'transport':self._transport_checkpoint(),'occurrences':[[k,v] for k,v in sorted(self.occurrences.items())],'marks':[[k,v] for k,v in sorted(self.marks.items())],'adult':self.adult.checkpoint()}
+    def checkpoint(self):return {'schema':CHECKPOINT_SCHEMA,'species_root':self.program.root(),'cursor':self.cursor,'history_root':self.history_root(),'transport':self._transport_checkpoint(),'ambient_stream':self.ambient_stream.checkpoint(),'occurrences':[[k,v] for k,v in sorted(self.occurrences.items())],'marks':[[k,v] for k,v in sorted(self.marks.items())],'adult':self.adult.checkpoint()}
     @classmethod
     def restore(cls,program,data):
         if data.get('schema')!=CHECKPOINT_SCHEMA or data.get('species_root')!=program.root():raise ValueError('life-curriculum:checkpoint')
         root=str(data.get('history_root',''))
         if len(root)!=64:raise ValueError('life-curriculum:history-root')
         adult=MathematicalWorkbenchAdultV1.restore(copy.deepcopy(data['adult']));occ={int(k):int(v) for k,v in data.get('occurrences',())}
-        return cls(program,adult,int(data.get('cursor',0)),occ,root,{str(k):int(v) for k,v in data.get('marks',())},copy.deepcopy(data.get('transport',{})))
+        ambient_data=data.get('ambient_stream');ambient=PersistentAmbientLanguageStreamV1() if ambient_data is None else PersistentAmbientLanguageStreamV1.restore(copy.deepcopy(ambient_data))
+        return cls(program,adult,int(data.get('cursor',0)),occ,root,{str(k):int(v) for k,v in data.get('marks',())},copy.deepcopy(data.get('transport',{})),ambient)

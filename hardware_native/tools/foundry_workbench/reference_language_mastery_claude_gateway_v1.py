@@ -12,6 +12,7 @@ import time
 from http.server import BaseHTTPRequestHandler,HTTPServer
 from pathlib import Path
 
+from reference_authorized_ambient_feed_body_v1 import AuthorizedAmbientFeedBodyV1,MAX_AUTHORIZED_AMBIENT_POOL
 from reference_language_learning_v1 import MAX_SURFACE
 from reference_life_function_curriculum_v1 import (
     ReferenceLifeFunctionRuntimeV2,canonical_species_program_v2,
@@ -27,6 +28,20 @@ CLAUDE_SILENCE_FRAME='\u2060'
 BODY_ACTION_INPUT_SCHEMA={'type':'object','properties':{'surface':{'type':'string'}},
                           'required':['surface']}
 CONTACT_IDENTITY_HEADER='x-agi-contact-identity'
+
+
+def authorized_ambient_pool(request):
+    """Decode an authorized provider-neutral pool; the collector never supplies entropy."""
+    if not isinstance(request,dict) or set(request)!={'candidates'}:raise ValueError('ambient-body:envelope')
+    candidates=request['candidates']
+    if not isinstance(candidates,list) or not candidates or len(candidates)>MAX_AUTHORIZED_AMBIENT_POOL:raise ValueError('ambient-body:candidates')
+    pool=[]
+    for row in candidates:
+        if (not isinstance(row,dict) or set(row)!={'source','text'} or type(row['source']) is not int
+                or row['source']<=0 or not isinstance(row['text'],str) or not row['text']):
+            raise ValueError('ambient-body:candidate')
+        pool.append((int(row['source']),row['text'].encode('utf-8')))
+    return tuple(pool)
 
 
 def text_frames(content):
@@ -259,7 +274,8 @@ class AdultMessagesHandler(BaseHTTPRequestHandler):
             print('AGI_GATEWAY_REQUEST',self.path,
                   'authorization='+str(bool(self.headers.get('authorization'))),
                   'x_api_key='+str(bool(self.headers.get('x-api-key'))),file=sys.stderr,flush=True)
-        if self.path.split('?',1)[0]!='/v1/messages':return self._json(404,{'type':'error','error':{'type':'not_found_error','message':'not found'}})
+        route=self.path.split('?',1)[0]
+        if route not in ('/v1/messages','/v1/ambient'):return self._json(404,{'type':'error','error':{'type':'not_found_error','message':'not found'}})
         bearer=self.headers.get('authorization')=='Bearer '+self.server.auth_token
         api_key=self.headers.get('x-api-key')==self.server.auth_token
         if not (bearer or api_key):
@@ -268,6 +284,13 @@ class AdultMessagesHandler(BaseHTTPRequestHandler):
             size=int(self.headers.get('content-length','0'))
             if size<=0 or size>1_048_576:raise ValueError('body:frame_size')
             request=json.loads(self.rfile.read(size))
+            if route=='/v1/ambient':
+                pool=authorized_ambient_pool(request);tick=int(self.server.runtime.adult.language_adult._tick)
+                receipt,processed=AuthorizedAmbientFeedBodyV1.pump(self.server.runtime,tick,pool,entropy=None)
+                save_runtime(self.server.checkpoint,self.server.runtime)
+                return self._json(200,{'type':'ambient_receipt','selection':receipt,
+                                      'processed':[list(row) for row in processed],
+                                      'pending_count':int(self.server.runtime.ambient_stream.pending_count)})
             messages=request.get('messages')
             if os.environ.get('AGI_GATEWAY_TRACE'):
                 print('AGI_GATEWAY_SHAPE',
@@ -284,6 +307,8 @@ class AdultMessagesHandler(BaseHTTPRequestHandler):
                       'system='+str(bool(request.get('system'))),
                       'tools='+str(len(request.get('tools',()))),file=sys.stderr,flush=True)
             if not isinstance(messages,list):raise ValueError('body:transcript_replay_refused')
+            if self.server.runtime.ambient_stream.pending_count:
+                AuthorizedAmbientFeedBodyV1.drain(self.server.runtime,int(self.server.runtime.adult.language_adult._tick))
             claude_source=self.headers.get('x-claude-code-session-id')
             next_sequence=0;reafferenced_surface=None;tool_result=None
             if claude_source:

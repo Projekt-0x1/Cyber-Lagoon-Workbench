@@ -1,5 +1,5 @@
 {
-  "bytes": 20293905,
+  "bytes": 20334970,
   "entries": [
     {
       "bytes": 930,
@@ -42,9 +42,9 @@
       "sha256": "a2026eed6ab6cd605c2566581912f4d9b6c129fc7da6fa73581bb3631d2132a7"
     },
     {
-      "bytes": 9003,
+      "bytes": 10012,
       "path": "README.md",
-      "sha256": "d39531f66e09c8c60c7dc08aeb8cb6428bf89cca84f0f47903bac44f1f3a3dfd"
+      "sha256": "e1669a5d41711a8834cf276f5f1d1e6bb646cdafa675786ec519dce97cf85371"
     },
     {
       "bytes": 678,
@@ -80,6 +80,11 @@
       "bytes": 14634,
       "path": "docs/research/2026-09-01-public-workbench-compile-free-direct-fastpath.md",
       "sha256": "2abbf34dc5b44b478d694916fd85d011684b1779fd12cad21a14dab2b1712093"
+    },
+    {
+      "bytes": 10926,
+      "path": "docs/research/2026-09-02-ambient-bystander-language-stream-preregistration.md",
+      "sha256": "68e73d56b784b0a5235d3dee4ba3e59cf5c983c614b8dab5eda5a1733f88874a"
     },
     {
       "bytes": 26495,
@@ -4437,6 +4442,21 @@
       "sha256": "428692e7da5f035e736199ca0ee7babeaa8f463cf5b18f1148040d862e950e34"
     },
     {
+      "bytes": 3378,
+      "path": "hardware_native/tools/foundry_workbench/reference_authorized_ambient_feed_body_v1.py",
+      "sha256": "596fc7a1d5d97cd59e01dda9a81c0dc053715111eb37767dd019b597f7bd5853"
+    },
+    {
+      "bytes": 5120,
+      "path": "hardware_native/tools/foundry_workbench/reference_authorized_ambient_feed_body_verify.py",
+      "sha256": "2a9fc58d6906ef488897ea2a72454ae9ba33dc47755f22432372c943fbfef810"
+    },
+    {
+      "bytes": 4561,
+      "path": "hardware_native/tools/foundry_workbench/reference_authorized_ambient_gateway_verify.py",
+      "sha256": "fedb73ac1156c9761e420c84b759738d57e1f528c16338f4aaa95c1443804feb"
+    },
+    {
       "bytes": 5232,
       "path": "hardware_native/tools/foundry_workbench/reference_automatic_exact_reduction_program_v1.py",
       "sha256": "c1a10a8a5b05c93ddedf9b7e53434f0b047ebdf4265aebcce7204a8aed484443"
@@ -5162,14 +5182,14 @@
       "sha256": "b730186380fb928b61195f3aef3a1c6827a4b4c5fc8f102bb80db345edb17eb9"
     },
     {
-      "bytes": 148477,
+      "bytes": 149296,
       "path": "hardware_native/tools/foundry_workbench/reference_language_mastery_adult_v1.py",
-      "sha256": "92c24a782666453a478905d93c2dc5fc17e198218a29cc55eec27728e8ae9d24"
+      "sha256": "328246d8b7ff6ab0c684e63212933003c62790191d14409fc2458deff10b6eaf"
     },
     {
-      "bytes": 21898,
+      "bytes": 23657,
       "path": "hardware_native/tools/foundry_workbench/reference_language_mastery_claude_gateway_v1.py",
-      "sha256": "e3866a76ecc7e03d489511817248ebe9a1bfefe6003c92495d3f81b4970e62d0"
+      "sha256": "e5222ae08b8c9b8516dbc54dd735b12ac9769d9f69000167be2df0e5ecd78bc4"
     },
     {
       "bytes": 15692,
@@ -5292,9 +5312,9 @@
       "sha256": "4917382ecc2602c7be5da0995da474c43645a9576372dba8bd48a5d1e30f11d2"
     },
     {
-      "bytes": 56765,
+      "bytes": 58030,
       "path": "hardware_native/tools/foundry_workbench/reference_life_function_curriculum_v1.py",
-      "sha256": "bf6bded8ca9665ce4466041bd05d1f41fa489cbafa99945c5c393d9859c96c7e"
+      "sha256": "0bc1eec2909d1af16c56ee65d332669f17e52211ce194664c8e68abc8316d21a"
     },
     {
       "bytes": 17683,
@@ -5602,9 +5622,9 @@
       "sha256": "4d730736ed3dd0b2e86b8368129d38536cee126c17fb5a0fc7f56cf69cc7f565"
     },
     {
-      "bytes": 150534,
+      "bytes": 150796,
       "path": "hardware_native/tools/foundry_workbench/reference_mathematical_adult_workbench_v1.py",
-      "sha256": "9a75434f2d34f75cbce6419a4a667a4b0971c6dbdc1159c6adffe70a4813f6a3"
+      "sha256": "36252857b7116610eab761b53dad7085caa006d959aa3f6470a05efd0e78a824"
     },
     {
       "bytes": 17858,
@@ -6267,6 +6287,11 @@
       "sha256": "817a60d704eb9b784f2f6646b8e4b2bcaf43c932bb76627d989b7ce823953080"
     },
     {
+      "bytes": 5896,
+      "path": "hardware_native/tools/foundry_workbench/reference_persistent_ambient_language_stream_v1.py",
+      "sha256": "3ae32cff3c14725f0c54fac7d58589468a6da39d1b72b8d686927dde05dfb669"
+    },
+    {
       "bytes": 4546,
       "path": "hardware_native/tools/foundry_workbench/reference_persistent_multi_agent_social_stream_v1.py",
       "sha256": "10a044f9e00a1c5b54d25af90d24c81a6e6141a4d84ed4dfc0dadaabb8fb914d"
@@ -6375,6 +6400,11 @@
       "bytes": 3721,
       "path": "hardware_native/tools/foundry_workbench/reference_prospective_execution_valence_integration_verify.py",
       "sha256": "3bb58af0e9cc10041a87a35707c5e35d6201b0237324b1c83a5936b6c866d81e"
+    },
+    {
+      "bytes": 3828,
+      "path": "hardware_native/tools/foundry_workbench/reference_public_ambient_bystander_stream_verify.py",
+      "sha256": "3973433a45f1e4e355235830ddccadd384a0eb15ec0f80c5507fbcdaa33baf26"
     },
     {
       "bytes": 3373,
@@ -7272,9 +7302,9 @@
       "sha256": "f74b6ba4937236271907b14d7dcc550c3df4889f3a03093926dac85c8a618d6a"
     },
     {
-      "bytes": 15066,
+      "bytes": 17308,
       "path": "tools/public_verify.py",
-      "sha256": "b48ba08f7c8de1ae49d5991818abff7dabe7bcfeff3199d16902b228199d47df"
+      "sha256": "35a5a47dfc1e7da391245f57e5b3f48117be4c9ed8de630d7cfc4aff6f193a35"
     },
     {
       "bytes": 266,
@@ -7282,7 +7312,7 @@
       "sha256": "d71c6f08d67c101cfbab389f18fc81c6a8265f87f72ab427e7b3e3be40f76622"
     }
   ],
-  "files": 1456,
+  "files": 1462,
   "publication_safe_source": true,
   "schema": "cyber-lagoon.public-workbench-export.v1",
   "source_commit": "b9c1b56c1a8908205e22d5696989db36efd50492",

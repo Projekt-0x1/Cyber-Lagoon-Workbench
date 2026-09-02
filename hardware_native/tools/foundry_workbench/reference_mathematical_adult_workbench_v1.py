@@ -145,6 +145,10 @@ class MathematicalWorkbenchAdultV1:
     def operator_silent_wave(self):return self.operator_unfolder.silent_wave()
     def resident_silent_wave(self):
         self.operator_unfolder.silent_wave();return self.relation_basis.silent_wave()
+    def ambient_language_capacity_q16(self):
+        return int(self.language_adult.ambient_language_capacity_q16())
+    def observe_ambient_language_contact(self,raw,source):
+        return bool(self.language_adult.observe_ambient_language_contact(raw,source))
     def operator_run_until_settled(self,max_waves=256):return self.operator_unfolder.run_until_settled(max_waves)
     def operator_winner(self):return self.operator_unfolder.winner()
     def observe_operator_binding(self,node_identity,context,atoms,source):
