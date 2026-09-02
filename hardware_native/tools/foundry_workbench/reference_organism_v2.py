@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """Public reference Adult over latent causal-regime inference.
 
-This surface integrates the legacy causal-regime Adult with the canonical one-Life
-MathematicalWorkbenchAdult while the strangler migration is in progress.  Frontier
-development never creates a stage-local learner: one ReferenceLifeFunctionRuntimeV2
-is born once, receives the canonical append-only life, then continues through the
-ten-stage multilingual/social curriculum and all later discourse actions.
+The frontier surface is one continuing mathematical individual.  Canonical life,
+the ten-stage multilingual/social curriculum, live conversation, public discourse,
+and later action consequences all mutate the same ReferenceLifeFunctionRuntimeV2.
 
-Public discourse is never an answer table.  It is a projection of resident causal
-programs plus current source-conditioned expression credit and somatic appraisal.
+No prompt class, answer table, language router, topic dictionary, or expected public
+surface participates in cognition.  Raw conversation is reduced by the learned
+language ecology to resident structural occurrences; public paragraphs are fresh
+projections of resident causal programs under current source/social and somatic state.
 """
 from __future__ import annotations
 
@@ -41,7 +41,7 @@ FRONTIER_ACTION_CALM=0xF101
 FRONTIER_ACTION_COUNTER=0xF102
 FRONTIER_ACTION_BAIT=0xF1FF
 
-# Observer labels only.  They never enter resident state as a language identifier.
+# Observer labels only. No language identifier enters resident cognition.
 FRONTIER_TYPOLOGY_FORMS={
 'english':{
     FRONTIER_ACTION_CALM:('hold the boundary calmly please','please hold the boundary calmly now','hold the boundary calmly today'),
@@ -84,7 +84,7 @@ class ReferenceOrganismV2(_BaseReferenceOrganismV2):
         self._frontier_stage_cursors={}
         self._frontier_receipts={}
 
-    # ---- existing joint-plan integration -------------------------------------------------
+    # Existing joint-plan integration.
     def begin_joint_plan(self,steps,source):
         live={int(row.identity) for row in self.recursive_self_culture._reasons
               if int(row.source) not in self.recursive_self_culture._withdrawn_sources}
@@ -186,12 +186,10 @@ class ReferenceOrganismV2(_BaseReferenceOrganismV2):
                 int(self._developmental_curriculum_tick))
         return identity
 
-    # ---- one-Life frontier ---------------------------------------------------------------
+    # One-Life frontier.
     def _frontier_runtime(self):
         if self._frontier_life is None:
             runtime=ReferenceLifeFunctionRuntimeV2(canonical_species_program_v2())
-            # The public Adult does not begin from a synthetic empty discourse learner.
-            # Its frontier stages continue the repository's canonical append-only life.
             runtime.run(canonical_life_function_curriculum_v2())
             self._frontier_life=runtime
             self._frontier_receipts['canonical_life_cursor']=int(runtime.cursor)
@@ -237,7 +235,6 @@ class ReferenceOrganismV2(_BaseReferenceOrganismV2):
             json.dumps(row,sort_keys=True,separators=(',',':')).encode()).hexdigest()
 
     def _frontier_live_effect(self):
-        """Select a resident causal effect from learned evidence, never from a task answer."""
         learner=self._frontier_runtime().adult.language_adult.world_causal_learning
         rows=tuple(learner.current_resolutions())
         effects=sorted({int(row[3]) for row in rows if len(row)>3 and int(row[3])>0})
@@ -246,11 +243,9 @@ class ReferenceOrganismV2(_BaseReferenceOrganismV2):
     def run_frontier_developmental_curriculum(self):
         """Advance stages 1..10 exactly once on the same continuing z_t."""
         runtime=self._frontier_runtime()
-
         if self._frontier_stage<1:
             self._frontier_train_variant(1,0)
             self._frontier_mark(1,'frontier_raw_multilingual_grounding')
-
         if self._frontier_stage<2:
             self._frontier_train_variant(2,1);last_tick=0
             for index,actions in enumerate(FRONTIER_TYPOLOGY_FORMS.values()):
@@ -261,7 +256,6 @@ class ReferenceOrganismV2(_BaseReferenceOrganismV2):
                     2,0x9300+index,f'reply frame [ {right} ] beside [ {left} ]')
             if last_tick:self._frontier_ambient_drain(2,last_tick)
             self._frontier_mark(2,'frontier_recursive_structure')
-
         if self._frontier_stage<3:
             last_tick=0
             for index,actions in enumerate(FRONTIER_TYPOLOGY_FORMS.values()):
@@ -273,7 +267,6 @@ class ReferenceOrganismV2(_BaseReferenceOrganismV2):
                 self._frontier_apply(3,'observed_source_action',source,(FRONTIER_ACTION_COUNTER,))
             if last_tick:self._frontier_ambient_drain(3,last_tick)
             self._frontier_mark(3,'frontier_continuous_social_stream')
-
         if self._frontier_stage<4:
             before=self._world_digest(runtime);last_tick=0
             for index,actions in enumerate(FRONTIER_TYPOLOGY_FORMS.values()):
@@ -284,7 +277,6 @@ class ReferenceOrganismV2(_BaseReferenceOrganismV2):
             self._frontier_receipts['stage4_world_truth_unchanged_by_unsettled_testimony']=(
                 before==self._world_digest(runtime))
             self._frontier_mark(4,'frontier_quotation_provenance')
-
         if self._frontier_stage<5:
             for index in range(len(FRONTIER_TYPOLOGY_FORMS)):
                 source=0x9600+index;raw=f'repeat bait source {index}'.encode()
@@ -295,7 +287,6 @@ class ReferenceOrganismV2(_BaseReferenceOrganismV2):
             self._frontier_receipts['stage5_all_generalizing_factors_keep_independent_sources']=(
                 all(len(getattr(row,'sources',()))>=2 for row in factors))
             self._frontier_mark(5,'frontier_repetition_authority_separation')
-
         if self._frontier_stage<6:
             last_tick=0
             for index,_name in enumerate(FRONTIER_TYPOLOGY_FORMS):
@@ -304,7 +295,6 @@ class ReferenceOrganismV2(_BaseReferenceOrganismV2):
                 self._frontier_apply(6,'body_load',0x9780+index,(4,1<<14))
             if last_tick:self._frontier_ambient_drain(6,last_tick)
             self._frontier_mark(6,'frontier_social_challenge_somatic_load')
-
         if self._frontier_stage<7:
             before=self._world_digest(runtime);last_tick=0
             for round_index in range(3):
@@ -315,15 +305,12 @@ class ReferenceOrganismV2(_BaseReferenceOrganismV2):
             if last_tick:self._frontier_ambient_drain(7,last_tick)
             self._frontier_receipts['stage7_troll_posts_mint_zero_world_truth']=(
                 before==self._world_digest(runtime))
-            self._frontier_receipts['stage7_troll_posts_were_real_stream_contacts']=(
-                pending_before>0)
+            self._frontier_receipts['stage7_troll_posts_were_real_stream_contacts']=pending_before>0
             self._frontier_mark(7,'frontier_headless_troll_drift')
-
         if self._frontier_stage<8:
             effect=self._frontier_live_effect();issued=settled=False
             if effect:
-                _surfaces,receipts=runtime.adult.externalize_causal_groups(
-                    effect,0x9900,0)
+                _surfaces,receipts=runtime.adult.externalize_causal_groups(effect,0x9900,0)
                 issued=bool(receipts)
                 settled=bool(receipts) and all(
                     runtime.adult.settle_causal_dialogue_return(
@@ -332,7 +319,6 @@ class ReferenceOrganismV2(_BaseReferenceOrganismV2):
             self._frontier_receipts['stage8_resident_discourse_action_issued']=issued
             self._frontier_receipts['stage8_independent_reafferent_return_settled']=settled
             self._frontier_mark(8,'frontier_reafferent_arbitration')
-
         if self._frontier_stage<9:
             self._frontier_apply(9,'body_load',0x9A00,(8,1<<15));last_tick=0
             for index,actions in enumerate(FRONTIER_TYPOLOGY_FORMS.values()):
@@ -345,65 +331,66 @@ class ReferenceOrganismV2(_BaseReferenceOrganismV2):
             self._frontier_receipts['stage9_load_can_defer_then_recover_same_queued_contacts']=(
                 (not blocked or pending>0) and int(runtime.ambient_stream.pending_count)==0)
             self._frontier_mark(9,'frontier_load_recovery')
-
         if self._frontier_stage<10:
             self._frontier_apply(10,'quiet',0,(1,))
             self._frontier_mark(10,'frontier_heldout_transfer')
         return self.frontier_developmental_receipt()
 
-    # ---- grounded extended discourse -----------------------------------------------------
-    def _frontier_focus_leaf(self,focus_atoms):
-        atoms=tuple(map(int,focus_atoms))
-        if not atoms:raise ValueError('organism:frontier-discourse-focus')
-        return self._frontier_runtime().adult.language_adult.leaf(100,atoms)
+    # Grounded conversation and extended discourse.
+    @staticmethod
+    def _frontier_candidate_leaf(adult,scene):
+        if scene is None:return None
+        try:return adult.language_adult.leaf(int(scene.context),tuple(map(int,scene.atoms)))
+        except RuntimeError:
+            return adult.language_adult.unique_leaf_for_concepts(tuple(map(int,scene.atoms)))
 
-    def frontier_generate_discourse(self,focus_atoms,source,channel=0,paragraph_budget=4):
-        """Generate paragraph-scale discourse strictly from resident hierarchical programs.
+    def _frontier_focus_after_contact(self,runtime,first_new_identity):
+        """Recover focus only from the learned structural occurrence created by contact."""
+        adult=runtime.adult;candidates=[]
+        for identity in range(int(first_new_identity),int(runtime.contact.next_identity)):
+            scene=runtime.contact.scenes.get(identity)
+            leaf=self._frontier_candidate_leaf(adult,scene)
+            if leaf is not None:
+                candidates.append((len(adult.causal_message_rows(leaf.identity)),int(leaf.identity),leaf))
+            nested=tuple(runtime.contact.nested_scenes.get(identity,()))
+            for row in nested:
+                leaf=self._frontier_candidate_leaf(adult,row)
+                if leaf is not None:
+                    candidates.append((len(adult.causal_message_rows(leaf.identity)),int(leaf.identity),leaf))
+            if nested:
+                atoms=tuple(int(atom) for row in nested for atom in row.atoms)
+                leaf=adult.language_adult.unique_leaf_for_concepts(atoms)
+                if leaf is not None:
+                    candidates.append((len(adult.causal_message_rows(leaf.identity)),int(leaf.identity),leaf))
+        if not candidates:return None
+        candidates.sort(key=lambda row:(-row[0],row[1]))
+        return candidates[0][2]
 
-        `focus_atoms` are already-grounded concept identities.  No prompt text, answer key,
-        topic dictionary or host-authored sentence enters this function.
-        """
-        if self._frontier_stage<10:raise RuntimeError('organism:frontier-discourse-before-transfer')
-        adult=self._frontier_runtime().adult;leaf=self._frontier_focus_leaf(focus_atoms)
-        groups=tuple(adult.compose_causal_groups(leaf.identity,max(0,int(channel))))
-        budget=max(1,min(int(paragraph_budget),len(groups))) if groups else 0
-        chosen=groups[:budget]
-        if not chosen:return {'surface':b'','paragraphs':(), 'programs':(), 'actions':()}
-        paragraphs=tuple(bytes(surface) for surface,_programs in chosen if surface)
-        programs=tuple(tuple(map(int,programs)) for _surface,programs in chosen)
-        # Public action receipts are generated by the resident Adult, not by this wrapper.
-        _surfaces,actions=adult.externalize_causal_groups(
-            leaf.identity,max(1,int(source)),max(0,int(channel)))
-        surface=b'\n\n'.join(paragraphs)
-        return {
-            'surface':surface,'paragraphs':paragraphs,'programs':programs,
-            'actions':tuple(int(row.identity) for row in actions),
-            'leaf':int(leaf.identity),
-        }
-
-    def frontier_form_stance(self,focus_atoms,source,channel=0,paragraph_budget=3):
-        """Form a stance from causal discourse + current source-conditioned somatic state."""
-        discourse=self.frontier_generate_discourse(
-            focus_atoms,source,channel,paragraph_budget)
-        adult=self._frontier_runtime().adult
-        flat=tuple(pid for group in discourse['programs'] for pid in group)
-        if not flat:
-            return {**discourse,'stance_q16':0,'appraisal':None,'appraisal_surface':b''}
-        context=adult._causal_dialogue_appraisal_context(flat,max(0,int(channel)))
-        credited=adult._causal_expression_credit_program(flat[0],context) or flat[0]
+    @staticmethod
+    def _frontier_stance(adult,leaf_identity,receipts,channel):
+        programs=tuple(int(pid) for receipt in receipts for pid in receipt.programs)
+        if not programs:return 0,None,b'',0,0
+        context=adult._causal_dialogue_appraisal_context(programs,int(channel))
+        credited=adult._causal_expression_credit_program(programs[0],context) or programs[0]
         felt=adult.language_adult.somatic_appraisal(credited,context)
-        state_surface=bytes(
-            adult.language_adult.realize_somatic_appraisal(credited,context) or b'')
-        # CONTROL_PRIORITY only: this score ranks/exposes the current stance.  It never
-        # writes world evidence or proposition truth.
+        state_surface=bytes(adult.language_adult.realize_somatic_appraisal(
+            credited,context) or b'')
+        rows=tuple(adult.causal_message_rows(int(leaf_identity)))
+        learner=adult.language_adult.world_causal_learning
+        blocks=sum(max(0,int(learner.complete_source_blocks(int(row[4])))) for row in rows)
+        epistemic=(Q*blocks//(blocks+len(rows))) if rows else 0
+        uptake=sum(max(0,int(adult.causal_dialogue_uptake_support(
+            int(channel),int(row[4])))) for row in rows)
+        dispute=sum(max(0,int(adult.causal_dialogue_dispute_support(
+            int(channel),int(row[4])))) for row in rows)
+        social=max(-Q,min(Q,Q*(uptake-dispute)//(uptake+dispute+1)))
         stance=max(-Q,min(Q,
             int(felt.valence_q16)
             +(int(felt.controllability_q16)-Q//2)
             -int(felt.interference_q16)
-            -int(felt.pressure_q16)//2))
-        surface=discourse['surface']
-        if state_surface:
-            surface=surface+(b'\n\n' if surface else b'')+state_surface
+            -int(felt.pressure_q16)//2
+            +(epistemic-Q//2)//2
+            +social//4))
         appraisal={
             'valence_q16':int(felt.valence_q16),
             'arousal_q16':int(felt.arousal_q16),
@@ -413,8 +400,104 @@ class ReferenceOrganismV2(_BaseReferenceOrganismV2):
             'credited_program':int(credited),
             'context':int(context),
         }
-        return {**discourse,'surface':surface,'stance_q16':stance,
-                'appraisal':appraisal,'appraisal_surface':state_surface}
+        return stance,appraisal,state_surface,epistemic,social
+
+    def frontier_respond(self,raw,source,channel=0):
+        """Respond to raw lived contact without prompt matching or host semantic routing.
+
+        The contact itself enters the append-only life as an authenticated utterance.
+        Learned inversion supplies candidate semantic leaves.  The leaf with the
+        strongest resident causal frontier recruits hierarchical discourse.  Somatic
+        state and partner-specific uptake/dispute history control depth/formulation
+        through the incumbent Adult; they never create world evidence.
+        """
+        if self._frontier_stage<10:
+            raise RuntimeError('organism:frontier-conversation-before-transfer')
+        raw=bytes(raw);source=int(source);channel=max(0,int(channel))
+        if not raw or source<=0:raise ValueError('organism:frontier-conversation-contact')
+        runtime=self._frontier_runtime();adult=runtime.adult
+        effective_channel=channel or source
+        before_next=int(runtime.contact.next_identity)
+        before_world=self._world_digest(runtime)
+        self._frontier_apply(10,'authenticated_utterance',source,tuple(raw))
+        focus=self._frontier_focus_after_contact(runtime,before_next)
+        world_unchanged=(before_world==self._world_digest(runtime))
+        if focus is None:
+            return {
+                'surface':b'','paragraphs':(),'actions':(),'programs':(),
+                'focus_leaf':0,'stance_q16':0,'appraisal':None,
+                'appraisal_surface':b'','epistemic_support_q16':0,
+                'social_credibility_q16':0,
+                'contact_world_truth_unchanged':world_unchanged,
+            }
+        surfaces,receipts=adult.externalize_causal_groups(
+            int(focus.identity),source,effective_channel)
+        paragraphs=tuple(bytes(surface) for surface in surfaces)
+        programs=tuple(tuple(map(int,receipt.programs)) for receipt in receipts)
+        stance,appraisal,state_surface,epistemic,social=self._frontier_stance(
+            adult,int(focus.identity),receipts,effective_channel)
+        return {
+            'surface':b'\n\n'.join(paragraphs),
+            'paragraphs':paragraphs,
+            'actions':tuple(int(receipt.identity) for receipt in receipts),
+            'programs':programs,
+            'focus_leaf':int(focus.identity),
+            'stance_q16':int(stance),
+            'appraisal':appraisal,
+            # Diagnostic projection only. It is deliberately not appended to public bytes.
+            'appraisal_surface':state_surface,
+            'epistemic_support_q16':int(epistemic),
+            'social_credibility_q16':int(social),
+            'contact_world_truth_unchanged':world_unchanged,
+        }
+
+    def frontier_settle_response(self,action_identity,source,outcome_q16,
+                                 somatic_q16=0,independent=True):
+        """Return lived consequence to exactly one prior public discourse action."""
+        runtime=self._frontier_runtime();adult=runtime.adult
+        receipt=adult.pending_causal_dialogue_actions.get(int(action_identity))
+        if receipt is None:return False
+        return bool(adult.settle_causal_dialogue_return(
+            receipt,int(source),int(outcome_q16),int(somatic_q16),bool(independent)))
+
+    def _frontier_focus_leaf(self,focus_atoms):
+        atoms=tuple(map(int,focus_atoms))
+        if not atoms:raise ValueError('organism:frontier-discourse-focus')
+        return self._frontier_runtime().adult.language_adult.leaf(100,atoms)
+
+    def frontier_generate_discourse(self,focus_atoms,source,channel=0,paragraph_budget=None):
+        """Externalize exactly the groups selected by resident causal/somatic dynamics."""
+        if self._frontier_stage<10:raise RuntimeError('organism:frontier-discourse-before-transfer')
+        adult=self._frontier_runtime().adult;leaf=self._frontier_focus_leaf(focus_atoms)
+        effective_channel=max(0,int(channel)) or max(1,int(source))
+        surfaces,receipts=adult.externalize_causal_groups(
+            leaf.identity,max(1,int(source)),effective_channel)
+        paragraphs=tuple(bytes(surface) for surface in surfaces)
+        programs=tuple(tuple(map(int,receipt.programs)) for receipt in receipts)
+        return {
+            'surface':b'\n\n'.join(paragraphs),'paragraphs':paragraphs,
+            'programs':programs,
+            'actions':tuple(int(receipt.identity) for receipt in receipts),
+            'leaf':int(leaf.identity),
+        }
+
+    def frontier_form_stance(self,focus_atoms,source,channel=0,paragraph_budget=None):
+        """Externalize grounded discourse and expose its current causal-somatic stance."""
+        discourse=self.frontier_generate_discourse(
+            focus_atoms,source,channel,paragraph_budget)
+        adult=self._frontier_runtime().adult
+        receipts=tuple(adult.pending_causal_dialogue_actions.get(identity)
+                       for identity in discourse['actions'])
+        receipts=tuple(row for row in receipts if row is not None)
+        effective_channel=max(0,int(channel)) or max(1,int(source))
+        stance,appraisal,state_surface,epistemic,social=self._frontier_stance(
+            adult,int(discourse['leaf']),receipts,effective_channel)
+        return {
+            **discourse,'stance_q16':int(stance),'appraisal':appraisal,
+            'appraisal_surface':state_surface,
+            'epistemic_support_q16':int(epistemic),
+            'social_credibility_q16':int(social),
+        }
 
     def frontier_developmental_receipt(self):
         runtime=self._frontier_runtime();learner=runtime.adult.language_action_affordances
@@ -457,11 +540,11 @@ class ReferenceOrganismV2(_BaseReferenceOrganismV2):
         }
         remaining_red=[
             'LEGACY_REFERENCE_ORGANISM_AND_MATHEMATICAL_ADULT_STILL_COEXIST_DURING_STRANGLER_MIGRATION',
-            'OPEN_DOMAIN_TOPIC_GROUNDING_REMAINS_LIMITED_TO_LIVED_CONCEPTS',
+            'UNLEARNED_OPEN_DOMAIN_WORDS_STILL_FAIL_CLOSED',
             'DIRECT_CUDA_PARITY_FOR_EXTENDED_DISCOURSE',
         ]
         return {
-            'schema':'cyber-lagoon.reference-organism-frontier-curriculum.v2',
+            'schema':'cyber-lagoon.reference-organism-frontier-curriculum.v3',
             'pass':all(checks.values()) and not remaining_red,
             'one_continuing_frontier_runtime':True,
             'stage':int(self._frontier_stage),'cursor':int(runtime.cursor),
@@ -472,7 +555,7 @@ class ReferenceOrganismV2(_BaseReferenceOrganismV2):
             'checks':checks,'remaining_red':remaining_red,
         }
 
-    # ---- persistence ---------------------------------------------------------------------
+    # Persistence.
     def checkpoint(self):
         data=super().checkpoint()
         data['joint_plan_control_v1']={
