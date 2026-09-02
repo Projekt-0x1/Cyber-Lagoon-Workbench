@@ -7,6 +7,7 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -49,9 +50,15 @@ def require(condition: bool, message: str) -> None:
 def tracked_paths() -> list[str] | None:
     if not (ROOT / ".git").exists():
         return None
+    git = shutil.which("git")
+    if not git:
+        raise RuntimeError("verify:git-unavailable")
+    git_path = Path(git).resolve()
+    if git_path == ROOT or ROOT in git_path.parents:
+        raise RuntimeError("verify:repo-local-git-refused")
     try:
         run = subprocess.run(
-            ["git", "ls-files", "-z"],
+            [str(git_path), "ls-files", "-z"],
             cwd=ROOT,
             check=True,
             capture_output=True,
@@ -76,8 +83,21 @@ def load_manifest() -> tuple[Path, dict, list[dict]] | None:
     require(manifest.get("schema") == MANIFEST_SCHEMA, "verify:manifest-schema")
     entries = manifest.get("entries")
     require(isinstance(entries, list), "verify:manifest-entries")
-    paths = [row.get("path") for row in entries if isinstance(row, dict)]
-    require(len(paths) == len(entries) and all(isinstance(value, str) for value in paths), "verify:manifest-paths")
+    paths = []
+    for row in entries:
+        require(isinstance(row, dict), "verify:manifest-entry")
+        relative = row.get("path")
+        size = row.get("bytes")
+        digest = row.get("sha256")
+        require(isinstance(relative, str), "verify:manifest-paths")
+        require(type(size) is int and size >= 0, f"verify:manifest-entry-size:{relative}")
+        require(
+            isinstance(digest, str)
+            and len(digest) == 64
+            and all(character in "0123456789abcdef" for character in digest),
+            f"verify:manifest-entry-hash:{relative}",
+        )
+        paths.append(relative)
     require(len(paths) == len(set(paths)) and paths == sorted(paths), "verify:manifest-order")
     require(manifest.get("files") == len(entries), "verify:manifest-files")
     return path, manifest, entries
@@ -86,27 +106,29 @@ def load_manifest() -> tuple[Path, dict, list[dict]] | None:
 def manifest_candidate(relative: str) -> Path:
     path = Path(relative)
     require(not path.is_absolute() and ".." not in path.parts and relative not in {"", "."}, f"verify:manifest-path:{relative}")
-    candidate = ROOT / path
-    require(candidate.is_file() and not candidate.is_symlink(), f"verify:manifest-missing:{relative}")
+    candidate = ROOT
+    for part in path.parts:
+        candidate /= part
+        require(not candidate.is_symlink(), f"verify:manifest-symlink:{relative}")
+    require(candidate.is_file(), f"verify:manifest-missing:{relative}")
     return candidate
 
 
 def refresh_manifest() -> None:
     loaded = load_manifest()
     require(loaded is not None, "verify:manifest-missing")
-    path, manifest, entries = loaded
+    path, manifest, _entries = loaded
     tracked = tracked_paths()
-    if tracked is not None:
-        entries = [{"path": relative} for relative in tracked]
-        manifest["entries"] = entries
-        manifest["files"] = len(entries)
-
+    require(tracked is not None, "verify:manifest-refresh-requires-git")
+    entries = []
     total = 0
-    for row in entries:
-        candidate = manifest_candidate(row["path"])
-        row["bytes"] = candidate.stat().st_size
-        row["sha256"] = sha256(candidate)
-        total += row["bytes"]
+    for relative in tracked:
+        candidate = manifest_candidate(relative)
+        size = candidate.stat().st_size
+        entries.append({"bytes": size, "path": relative, "sha256": sha256(candidate)})
+        total += size
+    manifest["entries"] = entries
+    manifest["files"] = len(entries)
     manifest["bytes"] = total
 
     temporary: Path | None = None
@@ -138,11 +160,6 @@ def verify_manifest() -> None:
     if loaded is None:
         return
     _path, manifest, entries = loaded
-    manifest_paths = [row["path"] for row in entries]
-    tracked = tracked_paths()
-    if tracked is not None:
-        require(manifest_paths == tracked, "verify:manifest-tracked-set")
-
     total = 0
     for row in entries:
         candidate = manifest_candidate(row["path"])
@@ -150,6 +167,11 @@ def verify_manifest() -> None:
         require(sha256(candidate) == row["sha256"], f"verify:manifest-hash:{row['path']}")
         total += row["bytes"]
     require(manifest.get("bytes") == total, "verify:manifest-bytes")
+
+    tracked = tracked_paths()
+    if tracked is not None:
+        manifest_paths = [row["path"] for row in entries]
+        require(manifest_paths == tracked, "verify:manifest-tracked-set")
 
 
 def main() -> int:
@@ -169,6 +191,9 @@ def main() -> int:
     for relative in ("build", "adult", "bench", "verify"):
         require((ROOT / relative).stat().st_mode & 0o111 != 0, f"verify:not-executable:{relative}")
 
+    # Authenticate the pinned tree before executing any Workbench subprocess.
+    verify_manifest()
+
     build = (ROOT / "build").read_text(encoding="utf-8")
     require("--state-dir" not in build, "verify:configurable-state-root")
     for required in (
@@ -180,6 +205,7 @@ def main() -> int:
         '[[ -L .build/direct ]]',
         "mktemp -d .state/.direct-birth.XXXXXX",
         '[[ -L .state/direct-adult.xcb ]]',
+        "refusing non-regular Direct Adult checkpoint",
         "chmod 600 .state/direct-adult.xcb",
     ):
         require(required in build, f"verify:build-hardening:{required}")
@@ -196,6 +222,9 @@ def main() -> int:
         "os.fsync",
         "os.replace",
         "public-adult:state-symlink-refused",
+        "public-adult:state-file-refused",
+        "public-adult:state-busy",
+        "fcntl.LOCK_EX",
         "os.chmod(STATE, 0o700)",
         "os.chmod(checkpoint_path, 0o600)",
         "os.chmod(provenance_path, 0o600)",
@@ -206,10 +235,16 @@ def main() -> int:
     require("os.environ.copy(" not in adult, "verify:adult-inherits-ambient-environment")
     for required in (
         "GATEWAY_BOOTSTRAP",
+        '"-I"',
+        "GATEWAY_ENV_ALLOW",
         "stdin=subprocess.PIPE",
         "secrets.token_hex(32)",
         "GATEWAY_STARTUP_SECONDS",
         "private_directory(STATE)",
+        "symlink_free(path)",
+        "fcntl.LOCK_EX",
+        "public-adult:state-busy",
+        "os.set_inheritable(lock_descriptor, True)",
         "tempfile.TemporaryDirectory",
         "cwd=body_dir",
         "TMPDIR",
@@ -271,7 +306,6 @@ def main() -> int:
         cwd=ROOT,
         check=True,
     )
-    verify_manifest()
     print("CYBER_LAGOON_PUBLIC_VERIFY status=PASS build_boundary=closed adult=continuing")
     return 0
 

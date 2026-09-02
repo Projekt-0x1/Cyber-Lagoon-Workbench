@@ -91,6 +91,10 @@ if [[ -L .state/direct-adult.xcb ]]; then
   echo "refusing symlinked Direct Adult checkpoint" >&2
   exit 1
 fi
+if [[ -e .state/direct-adult.xcb && ! -f .state/direct-adult.xcb ]]; then
+  echo "refusing non-regular Direct Adult checkpoint" >&2
+  exit 1
+fi
 if [[ ! -f .state/direct-adult.xcb ]]; then
   birth_dir="$(mktemp -d .state/.direct-birth.XXXXXX)"
   direct_tmp="$birth_dir/direct-adult.xcb"

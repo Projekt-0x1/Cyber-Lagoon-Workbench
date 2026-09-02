@@ -3,11 +3,14 @@
 from __future__ import annotations
 
 import argparse
+from contextlib import contextmanager
+import fcntl
 import os
 from pathlib import Path
 import secrets
 import selectors
 import shutil
+import stat
 import subprocess
 import sys
 import tempfile
@@ -20,7 +23,16 @@ DIRECT_SITDOWN = ROOT / ".build" / "direct" / "direct_adult_sitdown"
 REFERENCE_GATEWAY = ROOT / "hardware_native" / "tools" / "foundry_workbench" / "reference_language_mastery_claude_gateway_v1.py"
 REFERENCE_TERMINAL = ROOT / "hardware_native" / "tools" / "foundry_workbench" / "reference_language_mastery_terminal_v1.py"
 DIRECT_GATEWAY = ROOT / "tools" / "public_direct_adult_gateway.py"
-BODY_ENV_ALLOW = ("PATH", "LANG", "LC_ALL", "LC_CTYPE", "TERM", "COLORTERM", "SHELL", "USER", "LOGNAME")
+BODY_ENV_ALLOW = ("PATH", "LANG", "LC_ALL", "LC_CTYPE", "TERM", "COLORTERM")
+GATEWAY_ENV_ALLOW = (
+    "LANG",
+    "LC_ALL",
+    "LC_CTYPE",
+    "LD_LIBRARY_PATH",
+    "CUDA_VISIBLE_DEVICES",
+    "CUDA_DEVICE_ORDER",
+    "NVIDIA_VISIBLE_DEVICES",
+)
 GATEWAY_STARTUP_SECONDS = 10.0
 GATEWAY_BOOTSTRAP = """\
 import runpy
@@ -36,9 +48,23 @@ runpy.run_path(script, run_name="__main__")
 """
 
 
+def symlink_free(path: Path) -> bool:
+    try:
+        relative = path.relative_to(ROOT)
+    except ValueError:
+        return False
+    current = ROOT
+    for part in relative.parts:
+        current /= part
+        if current.is_symlink():
+            return False
+    return True
+
+
 def regular_file(path: Path, executable: bool = False) -> bool:
     return (
-        path.is_file()
+        symlink_free(path)
+        and path.is_file()
         and not path.is_symlink()
         and (not executable or os.access(path, os.X_OK))
     )
@@ -51,6 +77,32 @@ def private_directory(path: Path) -> None:
     if not path.is_dir():
         raise RuntimeError(f"public-adult:private-directory-unavailable:{path.name}")
     os.chmod(path, 0o700)
+
+
+@contextmanager
+def state_lock():
+    lock_path = STATE / "adult.lock"
+    try:
+        descriptor = os.open(
+            lock_path,
+            os.O_CREAT | os.O_RDWR | os.O_CLOEXEC | os.O_NOFOLLOW,
+            0o600,
+        )
+    except OSError as error:
+        raise RuntimeError("public-adult:state-lock-unavailable") from error
+    try:
+        if not stat.S_ISREG(os.fstat(descriptor).st_mode):
+            raise RuntimeError("public-adult:state-lock-invalid")
+        os.fchmod(descriptor, 0o600)
+        try:
+            fcntl.flock(descriptor, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError as error:
+            raise RuntimeError("public-adult:state-busy") from error
+        except OSError as error:
+            raise RuntimeError("public-adult:state-lock-unavailable") from error
+        yield descriptor
+    finally:
+        os.close(descriptor)
 
 
 def backend_available(name: str) -> bool:
@@ -86,8 +138,11 @@ def gateway_command(backend: str) -> list[str]:
         script = REFERENCE_GATEWAY
         credential_flag = "--auth-token"
         args = ["--resume", str(REFERENCE_CHECKPOINT), "--port", "0"]
+    if not regular_file(script):
+        raise RuntimeError("public-adult:gateway-unavailable")
     return [
         sys.executable,
+        "-I",
         "-c",
         GATEWAY_BOOTSTRAP,
         str(script),
@@ -96,8 +151,16 @@ def gateway_command(backend: str) -> list[str]:
     ]
 
 
+def selected_environment(names: tuple[str, ...]) -> dict[str, str]:
+    return {name: os.environ[name] for name in names if os.environ.get(name)}
+
+
+def gateway_environment() -> dict[str, str]:
+    return selected_environment(GATEWAY_ENV_ALLOW)
+
+
 def isolated_body_environment(port: int, credential: str, body_dir: Path) -> dict[str, str]:
-    env = {name: os.environ[name] for name in BODY_ENV_ALLOW if os.environ.get(name)}
+    env = selected_environment(BODY_ENV_ALLOW)
     path_entries = []
     for raw in env.get("PATH", "").split(os.pathsep):
         if not raw:
@@ -152,6 +215,7 @@ def run_claude(backend: str, model: str, prompt: str | None) -> int:
     gateway = subprocess.Popen(
         gateway_command(backend),
         cwd=ROOT,
+        env=gateway_environment(),
         stdin=subprocess.PIPE,
         stdout=subprocess.PIPE,
         text=True,
@@ -221,27 +285,31 @@ def main() -> int:
     if not STATE.exists() or not STATE.is_dir() or STATE.is_symlink():
         raise RuntimeError("public-adult:state-directory-unavailable; run ./build")
     private_directory(STATE)
-    backend = choose_backend(args.backend)
     if args.print_backend:
-        print(backend)
+        print(choose_backend(args.backend))
         return 0
-    if args.terminal:
-        if backend != "reference":
-            raise RuntimeError("public-adult:raw-terminal-currently-reference-only")
-        os.execv(
-            sys.executable,
-            [sys.executable, str(REFERENCE_TERMINAL), "--resume", str(REFERENCE_CHECKPOINT)],
-        )
-    if backend == "direct" and args.prompt is None:
-        raise RuntimeError(
-            "public-adult:direct-claude-is-one-shot-until-world-consequence-settlement-is-proved"
-        )
-    return run_claude(backend, args.model, args.prompt)
+    with state_lock() as lock_descriptor:
+        backend = choose_backend(args.backend)
+        if args.terminal:
+            if backend != "reference":
+                raise RuntimeError("public-adult:raw-terminal-currently-reference-only")
+            if not regular_file(REFERENCE_TERMINAL):
+                raise RuntimeError("public-adult:terminal-unavailable")
+            os.set_inheritable(lock_descriptor, True)
+            os.execv(
+                sys.executable,
+                [sys.executable, str(REFERENCE_TERMINAL), "--resume", str(REFERENCE_CHECKPOINT)],
+            )
+        if backend == "direct" and args.prompt is None:
+            raise RuntimeError(
+                "public-adult:direct-claude-is-one-shot-until-world-consequence-settlement-is-proved"
+            )
+        return run_claude(backend, args.model, args.prompt)
 
 
 if __name__ == "__main__":
     try:
         raise SystemExit(main())
-    except RuntimeError as error:
+    except (OSError, RuntimeError) as error:
         print(str(error), file=sys.stderr)
         raise SystemExit(2)
