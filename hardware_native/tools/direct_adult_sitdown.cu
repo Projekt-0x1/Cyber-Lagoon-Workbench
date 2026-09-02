@@ -200,14 +200,19 @@ void emit_motors(DirectAdultRuntime* runtime, std::uint64_t* drained,
                  bool framed) {
   MotorEvent motors[64];
   for (;;) {
+    if (stop_requested) return;
     const std::uint32_t count = read_motor_events(runtime, motors, 64u);
     if (count == 0u) return;
     for (std::uint32_t i = 0u; i < count; ++i) {
       if (framed) {
-        require(std::fprintf(stdout, "M %016llx %08x %08x %08x\n",
-                             static_cast<unsigned long long>(motors[i].ticket_id),
-                             motors[i].channel, motors[i].word,
-                             motors[i].timestamp) > 0,
+        require(std::fprintf(
+                    stdout,
+                    "M %016llx %08x %08x %08x %016llx %08x %08x\n",
+                    static_cast<unsigned long long>(motors[i].ticket_id),
+                    motors[i].channel, motors[i].word, motors[i].timestamp,
+                    static_cast<unsigned long long>(
+                        motors[i].trajectory.trajectory_identity),
+                    motors[i].trajectory.cursor, motors[i].trajectory.extent) > 0,
                 "framed motor transport write failed");
       } else {
         const unsigned char bytes[4]{
@@ -408,7 +413,12 @@ int main(int argc, char** argv) {
           if (count < 0 && errno != EINTR && errno != EAGAIN)
             throw std::runtime_error("stdin read failed");
           if (count == 0) break;
-          if (count > 0) external_bytes += static_cast<std::uint64_t>(count);
+          if (count > 0) {
+            external_bytes += static_cast<std::uint64_t>(count);
+            std::fprintf(stderr, "DIRECT_ADULT_SITDOWN_INPUT total=%llu\n",
+                         static_cast<unsigned long long>(external_bytes));
+            std::fflush(stderr);
+          }
           if (count > 0 && !options.framed) {
             inject_bytes(runtime, bytes, static_cast<std::size_t>(count), &ticket);
           } else if (count > 0) {

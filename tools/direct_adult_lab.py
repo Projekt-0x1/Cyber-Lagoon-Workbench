@@ -24,7 +24,9 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
-def run_bounded(command: list[str], body: bytes, timeout: float) -> tuple[int, bytes, bytes]:
+def run_bounded(
+    command: list[str], body: bytes, timeout: float, require_clean_stop: bool
+) -> tuple[int, bytes, bytes, bool, bool]:
     process = subprocess.Popen(
         command,
         stdin=subprocess.PIPE,
@@ -32,17 +34,43 @@ def run_bounded(command: list[str], body: bytes, timeout: float) -> tuple[int, b
         stderr=subprocess.PIPE,
         start_new_session=True,
     )
+    bounded_stop = False
+    clean_stop = True
     try:
         stdout, stderr = process.communicate(body, timeout=timeout)
     except subprocess.TimeoutExpired:
-        os.killpg(process.pid, signal.SIGTERM)
-        try:
-            stdout, stderr = process.communicate(timeout=2)
-        except subprocess.TimeoutExpired:
+        bounded_stop = True
+        if require_clean_stop:
+            os.killpg(process.pid, signal.SIGTERM)
+            try:
+                stdout, stderr = process.communicate(timeout=30)
+            except subprocess.TimeoutExpired as error:
+                os.killpg(process.pid, signal.SIGKILL)
+                process.communicate()
+                raise TimeoutError(f"experiment could not publish a clean stop after {timeout:g}s bound") from error
+        else:
+            clean_stop = False
             os.killpg(process.pid, signal.SIGKILL)
             stdout, stderr = process.communicate()
-        raise TimeoutError(f"experiment exceeded {timeout:g}s")
-    return process.returncode, stdout, stderr
+    return process.returncode, stdout, stderr, bounded_stop, clean_stop
+
+
+def running_metrics(stderr: bytes) -> dict[str, str]:
+    prefix = "DIRECT_ADULT_SITDOWN status=RUNNING "
+    lines = stderr.decode("utf-8", errors="replace").splitlines()
+    running = [line.removeprefix(prefix) for line in lines if line.startswith(prefix)]
+    if len(running) != 1:
+        raise RuntimeError(f"expected one Direct Adult RUNNING receipt, saw {len(running)}")
+    return dict(field.split("=", 1) for field in running[0].split() if "=" in field)
+
+
+def accepted_input_bytes(stderr: bytes) -> int:
+    prefix = "DIRECT_ADULT_SITDOWN_INPUT total="
+    totals = []
+    for line in stderr.decode("utf-8", errors="replace").splitlines():
+        if line.startswith(prefix):
+            totals.append(int(line.removeprefix(prefix)))
+    return totals[-1] if totals else 0
 
 
 def stopped_metrics(stderr: bytes) -> dict[str, str]:
@@ -155,32 +183,50 @@ def main(argv: list[str] | None = None) -> int:
     try:
         with tempfile.TemporaryDirectory(prefix="direct-adult-lab-", dir=temp_parent) as directory:
             branch = Path(directory) / "adult.checkpoint"
-            shutil.copyfile(source, branch)
+            try:
+                os.link(source, branch)
+            except OSError:
+                shutil.copyfile(source, branch)
             command = [str(artifact), "--resume", str(branch)]
             if args.expect_birth_root:
                 command.extend(("--expect-birth-root", args.expect_birth_root))
             if args.framed:
                 command.append("--framed")
-            returncode, stdout, stderr = run_bounded(command, body, args.timeout)
+            require_clean_stop = bool(output or output_directory)
+            returncode, stdout, stderr, bounded_stop, clean_stop = run_bounded(
+                command, body, args.timeout, require_clean_stop
+            )
             receipt.update(
                 exit_code=returncode,
+                bounded_stop=bounded_stop,
+                clean_stop=clean_stop,
                 stdout_sha256=hashlib.sha256(stdout).hexdigest(),
                 stdout_bytes=len(stdout),
                 stderr_sha256=hashlib.sha256(stderr).hexdigest(),
                 stderr_bytes=len(stderr),
             )
-            if returncode != 0:
-                raise RuntimeError(f"direct_adult_sitdown exited {returncode}")
-            receipt["sitdown"] = stopped_metrics(stderr)
-            if (
-                args.expect_birth_root
-                and receipt["sitdown"].get("birth_root") != args.expect_birth_root
-            ):
-                raise RuntimeError("Direct Adult birth root did not match expectation")
-            receipt["branch_checkpoint_sha256"] = sha256(branch)
-            if output:
-                os.replace(branch, output)
-                receipt["output_checkpoint"] = str(output)
+            if not clean_stop:
+                receipt["sitdown_running"] = running_metrics(stderr)
+                receipt["accepted_input_bytes"] = accepted_input_bytes(stderr)
+                if receipt["accepted_input_bytes"] < len(body):
+                    raise RuntimeError("Direct Adult did not accept the complete bounded input")
+                if args.expect_birth_root and receipt["sitdown_running"].get("birth_root") != args.expect_birth_root:
+                    raise RuntimeError("Direct Adult birth root did not match expectation")
+                receipt["stop_mode"] = "forced_disposable"
+            else:
+                if returncode != 0:
+                    raise RuntimeError(f"direct_adult_sitdown exited {returncode}")
+                receipt["sitdown"] = stopped_metrics(stderr)
+                if (
+                    args.expect_birth_root
+                    and receipt["sitdown"].get("birth_root") != args.expect_birth_root
+                ):
+                    raise RuntimeError("Direct Adult birth root did not match expectation")
+                receipt["branch_checkpoint_sha256"] = sha256(branch)
+                receipt["stop_mode"] = "clean"
+                if output:
+                    os.replace(branch, output)
+                    receipt["output_checkpoint"] = str(output)
             receipt["status"] = "EXPERIMENT_PASS"
             if output_directory:
                 receipt.update(
