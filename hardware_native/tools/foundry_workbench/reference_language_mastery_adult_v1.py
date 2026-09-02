@@ -1209,6 +1209,21 @@ class LanguageMasteryAdultV1:
             if factor and body_credentials and left[3] is not None and right[3] is not None else False)
         return bool(observed or grounded)
 
+    def ambient_language_capacity_q16(self):
+        """Remaining resident capacity for bystander-language plasticity, never attention authority."""
+        pressure=max(0,min(Q,int(self.slow_resource_history.pressure_q16())))
+        return Q-pressure
+
+    def observe_ambient_language_contact(self,raw,source):
+        """Learn receptive structure from background bytes without foreground or truth authority."""
+        raw=tuple(map(int,raw));source=int(source)
+        if source<=0 or not raw or any(x<0 or x>255 for x in raw):return False
+        budget=self.ambient_language_capacity_q16()
+        if budget<=0:return False
+        max_matches=max(8,min(64,(64*budget+Q-1)//Q))
+        return bool(self._observe_open_span_from_known_surfaces(
+            raw,source,max_matches=max_matches,body_credentials=()))
+
     def _reconstruct_unique_nested_bindings(
             self, raw, max_depth=4, max_closures=64):
         """Rematerialize one fully learned closure; retain no parse or raw child."""

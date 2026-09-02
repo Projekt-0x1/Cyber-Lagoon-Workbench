@@ -31,6 +31,12 @@ REQUIRED = (
     "hardware_native/tools/direct_adult_sitdown.cu",
     "tools/public_direct_adult_gateway.py",
     "hardware_native/tools/foundry_workbench/reference_language_mastery_claude_gateway_v1.py",
+    "hardware_native/tools/foundry_workbench/reference_persistent_ambient_language_stream_v1.py",
+    "hardware_native/tools/foundry_workbench/reference_authorized_ambient_feed_body_v1.py",
+    "hardware_native/tools/foundry_workbench/reference_public_ambient_bystander_stream_verify.py",
+    "hardware_native/tools/foundry_workbench/reference_authorized_ambient_feed_body_verify.py",
+    "hardware_native/tools/foundry_workbench/reference_authorized_ambient_gateway_verify.py",
+    "docs/research/2026-09-02-ambient-bystander-language-stream-preregistration.md",
 )
 MANIFEST_SCHEMA = "cyber-lagoon.public-workbench-export.v1"
 MANIFEST_NAME = "EXPORT_MANIFEST.json"
@@ -341,6 +347,30 @@ def main() -> int:
         "CLAUDE_SILENCE_FRAME if claude_source else ''" in gateway,
         "verify:claude-code-silence-boundary",
     )
+    for required in (
+        "'/v1/ambient'",
+        "set(request)!={'candidates'}",
+        "entropy=None",
+        "MAX_AUTHORIZED_AMBIENT_POOL",
+        "AuthorizedAmbientFeedBodyV1.pump",
+    ):
+        require(required in gateway, f"verify:ambient-gateway-boundary:{required}")
+    ambient_body = (
+        ROOT / "hardware_native" / "tools" / "foundry_workbench" / "reference_authorized_ambient_feed_body_v1.py"
+    ).read_text(encoding="utf-8")
+    for required in (
+        "MAX_AUTHORIZED_AMBIENT_POOL=512",
+        "MAX_AUTHORIZED_AMBIENT_POOL_BYTES=8*1024*1024",
+        "secrets.randbits(128)",
+        "pool_sha256",
+        "semantically_blind_index",
+    ):
+        require(required in ambient_body, f"verify:ambient-feed-boundary:{required}")
+    for forbidden in (
+        "requests.", "urllib", "http://", "https://", "reddit", "twitter", "twitch", "x.com",
+        "topic_score", "toxicity_score", "language_router", "feed_memory", "while true",
+    ):
+        require(forbidden not in ambient_body.lower(), f"verify:ambient-feed-provider-authority:{forbidden}")
     direct_gateway = (ROOT / "tools" / "public_direct_adult_gateway.py").read_text(
         encoding="utf-8"
     )
@@ -376,6 +406,11 @@ def main() -> int:
         ROOT / "tools" / "public_bench.py",
         ROOT / "tools" / "public_direct_adult_gateway.py",
         ROOT / "tools" / "public_materialize_adult.py",
+        ROOT / "hardware_native" / "tools" / "foundry_workbench" / "reference_persistent_ambient_language_stream_v1.py",
+        ROOT / "hardware_native" / "tools" / "foundry_workbench" / "reference_authorized_ambient_feed_body_v1.py",
+        ROOT / "hardware_native" / "tools" / "foundry_workbench" / "reference_public_ambient_bystander_stream_verify.py",
+        ROOT / "hardware_native" / "tools" / "foundry_workbench" / "reference_authorized_ambient_feed_body_verify.py",
+        ROOT / "hardware_native" / "tools" / "foundry_workbench" / "reference_authorized_ambient_gateway_verify.py",
     )
     for script in scripts:
         try:
