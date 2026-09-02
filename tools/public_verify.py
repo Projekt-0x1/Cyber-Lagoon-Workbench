@@ -375,7 +375,13 @@ def main() -> int:
         ROOT / "tools" / "public_direct_adult_gateway.py",
         ROOT / "tools" / "public_materialize_adult.py",
     )
-    subprocess.run([*PYTHON, "-m", "py_compile", *map(str, scripts)], cwd=ROOT, check=True)
+    for script in scripts:
+        try:
+            compile(script.read_text(encoding="utf-8"), str(script), "exec")
+        except SyntaxError as error:
+            raise RuntimeError(
+                f"verify:python-syntax:{script.relative_to(ROOT)}:{error.msg}"
+            ) from error
     subprocess.run([*PYTHON, str(ROOT / "tools" / "public_bench.py"), "--no-ir"], cwd=ROOT, check=True)
     require((ROOT / ".state" / "adult.json").is_file(), "verify:run-build-first")
     subprocess.run(
