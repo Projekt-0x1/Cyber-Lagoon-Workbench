@@ -3,12 +3,18 @@
 from __future__ import annotations
 
 import argparse
+from contextlib import contextmanager
+import fcntl
 import hashlib
 import json
+import os
 from pathlib import Path
+import stat
 import sys
+import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
+STATE = ROOT / ".state"
 WORKBENCH = ROOT / "hardware_native" / "tools" / "foundry_workbench"
 sys.path.insert(0, str(WORKBENCH))
 
@@ -24,75 +30,158 @@ def digest(value: object) -> str:
     return hashlib.sha256(json.dumps(value, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
 
 
+def atomic_write(path: Path, text: str) -> None:
+    """Durably replace one private state file without exposing a partial target."""
+    temporary: Path | None = None
+    try:
+        with tempfile.NamedTemporaryFile(
+            "w",
+            encoding="utf-8",
+            dir=path.parent,
+            prefix=f".{path.name}.",
+            delete=False,
+        ) as stream:
+            stream.write(text)
+            stream.flush()
+            os.fsync(stream.fileno())
+            temporary = Path(stream.name)
+        os.chmod(temporary, 0o600)
+        os.replace(temporary, path)
+        temporary = None
+    finally:
+        if temporary is not None:
+            temporary.unlink(missing_ok=True)
+
+
+@contextmanager
+def state_lock():
+    lock_path = STATE / "adult.lock"
+    try:
+        descriptor = os.open(
+            lock_path,
+            os.O_CREAT | os.O_RDWR | os.O_CLOEXEC | os.O_NOFOLLOW,
+            0o600,
+        )
+    except OSError as error:
+        raise RuntimeError("public-adult:state-lock-unavailable") from error
+    try:
+        if not stat.S_ISREG(os.fstat(descriptor).st_mode):
+            raise RuntimeError("public-adult:state-lock-invalid")
+        os.fchmod(descriptor, 0o600)
+        try:
+            fcntl.flock(descriptor, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError as error:
+            raise RuntimeError("public-adult:state-busy") from error
+        except OSError as error:
+            raise RuntimeError("public-adult:state-lock-unavailable") from error
+        yield
+    finally:
+        os.close(descriptor)
+
+
+def existing_provenance(checkpoint_path: Path, provenance_path: Path) -> dict:
+    if (
+        checkpoint_path.is_symlink()
+        or provenance_path.is_symlink()
+        or not checkpoint_path.is_file()
+        or not provenance_path.is_file()
+    ):
+        raise RuntimeError("public-adult:state-file-refused")
+    try:
+        provenance = json.loads(provenance_path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeError, json.JSONDecodeError) as error:
+        raise RuntimeError("public-adult:invalid-provenance") from error
+    if (
+        not isinstance(provenance, dict)
+        or provenance.get("schema") != "cyber-lagoon.public-adult-state.v2"
+        or provenance.get("checkpoint") != checkpoint_path.name
+    ):
+        raise RuntimeError("public-adult:invalid-provenance")
+    os.chmod(checkpoint_path, 0o600)
+    os.chmod(provenance_path, 0o600)
+    return provenance
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--state-dir", type=Path, default=ROOT / ".state")
     parser.add_argument("--reset", action="store_true")
     parser.add_argument("--strict-tail", action="store_true", help="fail if the current experimental curriculum tail refuses")
     args = parser.parse_args()
 
-    state_dir = args.state_dir.resolve()
-    state_dir.mkdir(parents=True, exist_ok=True)
-    checkpoint_path = state_dir / "adult.json"
-    provenance_path = state_dir / "adult.provenance.json"
-    if checkpoint_path.exists() and provenance_path.exists() and not args.reset:
-        provenance = json.loads(provenance_path.read_text(encoding="utf-8"))
-        print(json.dumps({"status": "PUBLIC_ADULT_EXISTS", **provenance}, sort_keys=True))
+    if STATE.is_symlink():
+        raise RuntimeError("public-adult:state-symlink-refused")
+    STATE.mkdir(parents=True, exist_ok=True, mode=0o700)
+    if not STATE.is_dir():
+        raise RuntimeError("public-adult:state-directory-unavailable")
+    os.chmod(STATE, 0o700)
+    checkpoint_path = STATE / "adult.json"
+    provenance_path = STATE / "adult.provenance.json"
+    with state_lock():
+        for path in (checkpoint_path, provenance_path):
+            if path.is_symlink() or (path.exists() and not path.is_file()):
+                raise RuntimeError("public-adult:state-file-refused")
+        if checkpoint_path.exists() and provenance_path.exists() and not args.reset:
+            provenance = existing_provenance(checkpoint_path, provenance_path)
+            print(json.dumps({"status": "PUBLIC_ADULT_EXISTS", **provenance}, sort_keys=True))
+            return 0
+        checkpoint_path.unlink(missing_ok=True)
+        provenance_path.unlink(missing_ok=True)
+
+        species = canonical_species_program_v2()
+        curriculum = canonical_life_function_curriculum_v2()
+        runtime = ReferenceLifeFunctionRuntimeV2(species)
+        last_checkpoint = None
+        last_mark = None
+        last_cursor = 0
+        failure = None
+
+        for event in curriculum.events:
+            try:
+                runtime.apply(event)
+            except Exception as error:  # deliberate frontier receipt, not silent recovery
+                failure = {
+                    "sequence": int(event.sequence),
+                    "lane": str(event.lane),
+                    "error_type": type(error).__name__,
+                    "error": str(error),
+                }
+                break
+            if event.lane == "checkpoint_mark":
+                last_mark = str(event.payload[0])
+                last_cursor = int(runtime.cursor)
+                last_checkpoint = runtime.checkpoint()
+
+        if last_checkpoint is None or last_mark is None:
+            raise RuntimeError("public-adult:no-completed-checkpoint-mark")
+        if failure is not None and args.strict_tail:
+            raise RuntimeError(f"public-adult:experimental-tail-red:{failure['sequence']}:{failure['lane']}:{failure['error_type']}")
+
+        provenance = {
+            "schema": "cyber-lagoon.public-adult-state.v2",
+            "checkpoint": checkpoint_path.name,
+            "checkpoint_sha256": digest(last_checkpoint),
+            "species_root": species.root(),
+            "curriculum_root": curriculum.root(),
+            "source_semantics_root": source_semantics_root_v2(),
+            "curriculum_events": len(curriculum.events),
+            "applied_events": last_cursor,
+            "final_mark": last_mark,
+            "final_cursor": last_cursor,
+            "experimental_tail_status": "FULL" if failure is None else "RED",
+            "experimental_tail_failure": failure,
+        }
+        atomic_write(
+            checkpoint_path,
+            json.dumps(last_checkpoint, sort_keys=True, separators=(",", ":")),
+        )
+        atomic_write(provenance_path, json.dumps(provenance, indent=2, sort_keys=True) + "\n")
+        print(json.dumps({"status": "PUBLIC_ADULT_MATERIALIZED", **provenance}, sort_keys=True))
         return 0
-    checkpoint_path.unlink(missing_ok=True)
-    provenance_path.unlink(missing_ok=True)
-
-    species = canonical_species_program_v2()
-    curriculum = canonical_life_function_curriculum_v2()
-    runtime = ReferenceLifeFunctionRuntimeV2(species)
-    last_checkpoint = None
-    last_mark = None
-    last_cursor = 0
-    failure = None
-
-    for event in curriculum.events:
-        try:
-            runtime.apply(event)
-        except Exception as error:  # deliberate frontier receipt, not silent recovery
-            failure = {
-                "sequence": int(event.sequence),
-                "lane": str(event.lane),
-                "error_type": type(error).__name__,
-                "error": str(error),
-            }
-            break
-        if event.lane == "checkpoint_mark":
-            last_mark = str(event.payload[0])
-            last_cursor = int(runtime.cursor)
-            last_checkpoint = runtime.checkpoint()
-
-    if last_checkpoint is None or last_mark is None:
-        raise RuntimeError("public-adult:no-completed-checkpoint-mark")
-    if failure is not None and args.strict_tail:
-        raise RuntimeError(f"public-adult:experimental-tail-red:{failure['sequence']}:{failure['lane']}:{failure['error_type']}")
-
-    temporary = checkpoint_path.with_suffix(".json.tmp")
-    temporary.write_text(json.dumps(last_checkpoint, sort_keys=True, separators=(",", ":")), encoding="utf-8")
-    temporary.replace(checkpoint_path)
-
-    provenance = {
-        "schema": "cyber-lagoon.public-adult-state.v2",
-        "checkpoint": checkpoint_path.name,
-        "checkpoint_sha256": digest(last_checkpoint),
-        "species_root": species.root(),
-        "curriculum_root": curriculum.root(),
-        "source_semantics_root": source_semantics_root_v2(),
-        "curriculum_events": len(curriculum.events),
-        "applied_events": last_cursor,
-        "final_mark": last_mark,
-        "final_cursor": last_cursor,
-        "experimental_tail_status": "FULL" if failure is None else "RED",
-        "experimental_tail_failure": failure,
-    }
-    provenance_path.write_text(json.dumps(provenance, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    print(json.dumps({"status": "PUBLIC_ADULT_MATERIALIZED", **provenance}, sort_keys=True))
-    return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    try:
+        raise SystemExit(main())
+    except (OSError, RuntimeError) as error:
+        print(str(error), file=sys.stderr)
+        raise SystemExit(1)

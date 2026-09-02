@@ -2,11 +2,15 @@
 """Verify the public workshop boundary without requiring a GPU."""
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
+import os
 from pathlib import Path
+import shutil
 import subprocess
 import sys
+import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
 REQUIRED = (
@@ -26,6 +30,8 @@ REQUIRED = (
     "tools/public_direct_adult_gateway.py",
     "hardware_native/tools/foundry_workbench/reference_language_mastery_claude_gateway_v1.py",
 )
+MANIFEST_SCHEMA = "cyber-lagoon.public-workbench-export.v1"
+MANIFEST_NAME = "EXPORT_MANIFEST.json"
 
 
 def sha256(path: Path) -> str:
@@ -41,28 +47,218 @@ def require(condition: bool, message: str) -> None:
         raise RuntimeError(message)
 
 
-def verify_manifest() -> None:
-    path = ROOT / "EXPORT_MANIFEST.json"
-    if not path.is_file():
-        return
+def tracked_paths() -> list[str] | None:
+    if not (ROOT / ".git").exists():
+        return None
+    git = shutil.which("git")
+    if not git:
+        raise RuntimeError("verify:git-unavailable")
+    git_path = Path(git).resolve()
+    if git_path == ROOT or ROOT in git_path.parents:
+        raise RuntimeError("verify:repo-local-git-refused")
+    try:
+        run = subprocess.run(
+            [str(git_path), "ls-files", "-z"],
+            cwd=ROOT,
+            check=True,
+            capture_output=True,
+        )
+    except (OSError, subprocess.CalledProcessError) as error:
+        raise RuntimeError("verify:tracked-files-unavailable") from error
+    paths = sorted(
+        os.fsdecode(raw)
+        for raw in run.stdout.split(b"\0")
+        if raw and os.fsdecode(raw) != MANIFEST_NAME
+    )
+    require(len(paths) == len(set(paths)), "verify:tracked-files-duplicate")
+    return paths
+
+
+def load_manifest() -> tuple[Path, dict, list[dict]] | None:
+    path = ROOT / MANIFEST_NAME
+    if not path.exists():
+        return None
+    require(path.is_file() and not path.is_symlink(), "verify:manifest-file")
     manifest = json.loads(path.read_text(encoding="utf-8"))
-    require(manifest.get("schema") == "cyber-lagoon.public-workbench-export.v1", "verify:manifest-schema")
-    for row in manifest.get("entries", ()):
-        candidate = ROOT / row["path"]
-        require(candidate.is_file(), f"verify:manifest-missing:{row['path']}")
+    require(manifest.get("schema") == MANIFEST_SCHEMA, "verify:manifest-schema")
+    entries = manifest.get("entries")
+    require(isinstance(entries, list), "verify:manifest-entries")
+    paths = []
+    for row in entries:
+        require(isinstance(row, dict), "verify:manifest-entry")
+        relative = row.get("path")
+        size = row.get("bytes")
+        digest = row.get("sha256")
+        require(isinstance(relative, str), "verify:manifest-paths")
+        require(type(size) is int and size >= 0, f"verify:manifest-entry-size:{relative}")
+        require(
+            isinstance(digest, str)
+            and len(digest) == 64
+            and all(character in "0123456789abcdef" for character in digest),
+            f"verify:manifest-entry-hash:{relative}",
+        )
+        paths.append(relative)
+    require(len(paths) == len(set(paths)) and paths == sorted(paths), "verify:manifest-order")
+    require(manifest.get("files") == len(entries), "verify:manifest-files")
+    return path, manifest, entries
+
+
+def manifest_candidate(relative: str) -> Path:
+    path = Path(relative)
+    require(not path.is_absolute() and ".." not in path.parts and relative not in {"", "."}, f"verify:manifest-path:{relative}")
+    candidate = ROOT
+    for part in path.parts:
+        candidate /= part
+        require(not candidate.is_symlink(), f"verify:manifest-symlink:{relative}")
+    require(candidate.is_file(), f"verify:manifest-missing:{relative}")
+    return candidate
+
+
+def refresh_manifest() -> None:
+    loaded = load_manifest()
+    require(loaded is not None, "verify:manifest-missing")
+    path, manifest, _entries = loaded
+    tracked = tracked_paths()
+    require(tracked is not None, "verify:manifest-refresh-requires-git")
+    entries = []
+    total = 0
+    for relative in tracked:
+        candidate = manifest_candidate(relative)
+        size = candidate.stat().st_size
+        entries.append({"bytes": size, "path": relative, "sha256": sha256(candidate)})
+        total += size
+    manifest["entries"] = entries
+    manifest["files"] = len(entries)
+    manifest["bytes"] = total
+
+    temporary: Path | None = None
+    mode = path.stat().st_mode & 0o777
+    try:
+        with tempfile.NamedTemporaryFile(
+            "w",
+            encoding="utf-8",
+            dir=path.parent,
+            prefix=".EXPORT_MANIFEST.",
+            delete=False,
+        ) as stream:
+            json.dump(manifest, stream, indent=2)
+            stream.write("\n")
+            stream.flush()
+            os.fsync(stream.fileno())
+            temporary = Path(stream.name)
+        os.chmod(temporary, mode)
+        os.replace(temporary, path)
+        temporary = None
+    finally:
+        if temporary is not None:
+            temporary.unlink(missing_ok=True)
+    print(f"CYBER_LAGOON_MANIFEST_REFRESH status=PASS files={len(entries)} bytes={total}")
+
+
+def verify_manifest() -> None:
+    loaded = load_manifest()
+    if loaded is None:
+        return
+    _path, manifest, entries = loaded
+    total = 0
+    for row in entries:
+        candidate = manifest_candidate(row["path"])
         require(candidate.stat().st_size == row["bytes"], f"verify:manifest-size:{row['path']}")
         require(sha256(candidate) == row["sha256"], f"verify:manifest-hash:{row['path']}")
+        total += row["bytes"]
+    require(manifest.get("bytes") == total, "verify:manifest-bytes")
+
+    tracked = tracked_paths()
+    if tracked is not None:
+        manifest_paths = [row["path"] for row in entries]
+        require(manifest_paths == tracked, "verify:manifest-tracked-set")
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--refresh-manifest",
+        action="store_true",
+        help="explicitly re-pin the current tracked public file set and exit",
+    )
+    args = parser.parse_args()
+    if args.refresh_manifest:
+        refresh_manifest()
+        return 0
+
     for relative in REQUIRED:
         require((ROOT / relative).is_file(), f"verify:missing:{relative}")
     for relative in ("build", "adult", "bench", "verify"):
         require((ROOT / relative).stat().st_mode & 0o111 != 0, f"verify:not-executable:{relative}")
 
+    # Authenticate the pinned tree before executing any Workbench subprocess.
+    verify_manifest()
+
+    build = (ROOT / "build").read_text(encoding="utf-8")
+    require("--state-dir" not in build, "verify:configurable-state-root")
+    for required in (
+        "umask 077",
+        "[[ -L .state ]]",
+        "if [[ -e .build ]]",
+        "chmod 700 .state",
+        "chmod 700 .build",
+        '[[ -L .build/direct ]]',
+        "mktemp -d .state/.direct-birth.XXXXXX",
+        '[[ -L .state/direct-adult.xcb ]]',
+        "refusing non-regular Direct Adult checkpoint",
+        "chmod 600 .state/direct-adult.xcb",
+    ):
+        require(required in build, f"verify:build-hardening:{required}")
+
     bench = (ROOT / "tools" / "public_bench.py").read_text(encoding="utf-8").lower()
     for forbidden in ("cmake", "nvcc", "build_concurrency_guard", "public_materialize_adult"):
         require(forbidden not in bench, f"verify:bench-crosses-build-boundary:{forbidden}")
+
+    materialize = (ROOT / "tools" / "public_materialize_adult.py").read_text(encoding="utf-8")
+    require("--state-dir" not in materialize, "verify:configurable-materializer-state-root")
+    for required in (
+        'STATE = ROOT / ".state"',
+        "tempfile.NamedTemporaryFile",
+        "os.fsync",
+        "os.replace",
+        "public-adult:state-symlink-refused",
+        "public-adult:state-file-refused",
+        "public-adult:state-busy",
+        "fcntl.LOCK_EX",
+        "os.chmod(STATE, 0o700)",
+        "os.chmod(checkpoint_path, 0o600)",
+        "os.chmod(provenance_path, 0o600)",
+    ):
+        require(required in materialize, f"verify:state-hardening:{required}")
+
+    adult = (ROOT / "tools" / "public_adult.py").read_text(encoding="utf-8")
+    require("os.environ.copy(" not in adult, "verify:adult-inherits-ambient-environment")
+    for required in (
+        "GATEWAY_BOOTSTRAP",
+        '"-I"',
+        "GATEWAY_ENV_ALLOW",
+        "stdin=subprocess.PIPE",
+        "secrets.token_hex(32)",
+        "GATEWAY_STARTUP_SECONDS",
+        "private_directory(STATE)",
+        "symlink_free(path)",
+        "fcntl.LOCK_EX",
+        "public-adult:state-busy",
+        "os.set_inheritable(lock_descriptor, True)",
+        "tempfile.TemporaryDirectory",
+        "cwd=body_dir",
+        "TMPDIR",
+        "CLAUDE_CONFIG_DIR",
+        "CLAUDE_CODE_SKIP_PROMPT_HISTORY",
+        "NO_PROXY",
+        '"--bare"',
+        '"--restricted"',
+        '"--no-chrome"',
+        '"--no-session-persistence"',
+        "input=prompt",
+        "public-adult:repo-local-claude-refused",
+    ):
+        require(required in adult, f"verify:adult-body-isolation:{required}")
 
     direct_lab = (ROOT / "hardware_native" / "tools" / "direct_recipe_ir_lab.cu").read_text(encoding="utf-8")
     for required in (
@@ -110,7 +306,6 @@ def main() -> int:
         cwd=ROOT,
         check=True,
     )
-    verify_manifest()
     print("CYBER_LAGOON_PUBLIC_VERIFY status=PASS build_boundary=closed adult=continuing")
     return 0
 
@@ -118,6 +313,6 @@ def main() -> int:
 if __name__ == "__main__":
     try:
         raise SystemExit(main())
-    except RuntimeError as error:
+    except (OSError, UnicodeError, json.JSONDecodeError, RuntimeError) as error:
         print(str(error), file=sys.stderr)
         raise SystemExit(1)

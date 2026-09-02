@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
+umask 077
 ROOT="$(cd "$(dirname "$0")" && pwd)"
 cd "$ROOT"
 
@@ -16,8 +17,20 @@ while (($#)); do
   shift
 done
 
-mkdir -p .state .build
-materialize=(python3 tools/public_materialize_adult.py --state-dir .state)
+if [[ -L .state ]]; then
+  echo "refusing symlinked workbench directory: .state" >&2
+  exit 1
+fi
+if [[ -e .build ]]; then
+  if [[ -L .build || ! -d .build ]]; then
+    echo "refusing non-directory workbench build boundary: .build" >&2
+    exit 1
+  fi
+  chmod 700 .build
+fi
+mkdir -p .state
+chmod 700 .state
+materialize=(python3 tools/public_materialize_adult.py)
 if ((reset_reference)); then materialize+=(--reset); fi
 "${materialize[@]}"
 
@@ -35,14 +48,26 @@ if ! command -v cmake >/dev/null || ! command -v nvcc >/dev/null; then
   exit 0
 fi
 
+build_jobs="${SUBSTRATE_BUILD_JOBS:-4}"
+if [[ ! "$build_jobs" =~ ^[1-9][0-9]*$ ]]; then
+  echo "SUBSTRATE_BUILD_JOBS must be a positive integer" >&2
+  exit 2
+fi
+mkdir -p .build
+chmod 700 .build
+if [[ -L .build/direct ]]; then
+  echo "refusing symlinked Direct build directory" >&2
+  exit 1
+fi
 cmake -S . -B .build/direct \
   -DCMAKE_BUILD_TYPE=Release \
   -DCMAKE_CUDA_ARCHITECTURES=89
 cmake --build .build/direct \
     --target direct_adult_sitdown direct_recipe_ir_lab \
-    -j"${SUBSTRATE_BUILD_JOBS:-4}"
+    -j"$build_jobs"
 
 probe_log=".state/direct-probe.log"
+rm -f "$probe_log"
 set +e
 .build/direct/direct_recipe_ir_lab experiments/current_recipe.ir >"$probe_log" 2>&1
 probe_status=$?
@@ -62,15 +87,34 @@ if ((probe_status != 0)); then
   exit "$probe_status"
 fi
 
+if [[ -L .state/direct-adult.xcb ]]; then
+  echo "refusing symlinked Direct Adult checkpoint" >&2
+  exit 1
+fi
+if [[ -e .state/direct-adult.xcb && ! -f .state/direct-adult.xcb ]]; then
+  echo "refusing non-regular Direct Adult checkpoint" >&2
+  exit 1
+fi
 if [[ ! -f .state/direct-adult.xcb ]]; then
+  birth_dir="$(mktemp -d .state/.direct-birth.XXXXXX)"
+  direct_tmp="$birth_dir/direct-adult.xcb"
+  cleanup_birth() {
+    rm -f "$direct_tmp"
+    rmdir "$birth_dir" 2>/dev/null || true
+  }
+  trap cleanup_birth EXIT
   if ! .build/direct/direct_adult_sitdown \
-      --new .state/direct-adult.xcb \
+      --new "$direct_tmp" \
       --environment-seed 0x63796265726c6167 \
       --once; then
-    rm -f .state/direct-adult.xcb
     echo "Direct Adult birth failed" >&2
     exit 1
   fi
+  chmod 600 "$direct_tmp"
+  mv "$direct_tmp" .state/direct-adult.xcb
+  rmdir "$birth_dir"
+  trap - EXIT
 fi
+chmod 600 .state/direct-adult.xcb
 
 echo "CYBER_LAGOON_BUILD status=PASS backend=direct compile_boundary=closed"
